@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Object">
       <UniqueIdentifier>{ac652879-7e3c-4d98-972f-74c74f33c047}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\txtFile">
+      <UniqueIdentifier>{1c939802-cf95-4db5-9921-c349a0e12d22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -164,5 +167,34 @@
     <ClInclude Include="Koopa.h">
       <Filter>Header Files\Object</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="brick.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="cloud.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="coin.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="koopa.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mario.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mario-sample.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="scene01.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="scene0005.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
