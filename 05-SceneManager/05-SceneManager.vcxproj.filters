@@ -28,6 +28,9 @@
     <Filter Include="Header Files\txtFile">
       <UniqueIdentifier>{1c939802-cf95-4db5-9921-c349a0e12d22}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TextureFile">
+      <UniqueIdentifier>{20d52a13-df08-4cd7-9496-ea26eecd5572}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -196,5 +199,19 @@
     <Text Include="scene0005.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\bbox.png">
+      <Filter>Header Files\TextureFile</Filter>
+    </Image>
+    <Image Include="textures\enemies.png">
+      <Filter>Header Files\TextureFile</Filter>
+    </Image>
+    <Image Include="textures\mario.png">
+      <Filter>Header Files\TextureFile</Filter>
+    </Image>
+    <Image Include="textures\misc.png">
+      <Filter>Header Files\TextureFile</Filter>
+    </Image>
   </ItemGroup>
 </Project>

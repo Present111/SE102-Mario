@@ -203,6 +203,12 @@
     <Text Include="scene0005.txt" />
     <Text Include="scene01.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="textures\bbox.png" />
+    <Image Include="textures\enemies.png" />
+    <Image Include="textures\mario.png" />
+    <Image Include="textures\misc.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets" Condition="Exists('..\packages\Microsoft.DXSDK.D3DX.9.29.952.8\build\native\Microsoft.DXSDK.D3DX.targets')" />
