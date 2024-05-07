@@ -106,7 +106,72 @@ void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 // Get animation ID for small Mario
 //
 
-int CMario::GetAniIdFire() {
+int CMario::GetAniIdTail()
+{
+	int aniId = -1;
+	if (!isOnPlatform)
+	{
+		if (abs(ax) == MARIO_ACCEL_RUN_X)
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_LEFT;
+		}
+		else
+		{
+			if (nx >= 0)
+				aniId = ID_ANI_MARIO_TAIL_JUMP_WALK_RIGHT;
+			else
+				aniId = ID_ANI_MARIO_TAIL_JUMP_WALK_LEFT;
+		}
+	}
+	else
+		if (isSitting)
+		{
+			if (nx > 0)
+			{
+				aniId = ID_ANI_MARIO_TAIL_SIT_RIGHT;
+
+			}
+			else
+				aniId = ID_ANI_MARIO_TAIL_SIT_LEFT;
+		}
+		else
+			if (vx == 0)
+			{
+				if (nx > 0) aniId = ID_ANI_MARIO_TAIL_IDLE_RIGHT;
+				else aniId = ID_ANI_MARIO_TAIL_IDLE_LEFT;
+			}
+			else if (vx > 0)
+			{
+				if (ax < 0)
+					aniId = ID_ANI_MARIO_TAIL_BRACE_RIGHT;
+				else if (ax == MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_TAIL_RUNNING_RIGHT;
+				else if (ax == MARIO_ACCEL_WALK_X)
+					aniId = ID_ANI_MARIO_TAIL_WALKING_RIGHT;
+			}
+			else // vx < 0
+			{
+				if (ax > 0)
+					aniId = ID_ANI_MARIO_TAIL_BRACE_LEFT;
+				else if (ax == -MARIO_ACCEL_RUN_X)
+					aniId = ID_ANI_MARIO_TAIL_RUNNING_LEFT;
+				else if (ax == -MARIO_ACCEL_WALK_X)
+					aniId = ID_ANI_MARIO_TAIL_WALKING_LEFT;
+			}
+
+	if (aniId == -1) aniId = ID_ANI_MARIO_TAIL_IDLE_RIGHT;
+
+	return aniId;
+}
+
+
+
+
+int CMario::GetAniIdFire()
+{
 	int aniId = -1;
 	if (!isOnPlatform)
 	{
@@ -129,7 +194,10 @@ int CMario::GetAniIdFire() {
 		if (isSitting)
 		{
 			if (nx > 0)
+			{
 				aniId = ID_ANI_MARIO_FIRE_SIT_RIGHT;
+
+			}
 			else
 				aniId = ID_ANI_MARIO_FIRE_SIT_LEFT;
 		}
@@ -294,8 +362,10 @@ void CMario::Render()
 		aniId = GetAniIdBig();
 	else if (level == MARIO_LEVEL_SMALL)
 		aniId = GetAniIdSmall();
-	else if (level = MARIO_LEVEL_FIRE)
+	else if (level == MARIO_LEVEL_FIRE)
 		aniId = GetAniIdFire();
+	else if (level == MARIO_LEVEL_TAIL)
+		aniId = GetAniIdTail();
 
 	animations->Get(aniId)->Render(x, y);
 
@@ -380,14 +450,13 @@ void CMario::SetState(int state)
 		ax = 0;
 		break;
 	}
-	DebugOut(L"[See state] state %d\n", state);
-
+	DebugOut(L"%d\n", state);
 	CGameObject::SetState(state);
 }
 
 void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	if (level == MARIO_LEVEL_BIG)
+	if (level != MARIO_LEVEL_SMALL)
 	{
 		if (isSitting)
 		{
