@@ -181,9 +181,6 @@
     <Text Include="coin.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="goomba.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
     <Text Include="koopa.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
@@ -199,6 +196,9 @@
     <Text Include="scene0005.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Image Include="textures\bbox.png">
@@ -207,13 +207,13 @@
     <Image Include="textures\enemies.png">
       <Filter>Header Files\TextureFile</Filter>
     </Image>
+    <Image Include="textures\enemies_2.png">
+      <Filter>Header Files\TextureFile</Filter>
+    </Image>
     <Image Include="textures\mario.png">
       <Filter>Header Files\TextureFile</Filter>
     </Image>
     <Image Include="textures\misc.png">
-      <Filter>Header Files\TextureFile</Filter>
-    </Image>
-    <Image Include="..\..\..\Downloads\gamemario-d01106fc958dcbef14c43648cd91fcb25f8c02dc\gamemario-d01106fc958dcbef14c43648cd91fcb25f8c02dc\05-SceneManager\textures\enemies_2.png">
       <Filter>Header Files\TextureFile</Filter>
     </Image>
   </ItemGroup>

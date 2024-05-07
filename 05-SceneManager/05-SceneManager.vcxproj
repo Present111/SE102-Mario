@@ -204,9 +204,9 @@
     <Text Include="scene01.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\Downloads\gamemario-d01106fc958dcbef14c43648cd91fcb25f8c02dc\gamemario-d01106fc958dcbef14c43648cd91fcb25f8c02dc\05-SceneManager\textures\enemies_2.png" />
     <Image Include="textures\bbox.png" />
     <Image Include="textures\enemies.png" />
+    <Image Include="textures\enemies_2.png" />
     <Image Include="textures\mario.png" />
     <Image Include="textures\misc.png" />
   </ItemGroup>
