@@ -213,5 +213,8 @@
     <Image Include="textures\misc.png">
       <Filter>Header Files\TextureFile</Filter>
     </Image>
+    <Image Include="..\..\..\Downloads\gamemario-d01106fc958dcbef14c43648cd91fcb25f8c02dc\gamemario-d01106fc958dcbef14c43648cd91fcb25f8c02dc\05-SceneManager\textures\enemies_2.png">
+      <Filter>Header Files\TextureFile</Filter>
+    </Image>
   </ItemGroup>
 </Project>
