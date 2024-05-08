@@ -33,7 +33,7 @@
 #define MARIO_STATE_SIT				600
 #define MARIO_STATE_SIT_RELEASE		601
 
-
+#define MARIO_STATE_FALL			700
 #pragma region ANIMATION_ID
 
 #define ID_ANI_MARIO_BIG_IDLE_RIGHT 401
@@ -132,6 +132,7 @@
 #define ID_ANI_MARIO_TAIL_BRACE_LEFT 3000
 
 
+
 #pragma endregion
 
 #define GROUND_Y 160.0f
@@ -187,7 +188,7 @@ public:
 		ax = 0.0f;
 		ay = MARIO_GRAVITY;
 
-		level = MARIO_LEVEL_BIG;
+		level = MARIO_LEVEL_SMALL;
 		untouchable = 0;
 		untouchable_start = -1;
 		isOnPlatform = false;
