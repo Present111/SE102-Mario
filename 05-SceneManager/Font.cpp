@@ -40,3 +40,4 @@ void CFont::Draw(float x, float y, const string& s) {
 		}
 	}
 }
+

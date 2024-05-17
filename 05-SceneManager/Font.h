@@ -21,3 +21,4 @@ public:
 	void Draw(float x, float y, const string& s);
 	CFont();
 };
+

@@ -29,3 +29,5 @@ void CHUD::Render(CMario* mario, int remainingTime)
 	power = new CPower(x - ADJUST_X_POWER, y - ADJUST_Y_POWER, mario->powerStack);
 	power->Render();
 }
+
+
