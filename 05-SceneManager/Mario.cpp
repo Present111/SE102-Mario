@@ -63,9 +63,13 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 	// jump on top >> kill Goomba and deflect a bit 
 	if (e->ny < 0)
 	{
-		if (goomba->GetState() != GOOMBA_STATE_DIE)
+		if (goomba->GetState() == GOOMBA_STATE_FLY) {
+			goomba->SetState(GOOMBA_STATE_WALKING);
+			vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
+		else if (goomba->GetState() == GOOMBA_STATE_WALKING)
 		{
-			goomba->SetState(GOOMBA_STATE_DIE);
+			goomba->SetState(GOOMBA_STATE_DIE_UPSIDE);
 			vy = -MARIO_JUMP_DEFLECT_SPEED;
 		}
 	}
@@ -103,7 +107,7 @@ void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 }
 
 //
-// Get animation ID for small Mario
+// Get animation ID for Mario
 //
 
 int CMario::GetAniIdTail()
@@ -289,10 +293,6 @@ int CMario::GetAniIdSmall()
 	return aniId;
 }
 
-
-//
-// Get animdation ID for big Mario
-//
 int CMario::GetAniIdBig()
 {
 	int aniId = -1;
@@ -454,7 +454,6 @@ void CMario::SetState(int state)
 		ax = 0;
 		break;
 	}
-	DebugOut(L"%d\n", state);
 	CGameObject::SetState(state);
 }
 

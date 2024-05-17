@@ -1,8 +1,11 @@
 #pragma once
 #include "GameObject.h"
 #include "AssetIDs.h"
-#define GOOMBA_GRAVITY 0.002f
-#define GOOMBA_WALKING_SPEED 0.05f
+#include "debug.h"
+
+#define GOOMBA_GRAVITY 0.001f
+#define GOOMBA_FLY_ADJUST 0.2f
+#define GOOMBA_WALKING_SPEED 0.04f
 
 
 #define GOOMBA_BBOX_WIDTH 16
@@ -12,10 +15,14 @@
 #define GOOMBA_DIE_TIMEOUT 500
 
 #define GOOMBA_STATE_WALKING 100
-#define GOOMBA_STATE_DIE 200
+#define GOOMBA_STATE_FLY 200
+#define GOOMBA_STATE_DIE 300
+#define GOOMBA_STATE_DIE_UPSIDE 400
 
 #define ID_ANI_GOOMBA_WALKING 5000
-#define ID_ANI_GOOMBA_DIE 5001
+#define ID_ANI_GOOMBA_FLY 5500
+#define ID_ANI_GOOMBA_DIE_UPSIDE 5600
+#define ID_ANI_GOOMBA_DIE 5999
 
 
 
@@ -36,8 +43,11 @@ protected:
 	virtual void OnNoCollision(DWORD dt);
 
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
+	int GetAniIdWalking() { return ID_ANI_GOOMBA_WALKING; };
+	int GetAniIdFly() { return ID_ANI_GOOMBA_FLY; };
 
 public: 	
 	CGoomba(float x, float y);
+	void SetLevel(int l);
 	virtual void SetState(int state);
 };

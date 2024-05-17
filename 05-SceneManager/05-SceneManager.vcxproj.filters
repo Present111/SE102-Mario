@@ -37,6 +37,9 @@
     <Filter Include="Header Files\HUD">
       <UniqueIdentifier>{901ef1cf-d4e5-4d85-a625-a8f40b3716b8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\txtFile">
+      <UniqueIdentifier>{51fb6d16-0caf-41ba-a4b9-913bd147b85f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -113,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="Power.cpp">
       <Filter>Header Files\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="GoombaFly.cpp">
+      <Filter>Header Files\Object\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,5 +206,37 @@
     <ClInclude Include="Power.h">
       <Filter>Header Files\HUD</Filter>
     </ClInclude>
+    <ClInclude Include="GoombaFly.h">
+      <Filter>Header Files\Object\Enemies</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="brick.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="cloud.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="coin.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="koopa.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mario.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mario-sample.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="scene01.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="scene0005.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
