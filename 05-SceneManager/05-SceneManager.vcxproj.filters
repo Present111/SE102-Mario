@@ -238,7 +238,11 @@
     <Text Include="scene0005.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="effect.txt" />
-    <Text Include="hud.txt" />
+    <Text Include="effect.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="hud.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
   </ItemGroup>
 </Project>

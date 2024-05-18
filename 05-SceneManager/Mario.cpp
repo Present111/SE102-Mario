@@ -166,7 +166,7 @@ int CMario::GetAniIdTail()
 					aniId = ID_ANI_MARIO_TAIL_WALKING_LEFT;
 			}
 
-	if (aniId == -1) aniId = ID_ANI_MARIO_TAIL_IDLE_RIGHT;
+	if (aniId == -1) aniId = ID_ANI_MARIO_TAIL_ATTACK;
 
 	return aniId;
 }
@@ -447,6 +447,7 @@ void CMario::SetState(int state)
 		vx = 0.0f;
 		break;
 	
+	case MARIO_STATE_TAIL_ATTACK:
 
 	case MARIO_STATE_DIE:
 		vy = -MARIO_JUMP_DEFLECT_SPEED;
