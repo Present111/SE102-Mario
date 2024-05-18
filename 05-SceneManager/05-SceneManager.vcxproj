@@ -206,7 +206,9 @@
     <Text Include="brick.txt" />
     <Text Include="cloud.txt" />
     <Text Include="coin.txt" />
+    <Text Include="effect.txt" />
     <Text Include="goomba.txt" />
+    <Text Include="hud.txt" />
     <Text Include="koopa.txt" />
     <Text Include="mario-sample.txt" />
     <Text Include="mario.txt" />
