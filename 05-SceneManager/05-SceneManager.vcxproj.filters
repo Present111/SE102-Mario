@@ -61,6 +61,9 @@
     <Filter Include="Header Files\Object\Brick\Platform">
       <UniqueIdentifier>{0e69faba-e742-44b0-9b77-5b3fa95c079b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\txtfile">
+      <UniqueIdentifier>{3bc4afc8-3aa4-4df6-a1fc-ed6babf62224}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -248,5 +251,46 @@
     <ClInclude Include="Platform.h">
       <Filter>Header Files\Object\Brick\Platform</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="brick.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="cloud.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="coin.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="effect.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="hud.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="koopa.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="mario.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="mario-sample.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="mushroom.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="scene01.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="scene0005.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="leaf.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
