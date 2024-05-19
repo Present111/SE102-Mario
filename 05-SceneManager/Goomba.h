@@ -19,23 +19,22 @@
 #define GOOMBA_STATE_DIE 300
 #define GOOMBA_STATE_DIE_UPSIDE 400
 
+
 #define ID_ANI_GOOMBA_WALKING 5000
 #define ID_ANI_GOOMBA_FLY 5500
 #define ID_ANI_GOOMBA_DIE_UPSIDE 5600
 #define ID_ANI_GOOMBA_DIE 5999
 
 
-
 class CGoomba : public CGameObject
 {
 protected:
-	float ax;				
-	float ay; 
-
+	float ax;
+	float ay;
 	ULONGLONG die_start;
 
-	virtual void GetBoundingBox(float &left, float &top, float &right, float &bottom);
-	virtual void Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects);
+	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
+	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
 
 	virtual int IsCollidable() { return 1; };
@@ -45,8 +44,8 @@ protected:
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 	int GetAniIdWalking() { return ID_ANI_GOOMBA_WALKING; };
 	int GetAniIdFly() { return ID_ANI_GOOMBA_FLY; };
-
 public: 	
+
 	CGoomba(float x, float y);
 	void SetLevel(int l);
 	virtual void SetState(int state);

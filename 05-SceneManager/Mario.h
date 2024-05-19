@@ -135,6 +135,7 @@
 #define ID_ANI_MARIO_TAIL_ATTACK 3100
 
 
+
 #pragma endregion
 
 #define GROUND_Y 160.0f
@@ -166,7 +167,6 @@ class CMario : public CGameObject
 	float maxVx;
 	float ax;				// acceleration on x 
 	float ay;				// acceleration on y 
-
 	int acceleration;
 	int level; 
 	int untouchable; 
@@ -177,7 +177,7 @@ class CMario : public CGameObject
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
 	void OnCollisionWithCoin(LPCOLLISIONEVENT e);
 	void OnCollisionWithPortal(LPCOLLISIONEVENT e);
-
+	void OnCollisionWithMushRoom(LPCOLLISIONEVENT e);
 	int GetAniIdBig();
 	int GetAniIdSmall();
 	int GetAniIdFire();
@@ -209,6 +209,7 @@ public:
 
 	void OnNoCollision(DWORD dt);
 	void OnCollisionWith(LPCOLLISIONEVENT e);
+
 
 	void SetLevel(int l);
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount64(); }
