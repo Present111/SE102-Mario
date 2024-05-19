@@ -1,3 +1,4 @@
+﻿
 ﻿#pragma once
 
 #include "GameObject.h"
@@ -24,8 +25,8 @@
 #define KOOPAS_COMBACK_HEIGHT_ADJUST 0.15f
 #define KOOPAS_BOUNCE_SPEED 0.3f
 
-#define KOOPAS_DEFEND_TIMEOUT 8000 //thoi gian ra khoi mai rua
-#define KOOPAS_COMBACK_START 6000 //thoi gian tinh tu luc defend den luc co hieu ung comback
+#define KOOPAS_DEFEND_TIMEOUT 8000 // hết thời gian defend ( ra khỏi mai rùa và bắt đầu đi)
+#define KOOPAS_COMBACK_START 6000 //thời gian tính từ lúc defend đến lúc có hiệu ứng comeback
 
 #define KOOPAS_STATE_WALKING 100
 #define KOOPAS_STATE_DEFEND 200
@@ -38,27 +39,27 @@
 #define KOOPAS_RED 2
 #define KOOPAS_GREEN_WING 3
 #pragma region ANIMATION_ID
-//KOOPAS GREEN
-#define ID_ANI_KOOPAS_WALKING_RIGHT 40001
-#define ID_ANI_KOOPAS_WALKING_LEFT 40002
-#define ID_ANI_KOOPAS_DEFEND 40003
-#define ID_ANI_KOOPAS_IS_KICKED 40004
-#define ID_ANI_KOOPAS_UPSIDE 40005
-#define ID_ANI_KOOPAS_COMEBACK 40006
-#define ID_ANI_KOOPAS_UPSIDE_ISKICKED 40007
-#define ID_ANI_KOOPAS_UPSIDE_COMEBACK 40008
-#define ID_ANI_KOOPAS_GREEN_WING_RIGHT 40009
-#define ID_ANI_KOOPAS_GREEN_WING_LEFT 40010
+// KOOPAS GREEN
+#define ID_ANI_KOOPAS_WALKING_RIGHT 6001
+#define ID_ANI_KOOPAS_WALKING_LEFT 6002
+#define ID_ANI_KOOPAS_DEFEND 6003
+#define ID_ANI_KOOPAS_IS_KICKED 6004
+#define ID_ANI_KOOPAS_IS_UPSIDE 6005
+#define ID_ANI_KOOPAS_COMEBACK 6006
+#define ID_ANI_KOOPAS_UPSIDE_ISKICKED 6007	// hiệu ứng bị raccoon tấn công và bị đá
+#define ID_ANI_KOOPAS_UPSIDE_COMEBACK 6008 // hiệu ứng bị lật úp sau đó bắt đầu ra khỏi mai rùa
+#define ID_ANI_KOOPAS_GREEN_WING_RIGHT 6009
+#define ID_ANI_KOOPAS_GREEN_WING_LEFT 6010
 
-//KOOPAS RED
-#define ID_ANI_KOOPAS_RED_WALKING_RIGHT 40011
-#define ID_ANI_KOOPAS_RED_WALKING_LEFT 40012
-#define ID_ANI_KOOPAS_RED_DEFEND 40013
-#define ID_ANI_KOOPAS_RED_IS_KICKED 40014
-#define ID_ANI_KOOPAS_RED_IS_UPSIDE 40015
-#define ID_ANI_KOOPAS_RED_COMEBACK 40016
-#define ID_ANI_KOOPAS_RED_UPSIDE_ISKICKED 40017
-#define ID_ANI_KOOPAS_RED_UPSIDE_COMEBACK 40018
+// KOOPAS RED
+#define ID_ANI_KOOPAS_RED_WALKING_RIGHT 6101
+#define ID_ANI_KOOPAS_RED_WALKING_LEFT 6102
+#define ID_ANI_KOOPAS_RED_DEFEND 6103
+#define ID_ANI_KOOPAS_RED_IS_KICKED 6104
+#define ID_ANI_KOOPAS_RED_IS_UPSIDE 6105
+#define ID_ANI_KOOPAS_RED_COMEBACK 6106
+#define ID_ANI_KOOPAS_RED_UPSIDE_ISKICKED 6107 // hiệu ứng bị raccoon tấn công và bị đá
+#define ID_ANI_KOOPAS_RED_UPSIDE_COMEBACK 6108 // hiệu ứng bị lật úp sau đó bắt đầu ra khỏi mai rùa
 class CKoopas : public CGameObject
 {
 protected:
@@ -84,6 +85,7 @@ protected:
 	void OnCollisionWithColorBlock(LPCOLLISIONEVENT e);
 	void OnCollisionWithQuestionBrick(LPCOLLISIONEVENT e);
 	void OnCollisionWithGoldBrick(LPCOLLISIONEVENT e);
+
 public:
 	CKoopas(float x, float y, int model);
 	virtual void SetState(int state);
@@ -93,4 +95,5 @@ public:
 	BOOLEAN isKicked;
 	BOOLEAN isComeback;
 	BOOLEAN isUpside;
+
 };
