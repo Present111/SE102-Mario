@@ -64,6 +64,9 @@
     <Filter Include="Header Files\txtfile">
       <UniqueIdentifier>{3bc4afc8-3aa4-4df6-a1fc-ed6babf62224}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\BrickQuestion">
+      <UniqueIdentifier>{529f227f-a2aa-4856-8954-0d6987f77d96}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -152,6 +155,9 @@
     </ClCompile>
     <ClCompile Include="Platform.cpp">
       <Filter>Header Files\Object\Brick\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="BrickQuestion.cpp">
+      <Filter>Header Files\Object\BrickQuestion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +256,9 @@
     </ClInclude>
     <ClInclude Include="Platform.h">
       <Filter>Header Files\Object\Brick\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="BrickQuestion.h">
+      <Filter>Header Files\Object\BrickQuestion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
