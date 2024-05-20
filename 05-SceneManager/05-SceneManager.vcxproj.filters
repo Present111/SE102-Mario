@@ -292,5 +292,8 @@
     <Text Include="leaf.txt">
       <Filter>Header Files\txtfile</Filter>
     </Text>
+    <Text Include="flowerfire.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
