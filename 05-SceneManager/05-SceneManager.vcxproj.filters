@@ -67,6 +67,15 @@
     <Filter Include="Header Files\txtfile">
       <UniqueIdentifier>{2510f613-b419-4d82-a9af-eba479ffd283}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\Font">
+      <UniqueIdentifier>{7545652b-a3c4-44b5-b929-14d8598d2c78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object\HUD">
+      <UniqueIdentifier>{43d97fd5-3920-4254-b756-cae7f25644d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object\Number">
+      <UniqueIdentifier>{b3df233d-86eb-4f1a-b95b-f365102f47bc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -149,6 +158,15 @@
     </ClCompile>
     <ClCompile Include="BrickQuestion.cpp">
       <Filter>Header Files\Object\Brick\BrickQuestion</Filter>
+    </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Header Files\Object\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="HUD.cpp">
+      <Filter>Header Files\Object\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Number.cpp">
+      <Filter>Header Files\Object\Number</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,6 +260,15 @@
     <ClInclude Include="BrickQuestion.h">
       <Filter>Header Files\Object\Brick\BrickQuestion</Filter>
     </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Header Files\Object\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="HUD.h">
+      <Filter>Header Files\Object\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Number.h">
+      <Filter>Header Files\Object\Number</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="brick.txt">
@@ -286,5 +313,6 @@
     <Text Include="scene0005.txt">
       <Filter>Header Files\txtfile</Filter>
     </Text>
+    <Text Include="font.txt" />
   </ItemGroup>
 </Project>
