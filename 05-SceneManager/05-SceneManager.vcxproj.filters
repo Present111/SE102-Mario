@@ -64,6 +64,9 @@
     <Filter Include="Header Files\Object\Brick\BrickQuestion">
       <UniqueIdentifier>{cab96d80-d9c4-4b88-be7d-83e479ac449e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\txtfile">
+      <UniqueIdentifier>{2510f613-b419-4d82-a9af-eba479ffd283}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -116,15 +119,6 @@
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Header Files\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="HUD.h">
-      <Filter>Header Files\HUD</Filter>
-    </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Header Files\HUD</Filter>
-    </ClCompile>
-    <ClCompile Include="Power.cpp">
-      <Filter>Header Files\HUD</Filter>
     </ClCompile>
     <ClCompile Include="Goomba.cpp">
       <Filter>Header Files\Object\Enemies\Goomba</Filter>
@@ -218,15 +212,6 @@
     <ClInclude Include="Map.h">
       <Filter>Header Files\Map</Filter>
     </ClInclude>
-    <ClInclude Include="HUD.cpp">
-      <Filter>Header Files\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Header Files\HUD</Filter>
-    </ClInclude>
-    <ClInclude Include="Power.h">
-      <Filter>Header Files\HUD</Filter>
-    </ClInclude>
     <ClInclude Include="Goomba.h">
       <Filter>Header Files\Object\Enemies\Goomba</Filter>
     </ClInclude>
@@ -257,5 +242,49 @@
     <ClInclude Include="BrickQuestion.h">
       <Filter>Header Files\Object\Brick\BrickQuestion</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="brick.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="brickquestion.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="cloud.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="coin.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="effect.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="flowerfire.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="koopa.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="leaf.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="mario.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="mario-sample.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="mushroom.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="scene01.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
+    <Text Include="scene0005.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
