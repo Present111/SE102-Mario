@@ -24,7 +24,6 @@ void CBrickQuestion::GetBoundingBox(float& left, float& top, float& right, float
 	bottom = top + QUESTION_BRICK_BBOX_HEIGHT;
 }
 
-
 void CBrickQuestion::OnNoCollision(DWORD dt)
 {
 	x += vx * dt;
@@ -40,7 +39,6 @@ void CBrickQuestion::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if (y <= minY)
 	{
 		vy = QUESTION_BRICK_SPEED_DOWN;
-
 	}
 	if (y > startY)
 	{
@@ -89,7 +87,7 @@ void CBrickQuestion::Render()
 	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 void CBrickQuestion::SetState(int state)

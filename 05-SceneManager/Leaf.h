@@ -15,19 +15,20 @@ class CLeaf :	public CGameObject
 {
 	float ax;
 	float ay;
-public:
-	CLeaf(float x, float y);
-	CLeaf(float x, float y, int state);
-	void Render();
-	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
-	virtual int IsCollidable() { return 1; }
-	virtual void OnNoCollision(DWORD dt);
+	bool isOutBrick;
+	public:
+		CLeaf(float x, float y);
+		CLeaf(float x, float y, int state);
+		void Render();
+		virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
+		virtual int IsCollidable() { return 1; }
+		virtual void OnNoCollision(DWORD dt);
 
-	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
-	void GetBoundingBox(float& l, float& t, float& r, float& b);
-	int IsBlocking() { return 0; }
-	virtual void SetState(int state);
-
+		virtual void OnCollisionWith(LPCOLLISIONEVENT e);
+		void GetBoundingBox(float& l, float& t, float& r, float& b);
+		int IsBlocking() { return 0; }
+		virtual void SetState(int state);
+	
 
 };
 
