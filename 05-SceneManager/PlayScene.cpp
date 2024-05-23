@@ -85,7 +85,9 @@ void CPlayScene::_ParseSection_TILEMAP_DATA(string line)
 	{
 		TileMapData[i] = new int[columnMap];
 		for (int j = 0; j < columnMap; j++)
+		{
 			f >> TileMapData[i][j];
+		}
 	}
 	f.close();
 
@@ -247,7 +249,7 @@ void CPlayScene::Load()
 		if (line[0] == '#') continue;	// skip comment lines	
 		if (line == "[ASSETS]") { section = SCENE_SECTION_ASSETS; continue; };
 		if (line == "[OBJECTS]") { section = SCENE_SECTION_OBJECTS; continue; };
-		if (line == "[TILEMAP DATA]") { section = SCENE_SECTION_TILEMAP_DATA; continue; }
+		if (line == "[TILEMAP]") { section = SCENE_SECTION_TILEMAP_DATA; continue; }
 		if (line[0] == '[') { section = SCENE_SECTION_UNKNOWN; continue; }
 
 		//
@@ -295,13 +297,14 @@ void CPlayScene::Update(DWORD dt)
 
 	if (cx < 0) cx = 0;
 
-	CGame::GetInstance()->SetCamPos(cx, 0.0f /*cy*/);
+	CGame::GetInstance()->SetCamPos(cx, cy);
 
 	PurgeDeletedObjects();
 }
 
 void CPlayScene::Render()
 {
+	current_map->Render();
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
 }
@@ -329,6 +332,9 @@ void CPlayScene::Unload()
 		delete objects[i];
 
 	objects.clear();
+	delete current_map;
+
+	current_map = nullptr;
 	player = NULL;
 
 	DebugOut(L"[INFO] Scene %d unloaded! \n", id);
