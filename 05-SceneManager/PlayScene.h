@@ -6,25 +6,26 @@
 #include "Brick.h"
 #include "Mario.h"
 #include "Goomba.h"
+#include "Map.h"
 //#include "Koopas.h"
 
 
-class CPlayScene: public CScene
+class CPlayScene : public CScene
 {
-protected: 
+protected:
 	// A play scene has to have player, right? 
-	LPGAMEOBJECT player;					
-
+	LPGAMEOBJECT player;
+	CMap* current_map = NULL;
 
 	void _ParseSection_SPRITES(string line);
 	void _ParseSection_ANIMATIONS(string line);
-
+	void _ParseSection_TILEMAP_DATA(string line);
 	void _ParseSection_ASSETS(string line);
 	void _ParseSection_OBJECTS(string line);
 
 	void LoadAssets(LPCWSTR assetFile);
-	
-public: 
+
+public:
 	vector<LPGAMEOBJECT> objects;
 
 	CPlayScene(int id, LPCWSTR filePath);
@@ -43,4 +44,3 @@ public:
 };
 
 typedef CPlayScene* LPPLAYSCENE;
-

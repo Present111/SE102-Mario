@@ -34,9 +34,6 @@
     <Filter Include="Header Files\Map">
       <UniqueIdentifier>{00579dc2-a2af-4961-9157-5d625318bf55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\HUD">
-      <UniqueIdentifier>{901ef1cf-d4e5-4d85-a625-a8f40b3716b8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Object\Enemies\Goomba">
       <UniqueIdentifier>{2826bc92-58ba-40c3-9357-83a0cd46c85c}</UniqueIdentifier>
     </Filter>
@@ -313,6 +310,8 @@
     <Text Include="scene0005.txt">
       <Filter>Header Files\txtfile</Filter>
     </Text>
-    <Text Include="font.txt" />
+    <Text Include="font.txt">
+      <Filter>Header Files\txtfile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
