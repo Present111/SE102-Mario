@@ -17,6 +17,7 @@
 #include "FlowerFire.h"
 #include "SampleKeyEventHandler.h"
 #include "Game.h"
+
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
@@ -70,6 +71,7 @@ void CPlayScene::_ParseSection_ASSETS(string line)
 
 	LoadAssets(path.c_str());
 }
+
 void CPlayScene::_ParseSection_TILEMAP_DATA(string line)
 {
 	int ID, rowMap, columnMap, columnTile, rowTile, totalTiles;
@@ -88,6 +90,7 @@ void CPlayScene::_ParseSection_TILEMAP_DATA(string line)
 		{
 			f >> TileMapData[i][j];
 		}
+
 	}
 	f.close();
 
@@ -154,7 +157,8 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_MUSHROOM: obj = new CMushRoom(x, y); break;
 	case OBJECT_TYPE_LEAF: obj = new CLeaf(x, y); break;
 	case OBJECT_TYPE_FLOWERFIRE: obj = new CFlowerFire(x, y); break;
-	case OBJECT_TYPE_BRICKQUESTION: obj = new CBrickQuestion(x, y,2); break;
+	case OBJECT_TYPE_BRICKQUESTION_COIN: obj = new CBrickQuestion(x, y, QUESTION_BRICK_COIN); break;
+	case OBJECT_TYPE_BRICKQUESTION_ITEM: obj = new CBrickQuestion(x, y, QUESTION_BRICK_ITEM); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 
@@ -297,8 +301,9 @@ void CPlayScene::Update(DWORD dt)
 
 	if (cx < 0) cx = 0;
 
-	CGame::GetInstance()->SetCamPos(cx, cy);
-	if (cx > FULL_WEIGHT_1_1) cx = FULL_WEIGHT_1_1 - 1000;
+
+	CGame::GetInstance()->SetCamPos(cx, ADJUST_CAM_Y);
+
 	PurgeDeletedObjects();
 }
 
@@ -307,6 +312,7 @@ void CPlayScene::Render()
 	current_map->Render();
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
+
 }
 
 /*
