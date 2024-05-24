@@ -165,6 +165,9 @@
     <ClCompile Include="Number.cpp">
       <Filter>Header Files\Object\Number</Filter>
     </ClCompile>
+    <ClCompile Include="WorldMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetIDs.h">
@@ -266,6 +269,9 @@
     <ClInclude Include="Number.h">
       <Filter>Header Files\Object\Number</Filter>
     </ClInclude>
+    <ClInclude Include="WorldMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="brick.txt">
@@ -304,14 +310,13 @@
     <Text Include="mushroom.txt">
       <Filter>Header Files\txtfile</Filter>
     </Text>
-    <Text Include="scene01.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
     <Text Include="scene0005.txt">
       <Filter>Header Files\txtfile</Filter>
     </Text>
     <Text Include="font.txt">
       <Filter>Header Files\txtfile</Filter>
     </Text>
+    <Text Include="worldmap.txt" />
+    <Text Include="world1-1.txt" />
   </ItemGroup>
 </Project>
