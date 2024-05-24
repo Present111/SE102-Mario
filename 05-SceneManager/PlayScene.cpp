@@ -16,7 +16,7 @@
 #include "BrickQuestion.h"
 #include "FlowerFire.h"
 #include "SampleKeyEventHandler.h"
-
+#include "Game.h"
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
@@ -298,7 +298,7 @@ void CPlayScene::Update(DWORD dt)
 	if (cx < 0) cx = 0;
 
 	CGame::GetInstance()->SetCamPos(cx, cy);
-
+	if (cx > FULL_WEIGHT_1_1) cx = FULL_WEIGHT_1_1 - 1000;
 	PurgeDeletedObjects();
 }
 
