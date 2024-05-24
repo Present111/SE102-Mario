@@ -1,5 +1,5 @@
 #pragma once
-#include "Sprites.h"
+#include"Sprites.h"
 #include <map>
 #include "AssetIDs.h"
 
@@ -13,3 +13,4 @@ public:
 	LPSPRITE mapping(char c);
 	vector<LPSPRITE> StringToSprite(string str);
 };
+

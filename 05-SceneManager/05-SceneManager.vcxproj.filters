@@ -34,6 +34,9 @@
     <Filter Include="Header Files\Map">
       <UniqueIdentifier>{00579dc2-a2af-4961-9157-5d625318bf55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\HUD">
+      <UniqueIdentifier>{901ef1cf-d4e5-4d85-a625-a8f40b3716b8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Header Files\Object\Enemies\Goomba">
       <UniqueIdentifier>{2826bc92-58ba-40c3-9357-83a0cd46c85c}</UniqueIdentifier>
     </Filter>
@@ -61,17 +64,17 @@
     <Filter Include="Header Files\Object\Brick\BrickQuestion">
       <UniqueIdentifier>{cab96d80-d9c4-4b88-be7d-83e479ac449e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\txtfile">
-      <UniqueIdentifier>{2510f613-b419-4d82-a9af-eba479ffd283}</UniqueIdentifier>
+    <Filter Include="Header Files\HUD\HUD">
+      <UniqueIdentifier>{a788cc2e-5192-40b1-b144-41e63d48b743}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Object\Font">
-      <UniqueIdentifier>{7545652b-a3c4-44b5-b929-14d8598d2c78}</UniqueIdentifier>
+    <Filter Include="Header Files\HUD\Font">
+      <UniqueIdentifier>{e032170b-f337-4f51-9a1a-92fdce0296f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Object\HUD">
-      <UniqueIdentifier>{43d97fd5-3920-4254-b756-cae7f25644d0}</UniqueIdentifier>
+    <Filter Include="Header Files\Scene">
+      <UniqueIdentifier>{162e082f-23ea-472b-b61b-dbc4489f340b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Object\Number">
-      <UniqueIdentifier>{b3df233d-86eb-4f1a-b95b-f365102f47bc}</UniqueIdentifier>
+    <Filter Include="Header Files\Object\Block">
+      <UniqueIdentifier>{b6a0f0e2-efb7-4a12-b7ea-58dba63f4b36}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -87,13 +90,7 @@
     <ClCompile Include="SampleKeyEventHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlayScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Utils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Portal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -156,14 +153,20 @@
     <ClCompile Include="BrickQuestion.cpp">
       <Filter>Header Files\Object\Brick\BrickQuestion</Filter>
     </ClCompile>
-    <ClCompile Include="Font.cpp">
-      <Filter>Header Files\Object\Font</Filter>
-    </ClCompile>
     <ClCompile Include="HUD.cpp">
-      <Filter>Header Files\Object\HUD</Filter>
+      <Filter>Header Files\HUD\HUD</Filter>
     </ClCompile>
-    <ClCompile Include="Number.cpp">
-      <Filter>Header Files\Object\Number</Filter>
+    <ClCompile Include="Font.cpp">
+      <Filter>Header Files\HUD\Font</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>Header Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>Header Files\Object\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
+      <Filter>Header Files\Object\Block</Filter>
     </ClCompile>
     <ClCompile Include="WorldMap.cpp">
       <Filter>Source Files</Filter>
@@ -188,16 +191,7 @@
     <ClInclude Include="SampleKeyEventHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Portal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Animation.h">
@@ -260,63 +254,26 @@
     <ClInclude Include="BrickQuestion.h">
       <Filter>Header Files\Object\Brick\BrickQuestion</Filter>
     </ClInclude>
-    <ClInclude Include="Font.h">
-      <Filter>Header Files\Object\Font</Filter>
-    </ClInclude>
     <ClInclude Include="HUD.h">
-      <Filter>Header Files\Object\HUD</Filter>
+      <Filter>Header Files\HUD\HUD</Filter>
     </ClInclude>
-    <ClInclude Include="Number.h">
-      <Filter>Header Files\Object\Number</Filter>
+    <ClInclude Include="Font.h">
+      <Filter>Header Files\HUD\Font</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>Header Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>Header Files\Object\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>Header Files\Object\Block</Filter>
     </ClInclude>
     <ClInclude Include="WorldMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="brick.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="brickquestion.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="cloud.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="coin.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="effect.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="flowerfire.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="goomba.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="koopa.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="leaf.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="mario.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="mario-sample.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="mushroom.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="scene0005.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="font.txt">
-      <Filter>Header Files\txtfile</Filter>
-    </Text>
-    <Text Include="worldmap.txt" />
-    <Text Include="world1-1.txt" />
   </ItemGroup>
 </Project>

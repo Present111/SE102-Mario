@@ -17,7 +17,7 @@
 #include "FlowerFire.h"
 #include "SampleKeyEventHandler.h"
 #include "Game.h"
-
+#include "Block.h"
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
@@ -35,6 +35,7 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 #define ASSETS_SECTION_UNKNOWN -1
 #define ASSETS_SECTION_SPRITES 1
 #define ASSETS_SECTION_ANIMATIONS 2
+
 
 #define MAX_SCENE_LINE 1024
 
@@ -60,7 +61,6 @@ void CPlayScene::_ParseSection_SPRITES(string line)
 
 	CSprites::GetInstance()->Add(ID, l, t, r, b, tex);
 }
-
 void CPlayScene::_ParseSection_ASSETS(string line)
 {
 	vector<string> tokens = split(line);
@@ -86,7 +86,7 @@ void CPlayScene::_ParseSection_TILEMAP_DATA(string line)
 	for (int i = 0; i < rowMap; i++)
 	{
 		TileMapData[i] = new int[columnMap];
-		for (int j = 0; j < columnMap; j++)
+		for (int j = 0; j < columnMap; j++) 
 		{
 			f >> TileMapData[i][j];
 		}
@@ -184,8 +184,17 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		float b = (float)atof(tokens[4].c_str());
 		int scene_id = atoi(tokens[5].c_str());
 		obj = new CPortal(x, y, r, b, scene_id);
+		break;
 	}
-	break;
+	case OBJECT_TYPE_BLOCK:
+	{
+		float r = (float)atof(tokens[3].c_str());
+		float b = (float)atof(tokens[4].c_str());
+		obj = new CBlock(x, y, r, b);
+		break; 
+	}
+	
+
 
 
 	default:
@@ -253,7 +262,7 @@ void CPlayScene::Load()
 		if (line[0] == '#') continue;	// skip comment lines	
 		if (line == "[ASSETS]") { section = SCENE_SECTION_ASSETS; continue; };
 		if (line == "[OBJECTS]") { section = SCENE_SECTION_OBJECTS; continue; };
-		if (line == "[TILEMAP]") { section = SCENE_SECTION_TILEMAP_DATA; continue; }
+		if (line == "[TILEMAP]") {	section = SCENE_SECTION_TILEMAP_DATA; continue;}
 		if (line[0] == '[') { section = SCENE_SECTION_UNKNOWN; continue; }
 
 		//
@@ -300,7 +309,7 @@ void CPlayScene::Update(DWORD dt)
 	cy -= game->GetBackBufferHeight() / 2;
 
 	if (cx < 0) cx = 0;
-
+	
 
 	CGame::GetInstance()->SetCamPos(cx, ADJUST_CAM_Y);
 
@@ -312,7 +321,7 @@ void CPlayScene::Render()
 	current_map->Render();
 	for (unsigned int i = 0; i < objects.size(); i++)
 		objects[i]->Render();
-
+	
 }
 
 /*

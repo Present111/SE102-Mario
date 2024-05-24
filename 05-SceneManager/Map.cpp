@@ -48,8 +48,8 @@ void CMap::ExtractTileFromTileSet()
 	{
 		int left = TileNum % TotalColumnsOfTileSet * TILE_WIDTH;
 		int top = TileNum / TotalColumnsOfTileSet * TILE_HEIGHT;
-		int right = left + TILE_WIDTH - 1;
-		int bottom = top + TILE_HEIGHT - 1;
+		int right = left + TILE_WIDTH-1;
+		int bottom = top + TILE_HEIGHT-1;
 		LPSPRITE NewTile = new CSprite(TileNum, left, top, right, bottom, TileSet); // get tile from tileset
 		this->Tiles.push_back(NewTile);
 	}

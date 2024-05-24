@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-class CWorlaMap : public CScene
+class CWorldMap : public CScene
 {
 
 };

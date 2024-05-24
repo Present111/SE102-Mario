@@ -21,6 +21,8 @@
 #define OBJECT_TYPE_FLOWERFIRE 33
 #define OBJECT_TYPE_BRICKQUESTION_COIN 34
 #define OBJECT_TYPE_BRICKQUESTION_ITEM 35
+#define OBJECT_TYPE_BLOCK 500
+
 #define OBJECT_TYPE_PLATFORM 40
 
 #define OBJECT_TYPE_PORTAL	50
@@ -205,7 +207,6 @@
 #define ID_SPRITE_FILLARROW					50005
 
 
-
 #pragma region ANIMATION_ID
 
 
@@ -227,7 +228,7 @@
 //HUD
 
 #define HUD_HEIGHT 32
-//windown
 
+//windown
 
 

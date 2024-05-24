@@ -7,7 +7,7 @@
 #include "Texture.h"
 #include "Animations.h"
 #include "PlayScene.h"
-CGame* CGame::__instance = NULL;
+CGame * CGame::__instance = NULL;
 
 /*
 	Initialize DirectX, create a Direct3D device for rendering within the window, initial Sprite library for
@@ -22,13 +22,13 @@ void CGame::Init(HWND hWnd, HINSTANCE hInstance)
 	// retrieve client area width & height so that we can create backbuffer height & width accordingly 
 	RECT r;
 	GetClientRect(hWnd, &r);
-
+	
 	backBufferWidth = r.right + 1;
 	backBufferHeight = r.bottom + 1;
 
 	screen_height = r.bottom + 1;
 	screen_width = FULL_WEIGHT_1_1;
-	// r.right+1;
+		// r.right+1;
 	DebugOut(L"[INFO] Window's client area: width= %d, height= %d\n", r.right - 1, r.bottom - 1);
 
 	// Create & clear the DXGI_SWAP_CHAIN_DESC structure
@@ -100,7 +100,7 @@ void CGame::Init(HWND hWnd, HINSTANCE hInstance)
 	//
 	//
 
-	D3D10_SAMPLER_DESC desc;
+	D3D10_SAMPLER_DESC desc; 
 	desc.Filter = D3D10_FILTER_MIN_MAG_POINT_MIP_LINEAR;
 	desc.AddressU = D3D10_TEXTURE_ADDRESS_CLAMP;
 	desc.AddressV = D3D10_TEXTURE_ADDRESS_CLAMP;
@@ -191,8 +191,8 @@ void CGame::Draw(float x, float y, LPTEXTURE tex, RECT* rect, float alpha, int s
 		sprite.TexSize.x = 1.0f;
 		sprite.TexSize.y = 1.0f;
 
-		if (spriteWidth == 0) spriteWidth = tex->getWidth();
-		if (spriteHeight == 0) spriteHeight = tex->getHeight();
+		if (spriteWidth==0) spriteWidth = tex->getWidth();
+		if (spriteHeight==0) spriteHeight = tex->getHeight();
 	}
 	else
 	{
@@ -251,7 +251,7 @@ LPTEXTURE CGame::LoadTexture(LPCWSTR texturePath)
 		return NULL;
 	}
 
-	D3DX10_IMAGE_LOAD_INFO info;
+	D3DX10_IMAGE_LOAD_INFO info; 
 	ZeroMemory(&info, sizeof(D3DX10_IMAGE_LOAD_INFO));
 	info.Width = imageInfo.Width;
 	info.Height = imageInfo.Height;
@@ -463,21 +463,21 @@ void CGame::_ParseSection_SCENES(string line)
 		type = atoi(tokens[2].c_str());
 	}
 	/*switch (type) {
-	case TYPE_WORLD_PLAY:*/
+	case TYPE_WORLD_PLAY:*/ 
 	scene = new CPlayScene(id, path);
 	scenes[id] = scene;
-	//break;
-/*case TYPE_WORLD_UNKNOWN:
-	DebugOut(L"[ERROR] Khong tim thay scene");
-	break;
-case TYPE_WORLD_INTRO:
-	break;
-case TYPE_WORLD_MAP:
-	break;*/
+		//break;
+	/*case TYPE_WORLD_UNKNOWN:
+		DebugOut(L"[ERROR] Khong tim thay scene");
+		break;
+	case TYPE_WORLD_INTRO:
+		break;
+	case TYPE_WORLD_MAP:
+		break;*/
+	
+	
 
-
-
-
+	
 }
 
 /*
@@ -503,11 +503,11 @@ void CGame::Load(LPCWSTR gameFile)
 		if (line == "[SETTINGS]") { section = GAME_FILE_SECTION_SETTINGS; continue; }
 		if (line == "[TEXTURES]") { section = GAME_FILE_SECTION_TEXTURES; continue; }
 		if (line == "[SCENES]") { section = GAME_FILE_SECTION_SCENES; continue; }
-		if (line[0] == '[')
-		{
-			section = GAME_FILE_SECTION_UNKNOWN;
+		if (line[0] == '[') 
+		{ 
+			section = GAME_FILE_SECTION_UNKNOWN; 
 			DebugOut(L"[ERROR] Unknown section: %s\n", ToLPCWSTR(line));
-			continue;
+			continue; 
 		}
 
 		//
@@ -529,7 +529,7 @@ void CGame::Load(LPCWSTR gameFile)
 
 void CGame::SwitchScene()
 {
-	if (next_scene < 0 || next_scene == current_scene) return;
+	if (next_scene < 0 || next_scene == current_scene) return; 
 
 	DebugOut(L"[INFO] Switching to scene %d\n", next_scene);
 
@@ -577,3 +577,4 @@ CGame* CGame::GetInstance()
 	if (__instance == NULL) __instance = new CGame();
 	return __instance;
 }
+

@@ -18,7 +18,6 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	vx += ax * dt;
 
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
-	//DebugOut(L"[POSTITION MARIO] %f %f\n", x, y);
 	// reset untouchable timer if untouchable time has passed
 	if ( GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME) 
 	{
@@ -125,7 +124,7 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 	CBrickQuestion* questionBrick = dynamic_cast<CBrickQuestion*>(e->obj);
 	if (e->ny > 0 && !questionBrick->isEmpty) {
 		questionBrick->SetState(QUESTION_BRICK_STATE_UP);
-
+		
 	}
 }
 

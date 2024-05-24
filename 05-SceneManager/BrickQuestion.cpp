@@ -65,7 +65,7 @@ void CBrickQuestion::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 				scene->objects.insert(scene->objects.begin() + 1, flower);
 			}
 		}
-		else if (model == QUESTION_BRICK_COIN) {
+		else if(model == QUESTION_BRICK_COIN) {
 			mario->SetCoin(mario->GetCoin() + 1);
 			CCoin* coin = new CCoin(x, y);
 			coin->SetState(COIN_SUMMON_STATE);
@@ -89,7 +89,7 @@ void CBrickQuestion::Render()
 	}
 
 	CAnimations::GetInstance()->Get(aniId)->Render(x, y);
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CBrickQuestion::SetState(int state)

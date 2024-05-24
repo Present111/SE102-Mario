@@ -166,7 +166,6 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Mario.cpp" />
     <ClCompile Include="MushRoom.cpp" />
-    <ClCompile Include="Number.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="Portal.cpp" />
@@ -201,7 +200,6 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="Mario.h" />
     <ClInclude Include="MushRoom.h" />
-    <ClInclude Include="Number.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="Portal.h" />
@@ -213,24 +211,6 @@
     <ClInclude Include="Textures.h" />
     <ClInclude Include="Utils.h" />
     <ClInclude Include="WorldMap.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="brick.txt" />
-    <Text Include="brickquestion.txt" />
-    <Text Include="cloud.txt" />
-    <Text Include="coin.txt" />
-    <Text Include="effect.txt" />
-    <Text Include="flowerfire.txt" />
-    <Text Include="font.txt" />
-    <Text Include="goomba.txt" />
-    <Text Include="koopa.txt" />
-    <Text Include="leaf.txt" />
-    <Text Include="mario-sample.txt" />
-    <Text Include="mario.txt" />
-    <Text Include="mushroom.txt" />
-    <Text Include="scene0005.txt" />
-    <Text Include="world1-1.txt" />
-    <Text Include="worldmap.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
