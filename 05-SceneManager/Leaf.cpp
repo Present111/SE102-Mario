@@ -29,7 +29,7 @@ void CLeaf::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 		}
 		else vx = -vx;
 	}
-	//	DebugOut(L"[Vy cua la cay] %f\n", vy);
+//	DebugOut(L"[Vy cua la cay] %f\n", vy);
 	
 
 	CGameObject::Update(dt, coObjects);
@@ -61,7 +61,8 @@ void CLeaf::OnCollisionWith(LPCOLLISIONEVENT e)
 void CLeaf::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
-	animations->Get(ID_ANI_LEAF)->Render(x, y);
+	if (vx < 0) animations->Get(ID_ANI_LEAF_LEFT)->Render(x, y);
+	else if (vx >= 0) animations->Get(ID_ANI_LEAF_RIGHT)->Render(x, y);
 
 	//RenderBoundingBox();
 }

@@ -37,7 +37,11 @@ CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
 
 
 #define MAX_SCENE_LINE 1024
+void CPlayScene::AddObject(LPGAMEOBJECT object)
+{
+	objects.insert(objects.begin() + 1, object);
 
+}
 void CPlayScene::_ParseSection_SPRITES(string line)
 {
 	vector<string> tokens = split(line);
@@ -301,7 +305,8 @@ void CPlayScene::Update(DWORD dt)
 	cy -= game->GetBackBufferHeight() / 2;
 
 	if (cx < 0) cx = 0;
-	if (cx > FULL_WEIGHT_1_1 - ADJUST_CAMERA_X) cx = FULL_WEIGHT_1_1 - ADJUST_CAMERA_X;
+	if (cx > FULL_WEIGHT_1_1 - ADJUST_CAMERA_X) cx = FULL_WEIGHT_1_1-ADJUST_CAMERA_X;
+	
 
 	CGame::GetInstance()->SetCamPos(cx, ADJUST_CAM_Y);
 

@@ -328,6 +328,8 @@
     <Text Include="pipe.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="platform.txt" />
+    <Text Include="platform.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
   </ItemGroup>
 </Project>

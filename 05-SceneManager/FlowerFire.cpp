@@ -6,12 +6,12 @@ CFlowerFire::CFlowerFire(float x, float y) : CGameObject(x, y) {
 }
 
 void CFlowerFire::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
-	if (firstYPosition - y < FL_BBOX_HEIGHT - 1) {
+	if (firstYPosition - y < FL_BBOX_HEIGHT-1) {
 		vy = ay * dt;
 	}
 	else vy = 0;
-	//DebugOut(L"[Debug bong hoa] %f %d %f \n", vy, dt, firstYPosition - y);
-
+	//DebugOut(L"[Debug bong hoa] %f %d %f \n", vy, dt,firstYPosition-y);
+	
 
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
