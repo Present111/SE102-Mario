@@ -76,6 +76,9 @@
     <Filter Include="Header Files\Object\Block">
       <UniqueIdentifier>{b6a0f0e2-efb7-4a12-b7ea-58dba63f4b36}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\txtFile">
+      <UniqueIdentifier>{27e832cf-ce99-4fba-9092-5276a70567c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -275,5 +278,59 @@
     <ClInclude Include="WorldMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="brick.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="brickquestion.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="cloud.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="coin.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="effect.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="flowerfire.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="font.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="koopa.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="leaf.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mario.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mario-sample.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="mushroom.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="scene0005.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="world1-1.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="worldmap.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="worldmap.txt.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="pipe.txt" />
   </ItemGroup>
 </Project>
