@@ -165,9 +165,6 @@
     <ClCompile Include="PlayScene.cpp">
       <Filter>Header Files\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Block.cpp">
-      <Filter>Header Files\Object\Block</Filter>
-    </ClCompile>
     <ClCompile Include="Portal.cpp">
       <Filter>Header Files\Object\Block</Filter>
     </ClCompile>
@@ -269,9 +266,6 @@
     <ClInclude Include="PlayScene.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Block.h">
-      <Filter>Header Files\Object\Block</Filter>
-    </ClInclude>
     <ClInclude Include="Portal.h">
       <Filter>Header Files\Object\Block</Filter>
     </ClInclude>
@@ -331,6 +325,9 @@
     <Text Include="worldmap.txt.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="pipe.txt" />
+    <Text Include="pipe.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="platform.txt" />
   </ItemGroup>
 </Project>
