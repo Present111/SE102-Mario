@@ -4,6 +4,7 @@
 #include "Leaf.h"
 #include "Mario.h"
 #include "Game.h"
+#include "Koopa.h"
 #include "MushRoom.h"
 #include "Goomba.h"
 #include "Coin.h"
@@ -62,8 +63,8 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 			OnCollisionWithFlowerFire(e);
 		else if (dynamic_cast<CBrickQuestion*>(e->obj))
 			OnCollisionWithBrickQuestion(e);
-		else if (dynamic_cast<CBrickQuestion*>(e->obj))
-			OnCollisionWithBrickQuestion(e);
+		else if (dynamic_cast<CKoopa*>(e->obj))
+			OnCollisionWithKoopa(e);
 		else if (dynamic_cast<CPlatform*>(e->obj))
 			OnCollisionWithPlatForm(e);
 
@@ -92,10 +93,10 @@ void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 						isOnPlatform = true;
 					}
 				}
-				else {
-					if (platform->GetY() - GetY() < MARIO_BIG_BBOX_HEIGHT / 2 + 4)
+				else{
+					if (platform->GetY() - GetY() < MARIO_BIG_BBOX_HEIGHT/2 + 4)
 					{
-						SetY(platform->GetY() - MARIO_BIG_BBOX_HEIGHT / 2 - 4);
+						SetY(platform->GetY() - MARIO_BIG_BBOX_HEIGHT/2 - 4 );
 						vy = 0;
 						isOnPlatform = true;
 					}
@@ -104,6 +105,44 @@ void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 		}
 	}
 }
+
+void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
+	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj); 
+
+	if (e->ny < 0) {
+		if (koopa->GetState() == KOOPA_STATE_WALKING or koopa->GetState() == KOOPA_STATE_IS_KICKED)
+		{
+			koopa->SetState(KOOPA_STATE_DEFEND);
+			vy = -MARIO_JUMP_DEFLECT_SPEED;
+		}
+		else {
+			koopa->SetState(KOOPA_STATE_IS_KICKED);
+		}
+
+	}
+	else {
+		if (untouchable == 0)
+		{
+			if ((koopa->GetState() != KOOPA_STATE_ISDEAD) and (koopa->GetState() != KOOPA_STATE_WALKING) and (koopa->GetState() != KOOPA_STATE_IS_KICKED))
+			{
+				 koopa->SetState(KOOPA_STATE_IS_KICKED);
+			}
+			else {
+				if (level > MARIO_LEVEL_SMALL)
+				{
+					level = MARIO_LEVEL_SMALL;
+					StartUntouchable();
+				}
+				else
+				{
+					DebugOut(L">>> Mario DIE >>> \n");
+					SetState(MARIO_STATE_DIE);
+				}
+			}
+		}
+	}
+}
+
 
 void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 {
@@ -556,9 +595,9 @@ void CMario::SetState(int state)
 		break;
 
 	case MARIO_STATE_IDLE:
-		ax = 0.0f;
-		vx = 0.0f;
-
+			ax = 0.0f;
+			vx = 0.0f;
+		
 		break;
 	case MARIO_STATE_TAIL_ATTACK:
 		break;

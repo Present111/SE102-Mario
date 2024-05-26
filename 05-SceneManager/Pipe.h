@@ -16,21 +16,22 @@
 #define PIPE_LONG_MODEL	2
 class CPipe : public CGameObject
 {
-protected:
-	int typeFlower;
+	protected:
+		int typeFlower;
 
-public:
-	CPipe(float x, float y) : CGameObject(x, y) {}
-	CPipe(float x, float y, int model, int typeFlower) {
-		this->x = x;
-		this->y = y;
-		this->model = model;
-		this->typeFlower = typeFlower;
-	}
+	public:
+		CPipe(float x, float y) : CGameObject(x, y) {}
+		CPipe(float x, float y, int model, int typeFlower) {
+			this->x = x;
+			this->y = y;
+			this->model = model;
+			this->typeFlower = typeFlower;
+		}
 
-	void Render();
-	void Update(DWORD dt) {}
-	void GetBoundingBox(float& l, float& t, float& r, float& b);
+		void Render();
+		void Update(DWORD dt) {}
+		void GetBoundingBox(float& l, float& t, float& r, float& b);
 
-	virtual int IsBlocking() { return 1; }
+		virtual int IsBlocking() { return 1; }
 };
+
