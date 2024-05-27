@@ -14,18 +14,43 @@
 #include "Portal.h"
 #include "PlayScene.h"
 #include "Collision.h"
-void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
+void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 
 	vy += ay * dt;
 	vx += ax * dt;
-	
+
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	// reset untouchable timer if untouchable time has passed
-	if ( GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME) 
+	if (GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME)
 	{
 		untouchable_start = 0;
 		untouchable = 0;
+	}
+	if (isRunning)
+	{
+		speed_start = GetTickCount64();
+		if (GetTickCount64() - speed_start > TIME_SPEED) {
+			if (levelRun < 7) {
+				levelRun++;
+			}
+			else levelRun = 7;
+			speed_start = 0;
+
+		}
+	}
+	else {
+		speed_stop = GetTickCount64();
+		if (GetTickCount64() - speed_stop > TIME_SPEED) {
+			if (levelRun > 0)
+			{
+				levelRun--;
+			}
+			else levelRun = 0;
+			speed_stop = 0;
+
+		}
+
 	}
 	//DebugOut(L"[POSITION] %f %f\n", x, y);
 	isOnPlatform = false;
@@ -40,39 +65,39 @@ void CMario::OnNoCollision(DWORD dt)
 
 void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-		if (e->ny != 0 && e->obj->IsBlocking())
-		{
-			vy = 0;
-			if (e->ny < 0) isOnPlatform = true;
-		}
-		else if ((e->nx != 0) && (e->obj->IsBlocking()))
-		{
-			vx = 0;
-		}
-		if (dynamic_cast<CGoomba*>(e->obj))
-			OnCollisionWithGoomba(e);
-		else if (dynamic_cast<CCoin*>(e->obj))
-			OnCollisionWithCoin(e);
-		else if (dynamic_cast<CPortal*>(e->obj))
-			OnCollisionWithPortal(e);
-		else if (dynamic_cast<CMushRoom*>(e->obj))
-			OnCollisionWithMushRoom(e);
-		else if (dynamic_cast<CLeaf*>(e->obj))
-			OnCollisionWithLeaf(e);
-		else if (dynamic_cast<CFlowerFire*>(e->obj))
-			OnCollisionWithFlowerFire(e);
-		else if (dynamic_cast<CBrickQuestion*>(e->obj))
-			OnCollisionWithBrickQuestion(e);
-		else if (dynamic_cast<CKoopa*>(e->obj))
-			OnCollisionWithKoopa(e);
-		else if (dynamic_cast<CPlatform*>(e->obj))
-			OnCollisionWithPlatForm(e);
+	if (e->ny != 0 && e->obj->IsBlocking())
+	{
+		vy = 0;
+		if (e->ny < 0) isOnPlatform = true;
+	}
+	else if ((e->nx != 0) && (e->obj->IsBlocking()))
+	{
+		vx = 0;
+	}
+	if (dynamic_cast<CGoomba*>(e->obj))
+		OnCollisionWithGoomba(e);
+	else if (dynamic_cast<CCoin*>(e->obj))
+		OnCollisionWithCoin(e);
+	else if (dynamic_cast<CPortal*>(e->obj))
+		OnCollisionWithPortal(e);
+	else if (dynamic_cast<CMushRoom*>(e->obj))
+		OnCollisionWithMushRoom(e);
+	else if (dynamic_cast<CLeaf*>(e->obj))
+		OnCollisionWithLeaf(e);
+	else if (dynamic_cast<CFlowerFire*>(e->obj))
+		OnCollisionWithFlowerFire(e);
+	else if (dynamic_cast<CBrickQuestion*>(e->obj))
+		OnCollisionWithBrickQuestion(e);
+	else if (dynamic_cast<CKoopa*>(e->obj))
+		OnCollisionWithKoopa(e);
+	else if (dynamic_cast<CPlatform*>(e->obj))
+		OnCollisionWithPlatForm(e);
 
 }
 
 void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
-	if (platform->IsBlocking()) { }
+	if (platform->IsBlocking()) {}
 	else {
 		if (e->ny < 0) {
 			BlockIfNoBlock(platform);
@@ -81,9 +106,10 @@ void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 }
 
 void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
-	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj); 
+	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
 
 	if (e->ny < 0) {
+		koopa->SetVy(-KOOPA_ADJUST_KICKED_NOT_FALL);
 		if (koopa->GetModel() != KOOPA_GREEN_WING) {
 			if ((koopa->GetState() == KOOPA_STATE_WALKING) or (koopa->GetState() == KOOPA_STATE_IS_KICKED))
 			{
@@ -100,7 +126,7 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
 				koopa->SetState(KOOPA_STATE_WALKING);
 				vy = -MARIO_JUMP_DEFLECT_SPEED;
 			}
-			else if ((koopa->GetState() == KOOPA_STATE_WALKING) or (koopa->GetState() == KOOPA_STATE_IS_KICKED)) 
+			else if ((koopa->GetState() == KOOPA_STATE_WALKING) or (koopa->GetState() == KOOPA_STATE_IS_KICKED))
 			{
 				koopa->SetState(KOOPA_STATE_DEFEND);
 				vy = -MARIO_JUMP_DEFLECT_SPEED;
@@ -114,9 +140,9 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
 	else {
 		if (untouchable == 0)
 		{
-			if ((koopa->GetState()!=KOOPA_STATE_JUMP) && (koopa->GetState() != KOOPA_STATE_ISDEAD) && (koopa->GetState() != KOOPA_STATE_WALKING) and (koopa->GetState() != KOOPA_STATE_IS_KICKED))
+			if ((koopa->GetState() != KOOPA_STATE_JUMP) && (koopa->GetState() != KOOPA_STATE_ISDEAD) && (koopa->GetState() != KOOPA_STATE_WALKING) and (koopa->GetState() != KOOPA_STATE_IS_KICKED))
 			{
-				 koopa->SetState(KOOPA_STATE_IS_KICKED);
+				koopa->SetState(KOOPA_STATE_IS_KICKED);
 			}
 			else {
 				if (level > MARIO_LEVEL_SMALL)
@@ -152,7 +178,7 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 		{
 			if (goomba->GetState() != GOOMBA_STATE_DIE)
 			{
-				if (level > MARIO_LEVEL_SMALL) 
+				if (level > MARIO_LEVEL_SMALL)
 				{
 					level = MARIO_LEVEL_SMALL;
 					StartUntouchable();
@@ -176,7 +202,7 @@ void CMario::OnCollisionWithLeaf(LPCOLLISIONEVENT e) {
 	e->obj->Delete();
 	SetLevel(MARIO_LEVEL_TAIL);
 }
-void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e) 
+void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
 {
 	e->obj->Delete();
 	if (GetLevel() == MARIO_LEVEL_SMALL)
@@ -192,7 +218,7 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 	BOOLEAN isUnbox, isEmpty;
 	isUnbox = questionBrick->GetIsUnbox();
 	isEmpty = questionBrick->GetIsEmpty();
-	if(e->ny < 0){}
+	if (e->ny < 0) {}
 	else if (e->ny > 0 && !isUnbox && !isEmpty) {
 		float x, y, minY;
 		x = questionBrick->GetX();
@@ -200,7 +226,7 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 		minY = questionBrick->GetMinY();
 
 		questionBrick->SetState(QUESTION_BRICK_STATE_UP);
-	
+
 		if (questionBrick->GetModel() == QUESTION_BRICK_ITEM) {
 			if (GetLevel() == MARIO_LEVEL_SMALL) {
 				CMushRoom* mushroom = new CMushRoom(x, y);
@@ -253,9 +279,8 @@ int CMario::GetAniIdTail()
 	else {
 		if (!isOnPlatform)
 		{
-			if (abs(ax) == MARIO_ACCEL_RUN_X)
-			{
-				if (nx >= 0)
+			if (levelRun == 7) {
+				if (nx > 0)
 					aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_RIGHT;
 				else
 					aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_LEFT;
@@ -307,7 +332,7 @@ int CMario::GetAniIdTail()
 				}
 	}
 	if (aniId == -1) aniId = ID_ANI_MARIO_TAIL_ATTACK;
-		//ID_ANI_MARIO_TAIL_IDLE_RIGHT;
+	//ID_ANI_MARIO_TAIL_IDLE_RIGHT;
 
 	return aniId;
 }
@@ -511,14 +536,14 @@ void CMario::Render()
 	animations->Get(aniId)->Render(x, y);
 
 	//RenderBoundingBox();
-	
+
 	DebugOutTitle(L"Coins: %d", coin);
 }
 
 void CMario::SetState(int state)
 {
 	// DIE is the end state, cannot be changed! 
-	if (this->state == MARIO_STATE_DIE) return; 
+	if (this->state == MARIO_STATE_DIE) return;
 
 	switch (state)
 	{
@@ -526,31 +551,41 @@ void CMario::SetState(int state)
 		if (isSitting) break;
 		maxVx = MARIO_RUNNING_SPEED;
 		ax = MARIO_ACCEL_RUN_X;
+		isRunning = true;
 		nx = 1;
 		break;
+
 	case MARIO_STATE_RUNNING_LEFT:
 		if (isSitting) break;
 		maxVx = -MARIO_RUNNING_SPEED;
 		ax = -MARIO_ACCEL_RUN_X;
+		isRunning = true;
 		nx = -1;
 		break;
 	case MARIO_STATE_WALKING_RIGHT:
 		if (isSitting) break;
+		isRunning = false;
+
 		maxVx = MARIO_WALKING_SPEED;
 		ax = MARIO_ACCEL_WALK_X;
 		nx = 1;
 		break;
 	case MARIO_STATE_WALKING_LEFT:
 		if (isSitting) break;
+		isRunning = false;
+
 		maxVx = -MARIO_WALKING_SPEED;
 		ax = -MARIO_ACCEL_WALK_X;
 		nx = -1;
 		break;
 	case MARIO_STATE_FALL:
 		if (vy < 0) vy += MARIO_JUMP_SPEED_Y / 5;
+		isRunning = false;
+
 		break;
 	case MARIO_STATE_JUMP:
 		if (isSitting) break;
+
 		if (isOnPlatform)
 		{
 			if (abs(this->vx) == MARIO_RUNNING_SPEED)
@@ -568,6 +603,7 @@ void CMario::SetState(int state)
 		if (isOnPlatform && level != MARIO_LEVEL_SMALL)
 		{
 			isSitting = true;
+			isRunning = false;
 			state = MARIO_STATE_IDLE;
 			y += MARIO_SIT_HEIGHT_ADJUST;
 		}
@@ -583,9 +619,9 @@ void CMario::SetState(int state)
 		break;
 
 	case MARIO_STATE_IDLE:
-			ax = 0.0f;
-			vx = 0.0f;
-		
+		ax = 0.0f;
+		vx = 0.0f;
+
 		break;
 	case MARIO_STATE_TAIL_ATTACK:
 		break;
@@ -599,9 +635,9 @@ void CMario::SetState(int state)
 	CGameObject::SetState(state);
 }
 
-void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom)
+void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom)
 {
-	if (level!=MARIO_LEVEL_SMALL)
+	if (level != MARIO_LEVEL_SMALL)
 	{
 		if (isSitting)
 		{
@@ -610,18 +646,18 @@ void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom
 			right = left + MARIO_BIG_SITTING_BBOX_WIDTH;
 			bottom = top + MARIO_BIG_SITTING_BBOX_HEIGHT;
 		}
-		else 
+		else
 		{
-			left = x - MARIO_BIG_BBOX_WIDTH/2;
-			top = y - MARIO_BIG_BBOX_HEIGHT/2;
+			left = x - MARIO_BIG_BBOX_WIDTH / 2;
+			top = y - MARIO_BIG_BBOX_HEIGHT / 2;
 			right = left + MARIO_BIG_BBOX_WIDTH;
 			bottom = top + MARIO_BIG_BBOX_HEIGHT;
 		}
 	}
 	else
 	{
-		left = x - MARIO_SMALL_BBOX_WIDTH/2;
-		top = y - MARIO_SMALL_BBOX_HEIGHT/2;
+		left = x - MARIO_SMALL_BBOX_WIDTH / 2;
+		top = y - MARIO_SMALL_BBOX_HEIGHT / 2;
 		right = left + MARIO_SMALL_BBOX_WIDTH;
 		bottom = top + MARIO_SMALL_BBOX_HEIGHT;
 	}

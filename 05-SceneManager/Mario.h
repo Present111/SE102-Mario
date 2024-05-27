@@ -10,14 +10,16 @@
 #define MARIO_RUNNING_SPEED		0.2f
 
 #define MARIO_ACCEL_WALK_X	0.0005f
-#define MARIO_ACCEL_RUN_X	0.0007f
+#define MARIO_ACCEL_RUN_X	0.0003f
 
-#define MARIO_JUMP_SPEED_Y		0.6f
+#define MARIO_JUMP_SPEED_Y		0.3f
 #define MARIO_JUMP_RUN_SPEED_Y	0.3f
 
 #define MARIO_GRAVITY			0.0006f
 
 #define MARIO_JUMP_DEFLECT_SPEED  0.2f
+
+#define TIME_SPEED 500
 
 #define MARIO_STATE_DIE				-10
 #define MARIO_STATE_IDLE			0
@@ -168,11 +170,17 @@ class CMario : public CGameObject
 	float ax;				// acceleration on x 
 	float ay;				// acceleration on y 
 	int acceleration;
-	int level; 
-	int untouchable; 
+	int level;
+	int untouchable;
+	int levelRun;
 	ULONGLONG untouchable_start;
+	ULONGLONG speed_start;
+	ULONGLONG speed_stop;
 	BOOLEAN isOnPlatform;
-	int coin; 
+	int coin;
+
+
+	bool isRunning;
 
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
 	void OnCollisionWithKoopa(LPCOLLISIONEVENT e);
@@ -197,9 +205,10 @@ public:
 		isSitting = false;
 		maxVx = 0.0f;
 		ax = 0.0f;
-		ay = MARIO_GRAVITY; 
+		ay = MARIO_GRAVITY;
 
 		level = MARIO_LEVEL_SMALL;
+		levelRun = 0;
 		untouchable = 0;
 		untouchable_start = -1;
 		isOnPlatform = false;
@@ -210,10 +219,10 @@ public:
 	void SetState(int state);
 	int GetLevel() { return level; }
 	int IsCollidable()
-	{ 
-		return (state != MARIO_STATE_DIE); 
+	{
+		return (state != MARIO_STATE_DIE);
 	}
-	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
+	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable == 0); }
 
 	void OnNoCollision(DWORD dt);
 	void OnCollisionWith(LPCOLLISIONEVENT e);
