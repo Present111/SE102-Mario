@@ -48,9 +48,11 @@ protected:
 	virtual int IsBlocking() { return 0; }
 	virtual int IsEnemy() { return 1; }
 	virtual void OnNoCollision(DWORD dt);
+	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 
 public:
 
 	CPlantEnemy(float x, float y, int model);
+	bool IsMarioOnPipe();
 	virtual void SetState(int state);
 };

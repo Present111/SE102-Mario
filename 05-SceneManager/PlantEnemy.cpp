@@ -1,4 +1,4 @@
-#include "PlantEnemy.h"
+﻿#include "PlantEnemy.h"
 #include "GameObject.h"
 #include "Mario.h"
 #include "PlayScene.h"
@@ -27,7 +27,14 @@ void CPlantEnemy::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	ULONGLONG time_down_pipe;
 	*/
 	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
-
+	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+	if (IsMarioOnPipe()) {
+		// Không cho cây ăn thịt trồi lên nếu Mario đứng trên ống
+		if (isUpping) {
+			SetState(PLANT_STATE_DOWN);
+		}
+	}
+	
 	if (isUpping) {
 		if (y > minY) {
 			vy = -PLANT_SPEED_UP_DOWN;
@@ -93,6 +100,23 @@ void CPlantEnemy::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
+}
+void CPlantEnemy::OnCollisionWith(LPCOLLISIONEVENT e)
+{
+	if (e->ny > 0)
+	{
+		vy = 0;
+	}
+}
+bool CPlantEnemy::IsMarioOnPipe() {
+	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+	float marioLeft, marioTop, marioRight, marioBottom;
+	mario->GetBoundingBox(marioLeft, marioTop, marioRight, marioBottom);
+
+	float plantLeft, plantTop, plantRight, plantBottom;
+	GetBoundingBox(plantLeft, plantTop, plantRight, plantBottom);
+
+	return (marioBottom <= plantTop && marioBottom > plantTop - 5 && marioRight > plantLeft && marioLeft < plantRight);
 }
 int CPlantEnemy::PositionXWithMario() {
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
