@@ -315,7 +315,7 @@ void CPlayScene::Update(DWORD dt)
 	if (cx > FULL_WEIGHT_1_1 - ADJUST_CAMERA_X) cx = FULL_WEIGHT_1_1-ADJUST_CAMERA_X;
 	
 
-	CGame::GetInstance()->SetCamPos(cx, ADJUST_CAM_Y);
+	CGame::GetInstance()->SetCamPos(cx, cy);
 
 	PurgeDeletedObjects();
 }
