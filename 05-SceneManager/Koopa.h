@@ -75,6 +75,7 @@ protected:
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
 	void OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e);
 	void OnCollisionWithKoopa(LPCOLLISIONEVENT e);
+	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 
 	bool isUpside;

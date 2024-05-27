@@ -193,6 +193,8 @@ class CMario : public CGameObject
 	void OnCollisionWithBlock(LPCOLLISIONEVENT e);
 	void OnCollisionWithPlatForm(LPCOLLISIONEVENT e);
 	void BlockIfNoBlock(LPGAMEOBJECT gameobject);
+	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
+	void OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e);
 
 	int GetAniIdBig();
 	int GetAniIdSmall();
@@ -229,6 +231,7 @@ public:
 	int GetCoin() { return this->coin; }
 	void SetCoin(int coin) { this->coin = coin; }
 	void SetLevel(int l);
+	void SetLevelSmall();
 	void SetVy(float v) { vy = v; }
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount64(); }
 	virtual int IsPlayer() { return 1; }

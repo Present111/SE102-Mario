@@ -79,6 +79,15 @@
     <Filter Include="Header Files\txtFile">
       <UniqueIdentifier>{27e832cf-ce99-4fba-9092-5276a70567c8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\Pipe">
+      <UniqueIdentifier>{b5b66e90-24a9-4bde-86f5-e62c5e7e2f41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PlantEnemy">
+      <UniqueIdentifier>{fd6b4d9e-0c67-4349-8f24-65cf76b2d43c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FireFromPlant">
+      <UniqueIdentifier>{6f29e13a-6c37-4b7f-9ba9-1df3bac02bdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -129,9 +138,6 @@
     <ClCompile Include="Goomba.cpp">
       <Filter>Header Files\Object\Enemies\Goomba</Filter>
     </ClCompile>
-    <ClCompile Include="GoombaFly.cpp">
-      <Filter>Header Files\Object\Enemies\Goomba</Filter>
-    </ClCompile>
     <ClCompile Include="Koopa.cpp">
       <Filter>Header Files\Object\Enemies\Koopa</Filter>
     </ClCompile>
@@ -170,6 +176,15 @@
     </ClCompile>
     <ClCompile Include="WorldMap.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe.cpp">
+      <Filter>Header Files\Object\Pipe</Filter>
+    </ClCompile>
+    <ClCompile Include="FireFromPlant.cpp">
+      <Filter>Header Files\FireFromPlant</Filter>
+    </ClCompile>
+    <ClCompile Include="PlantEnemy.cpp">
+      <Filter>Header Files\PlantEnemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -227,9 +242,6 @@
     <ClInclude Include="Goomba.h">
       <Filter>Header Files\Object\Enemies\Goomba</Filter>
     </ClInclude>
-    <ClInclude Include="GoombaFly.h">
-      <Filter>Header Files\Object\Enemies\Goomba</Filter>
-    </ClInclude>
     <ClInclude Include="Koopa.h">
       <Filter>Header Files\Object\Enemies\Koopa</Filter>
     </ClInclude>
@@ -271,6 +283,15 @@
     </ClInclude>
     <ClInclude Include="WorldMap.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FireFromPlant.h">
+      <Filter>Header Files\FireFromPlant</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe.h">
+      <Filter>Header Files\Object\Pipe</Filter>
+    </ClInclude>
+    <ClInclude Include="PlantEnemy.h">
+      <Filter>Header Files\PlantEnemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +350,9 @@
       <Filter>Header Files\txtFile</Filter>
     </Text>
     <Text Include="platform.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="fire.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
   </ItemGroup>

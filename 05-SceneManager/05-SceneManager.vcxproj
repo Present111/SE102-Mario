@@ -220,6 +220,7 @@
     <Text Include="cloud.txt" />
     <Text Include="coin.txt" />
     <Text Include="effect.txt" />
+    <Text Include="fire.txt" />
     <Text Include="flowerfire.txt" />
     <Text Include="font.txt" />
     <Text Include="goomba.txt" />

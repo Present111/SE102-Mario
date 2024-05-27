@@ -12,6 +12,7 @@
 #include "Coin.h"
 #include "FlowerFire.h"
 #include "PlayScene.h"
+#include "PlantEnemy.h"
 
 CKoopa::CKoopa(float x, float y, int model) :CGameObject(x, y)
 {
@@ -179,6 +180,17 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e) {
 		this->OnCollisionWithPlatform(e);
 	else if ((dynamic_cast<CKoopa*>(e->obj)))
 		this->OnCollisionWithKoopa(e);
+	else if ((dynamic_cast<CPlantEnemy*>(e->obj)))
+		this->OnCollisionWithPlantEnemy(e);
+
+}
+
+
+void CKoopa::OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e) {
+	CPlantEnemy* plant = dynamic_cast<CPlantEnemy*>(e->obj);
+	if (isKicked) {
+		plant->SetState(PLANT_STATE_DEATH);
+	}
 }
 void CKoopa::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
