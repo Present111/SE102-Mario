@@ -4,18 +4,19 @@
 #include "Animation.h"
 #include "PlantEnemy.h"
 #include "Map.h"
+#include "Pipe.h"
 CFireFromPlant::CFireFromPlant(float bx, float by, bool up, bool right)
 {
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 
 	if (up)
 	{
-		y = by;
+		y = by - PLANT_BBOX_HEIGHT / 2;
 		vy = -abs((mario->GetY() - GetY())) / ADJUST_VECTOR_Y * FIRE_SPEED_Y;
 	}
 	else
 	{
-		y = by + FIRE_BBOX_HEIGHT;
+		y = by + FIRE_BBOX_HEIGHT - PLANT_BBOX_HEIGHT / 2;
 		vy = abs((mario->GetY() - GetY()) - CHANGE_DIRECTION) / ADJUST_VECTOR_Y * FIRE_SPEED_Y;
 	}
 
@@ -60,6 +61,8 @@ void CFireFromPlant::GetBoundingBox(float& l, float& t, float& r, float& b)
 	b = y + FIRE_BBOX_HEIGHT;
 }
 void CFireFromPlant::OnCollisionWith(LPCOLLISIONEVENT e) {
-
-
+	if (dynamic_cast<CPipe*>(e->obj)) return;
+	if (e->obj->IsBlocking() && !e->obj->IsPlayer()) {
+		isDeleted = true;
+	}
 }

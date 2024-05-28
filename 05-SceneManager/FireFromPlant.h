@@ -10,14 +10,17 @@
 #define ADJUST_VECTOR_Y 30
 
 #define CHANGE_DIRECTION 30
-#define TIME_FIRE_DELETE 4000
+#define TIME_FIRE_DELETE 10000
 
 #define ID_ANI_FIRE_RIGHT 71
 #define ID_ANI_FIRE_LEFT 72
 
 class CFireFromPlant :public CGameObject
 {
+protected:
 	ULONGLONG start_deleted;
+	virtual int IsCollidable() { return 1; }
+
 public:
 	CFireFromPlant(float bx, float by, bool up, bool right);
 	virtual void Render();
