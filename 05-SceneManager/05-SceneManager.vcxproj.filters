@@ -88,6 +88,12 @@
     <Filter Include="Header Files\FireFromPlant">
       <UniqueIdentifier>{6f29e13a-6c37-4b7f-9ba9-1df3bac02bdb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Action">
+      <UniqueIdentifier>{440e4029-ca3f-4fa1-a0fa-795a37f621ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Action\Tail">
+      <UniqueIdentifier>{194a2fcd-caaf-4a37-911e-89d86edc8e30}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -185,6 +191,9 @@
     </ClCompile>
     <ClCompile Include="PlantEnemy.cpp">
       <Filter>Header Files\PlantEnemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Tail.cpp">
+      <Filter>Header Files\Action\Tail</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="PlantEnemy.h">
       <Filter>Header Files\PlantEnemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Tail.h">
+      <Filter>Header Files\Action\Tail</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
