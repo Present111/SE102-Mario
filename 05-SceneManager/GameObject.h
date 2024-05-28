@@ -75,6 +75,9 @@ public:
 	void SetX(float f) { x = f; }
 	void SetVy(float f) { vy = f; }
 	void SetVx(float f) { vx = f; }
+	void SetIsDeleted(bool b) {
+		isDeleted = b;
+	}
 	~CGameObject();
 
 	static bool IsDeleted(const LPGAMEOBJECT &o) { return o->isDeleted; }
