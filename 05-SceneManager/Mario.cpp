@@ -258,7 +258,8 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 	BOOLEAN isUnbox, isEmpty;
 	isUnbox = questionBrick->GetIsUnbox();
 	isEmpty = questionBrick->GetIsEmpty();
-	if (((e->ny > 0) || isTailAttack) && !isUnbox && !isEmpty) {
+	if (e->ny < 0) BlockIfNoBlock(questionBrick);
+	else if (((e->ny > 0) || (isTailAttack && (e->nx != 0))) && !isUnbox && !isEmpty) {
 		float x, y, minY;
 		x = questionBrick->GetX();
 		y = questionBrick->GetY();
@@ -587,7 +588,7 @@ void CMario::Render()
 
 	animations->Get(aniId)->Render(x, y);
 
-	//RenderBoundingBox();
+	RenderBoundingBox();
 
 	DebugOutTitle(L"Coins: %d", coin);
 }
