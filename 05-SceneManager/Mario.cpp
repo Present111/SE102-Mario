@@ -932,7 +932,12 @@ void CMario::BlockIfNoBlock(LPGAMEOBJECT gameobject) {
 void CMario::SetLevelLower() {
 	if (level > MARIO_LEVEL_SMALL)
 	{
-		SetLevel(MARIO_LEVEL_SMALL);
+		if (level == MARIO_LEVEL_BIG)
+			SetLevel(MARIO_LEVEL_SMALL);
+		if (level == MARIO_LEVEL_FIRE)
+			SetLevel(MARIO_LEVEL_BIG);
+		if (level == MARIO_LEVEL_TAIL)
+			SetLevel(MARIO_LEVEL_BIG);
 		StartUntouchable();
 	}
 	else
