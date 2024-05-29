@@ -71,6 +71,8 @@ void CGoomba::OnCollisionWithPlatForm(LPCOLLISIONEVENT e)
 
 void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
+	if (!checkObjectInCamera(this)) return;
+
 	vy += ay * dt;
 	vx += ax * dt;
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
