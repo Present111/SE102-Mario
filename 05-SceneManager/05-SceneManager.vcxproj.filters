@@ -94,6 +94,9 @@
     <Filter Include="Header Files\Action\Tail">
       <UniqueIdentifier>{194a2fcd-caaf-4a37-911e-89d86edc8e30}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Action\Fire">
+      <UniqueIdentifier>{b618e31d-f59e-4814-b38b-ecd22d92653f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -194,6 +197,9 @@
     </ClCompile>
     <ClCompile Include="Tail.cpp">
       <Filter>Header Files\Action\Tail</Filter>
+    </ClCompile>
+    <ClCompile Include="Fire.cpp">
+      <Filter>Header Files\Action\Fire</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,6 +310,9 @@
     </ClInclude>
     <ClInclude Include="Tail.h">
       <Filter>Header Files\Action\Tail</Filter>
+    </ClInclude>
+    <ClInclude Include="Fire.h">
+      <Filter>Header Files\Action\Fire</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

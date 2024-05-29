@@ -23,13 +23,14 @@
 #define MARIO_JUMP_DEFLECT_SPEED  0.2f
 
 #define MARIO_FLY_FALL 0.015f
-#define MARIO_FLYING 0.2f
+#define MARIO_FLYING 0.25f
 
 #define TIME_FLY 3000
 #define TIME_TAIL_ATTACK 300
 #define TIME_SPEED 400
 #define TIME_KICK_ANIMATION 100
-
+#define TIME_SHOOT_ANI 100
+#define TIME_SHOOT_LIMIT 1000
 #define MARIO_STATE_DIE				-10
 #define MARIO_STATE_IDLE			0
 #define MARIO_STATE_WALKING_RIGHT	200
@@ -243,6 +244,7 @@ class CMario : public CGameObject
 	ULONGLONG start_fly;
 	ULONGLONG start_kick;
 	ULONGLONG start_shoot;
+	ULONGLONG start_limit_shoot;
 	ULONGLONG speed_start;
 	ULONGLONG speed_stop;
 	ULONGLONG start_tail_attack;
