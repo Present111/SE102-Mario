@@ -12,8 +12,8 @@
 #define MARIO_ACCEL_WALK_X	0.001f
 #define MARIO_ACCEL_RUN_X	0.0003f
 
-#define MARIO_JUMP_SPEED_Y		0.25f
-#define MARIO_JUMP_RUN_SPEED_Y	0.25f
+#define MARIO_JUMP_SPEED_Y		0.24f
+#define MARIO_JUMP_RUN_SPEED_Y	0.24f
 
 #define MARIO_GRAVITY			0.0004f
 
@@ -68,6 +68,12 @@
 #define ID_ANI_MARIO_BIG_BRACE_RIGHT 1001
 #define ID_ANI_MARIO_BIG_BRACE_LEFT 1000
 
+#define ID_ANI_MARIO_BIG_HOLD_RIGHT 1011
+#define ID_ANI_MARIO_BIG_HOLD_LEFT 1010
+
+#define ID_ANI_MARIO_BIG_KICK_RIGHT 1021
+#define ID_ANI_MARIO_BIG_KICK_LEFT 1020
+
 #define ID_ANI_MARIO_DIE 999
 
 // SMALL MARIO
@@ -88,6 +94,14 @@
 
 #define ID_ANI_MARIO_SMALL_JUMP_RUN_RIGHT 1601
 #define ID_ANI_MARIO_SMALL_JUMP_RUN_LEFT 1600
+
+#define ID_ANI_MARIO_SMALL_HOLD_RIGHT 1611
+#define ID_ANI_MARIO_SMALL_HOLD_LEFT 1610
+
+#define ID_ANI_MARIO_SMALL_KICK_RIGHT 1621
+#define ID_ANI_MARIO_SMALL_KICK_LEFT  1620
+
+
 
 //
 //
@@ -115,6 +129,15 @@
 
 #define ID_ANI_MARIO_FIRE_BRACE_RIGHT 2301
 #define ID_ANI_MARIO_FIRE_BRACE_LEFT 2300
+
+#define ID_ANI_MARIO_FIRE_HOLD_RIGHT 2311
+#define ID_ANI_MARIO_FIRE_HOLD_LEFT 2310
+
+#define ID_ANI_MARIO_FIRE_KICK_RIGHT 2321
+#define ID_ANI_MARIO_FIRE_KICK_LEFT 2320
+
+#define ID_ANI_MARIO_FIRE_SHOOT_RIGHT 2331
+#define ID_ANI_MARIO_FIRE_SHOOT_LEFT 2330
 //
 //
 //
@@ -140,6 +163,12 @@
 
 #define ID_ANI_MARIO_TAIL_BRACE_RIGHT 3001
 #define ID_ANI_MARIO_TAIL_BRACE_LEFT 3000
+
+#define ID_ANI_MARIO_TAIL_HOLD_RIGHT 3011
+#define ID_ANI_MARIO_TAIL_HOLD_LEFT 3010
+
+#define ID_ANI_MARIO_TAIL_KICK_RIGHT 3021
+#define ID_ANI_MARIO_TAIL_KICK_LEFT 3020
 
 #define ID_ANI_MARIO_TAIL_ATTACK 3100
 
@@ -179,8 +208,8 @@ class CMario : public CGameObject
 	float maxVx;
 	float ax;				// acceleration on x 
 	float ay;				// acceleration on y 
-	int level; 
-	int untouchable; 
+	int level;
+	int untouchable;
 	int levelRun;
 	ULONGLONG untouchable_start;
 	ULONGLONG start_fly;
@@ -188,12 +217,13 @@ class CMario : public CGameObject
 	ULONGLONG speed_stop;
 	ULONGLONG start_tail_attack;
 	BOOLEAN isOnPlatform;
-	int coin; 
+	int coin;
 
 
 	bool isRunning;
 	bool isHolding;
 	bool isFlying;
+	bool isKicking;
 	bool isShoot;
 	bool isTailAttack;
 
@@ -224,10 +254,10 @@ public:
 	void SetState(int state);
 	int GetLevel() { return level; }
 	int IsCollidable()
-	{ 
-		return (state != MARIO_STATE_DIE); 
+	{
+		return (state != MARIO_STATE_DIE);
 	}
-	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable==0); }
+	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable == 0); }
 
 	void OnNoCollision(DWORD dt);
 	void OnCollisionWith(LPCOLLISIONEVENT e);
@@ -238,9 +268,13 @@ public:
 	bool GetIsTailAttack() { return isTailAttack; }
 	bool GetIsFlying() { return isFlying; }
 	bool GetIsHolding() { return isHolding; }
+	void SetIsHolding(bool b) { isHolding = b; }
+	bool GetIsKicking() { return isKicking; }
+	void SetIsKicking(bool b) { isKicking = b; }
 	bool GetIsOnPlatform() { return isOnPlatform; }
 	void StartUntouchable() { untouchable = 1; untouchable_start = GetTickCount64(); }
 	virtual int IsPlayer() { return 1; }
 	void SetFly();
+	void SetMarioTailAttack();
 	void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 };

@@ -79,6 +79,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if (isFlying) {
 		if (isOnPlatform) {
 			isFlying = false;
+			ay = MARIO_GRAVITY;
 		}
 	}
 	if (isTailAttack) {
@@ -152,7 +153,10 @@ void CMario::OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e) {
 
 void CMario::OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e) {
 	if (untouchable) return;
+	CFireFromPlant* bullet = dynamic_cast<CFireFromPlant*>(e->obj);
+	bullet->SetIsDeleted(true);
 	SetLevelSmall();
+
 }
 
 void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
@@ -313,36 +317,37 @@ int CMario::GetAniIdTail()
 {
 	int aniId = -1;
 	if (!isFlying) {
-		if (!isOnPlatform)
-		{
-			if (abs(ax) == MARIO_ACCEL_RUN_X) {
-				if (nx > 0)
-					aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_RIGHT;
-				else
-					aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_LEFT;
-			}
-			else
+		if (!isTailAttack) {
+			if (!isOnPlatform)
 			{
-				if (nx >= 0)
-					aniId = ID_ANI_MARIO_TAIL_JUMP_WALK_RIGHT;
-				else
-					aniId = ID_ANI_MARIO_TAIL_JUMP_WALK_LEFT;
-			}
-		}
-		else
-			if (isSitting)
-			{
-				if (nx > 0)
-				{
-					aniId = ID_ANI_MARIO_TAIL_SIT_RIGHT;
-
+				if (abs(ax) == MARIO_ACCEL_RUN_X) {
+					if (nx > 0)
+						aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_RIGHT;
+					else
+						aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_LEFT;
 				}
 				else
-					aniId = ID_ANI_MARIO_TAIL_SIT_LEFT;
+				{
+					if (nx >= 0)
+						aniId = ID_ANI_MARIO_TAIL_JUMP_WALK_RIGHT;
+					else
+						aniId = ID_ANI_MARIO_TAIL_JUMP_WALK_LEFT;
+				}
 			}
 			else
-			{
-				if (!isTailAttack) {
+				if (isSitting)
+				{
+					if (nx > 0)
+					{
+						aniId = ID_ANI_MARIO_TAIL_SIT_RIGHT;
+
+					}
+					else
+						aniId = ID_ANI_MARIO_TAIL_SIT_LEFT;
+				}
+				else
+				{
+
 					if (vx == 0)
 					{
 						if (nx > 0) aniId = ID_ANI_MARIO_TAIL_IDLE_RIGHT;
@@ -368,9 +373,10 @@ int CMario::GetAniIdTail()
 						else if (ax == -MARIO_ACCEL_WALK_X)
 							aniId = ID_ANI_MARIO_TAIL_WALKING_LEFT;
 					}
+
 				}
-				else aniId = ID_ANI_MARIO_TAIL_ATTACK;
-			}
+		}
+		else aniId = ID_ANI_MARIO_TAIL_ATTACK;
 	}
 	else {
 		if (!isOnPlatform) {
@@ -574,7 +580,6 @@ void CMario::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
 	int aniId = -1;
-
 	if (state == MARIO_STATE_DIE)
 		aniId = ID_ANI_MARIO_DIE;
 	else if (level == MARIO_LEVEL_BIG)
@@ -585,7 +590,6 @@ void CMario::Render()
 		aniId = GetAniIdFire();
 	else if (level == MARIO_LEVEL_TAIL)
 		aniId = GetAniIdTail();
-
 	animations->Get(aniId)->Render(x, y);
 
 	RenderBoundingBox();
@@ -602,47 +606,33 @@ void CMario::SetState(int state)
 	{
 	case MARIO_STATE_RUNNING_RIGHT:
 		if (isSitting) break;
-		if (isFlying) {
-			isFlying = true;
-		}
-		else isFlying = false;
+		SetMarioTailAttack();
 		maxVx = MARIO_RUNNING_SPEED;
 		ax = MARIO_ACCEL_RUN_X;
+		isHolding = true;
 		isRunning = true;
 		nx = 1;
 		break;
 
 	case MARIO_STATE_RUNNING_LEFT:
 		if (isSitting) break;
-		if (isFlying) {
-			isFlying = true;
-		}
-		else isFlying = false;
+		SetMarioTailAttack();
 		maxVx = -MARIO_RUNNING_SPEED;
 		ax = -MARIO_ACCEL_RUN_X;
+		isHolding = true;
 		isRunning = true;
-		isFlying = false;
 		nx = -1;
 		break;
 	case MARIO_STATE_WALKING_RIGHT:
 		if (isSitting) break;
-		if (isFlying) {
-			isFlying = true;
-		}
-		else isFlying = false;
 		isRunning = false;
-		isFlying = false;
+
 		maxVx = MARIO_WALKING_SPEED;
 		ax = MARIO_ACCEL_WALK_X;
 		nx = 1;
-
 		break;
 	case MARIO_STATE_WALKING_LEFT:
 		if (isSitting) break;
-		if (isFlying) {
-			isFlying = true;
-		}
-		else isFlying = false;
 		isRunning = false;
 
 		maxVx = -MARIO_WALKING_SPEED;
@@ -701,8 +691,7 @@ void CMario::SetState(int state)
 	case MARIO_STATE_FLY:
 		isFlying = true;
 		isOnPlatform = false;
-		vy = -MARIO_FLYING;
-
+		SetFly();
 		break;
 
 	case MARIO_STATE_DIE:
@@ -804,5 +793,16 @@ void CMario::SetLevelSmall() {
 	{
 		DebugOut(L">>> Mario DIE >>> \n");
 		SetState(MARIO_STATE_DIE);
+	}
+}
+
+void CMario::SetFly() {
+	vy = -MARIO_FLYING;
+	isFlying = true;
+}
+
+void CMario::SetMarioTailAttack() {
+	if (level == MARIO_LEVEL_TAIL) {
+		isTailAttack = true;
 	}
 }
