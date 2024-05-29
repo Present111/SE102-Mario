@@ -39,15 +39,23 @@ CMario::CMario(float x, float y) : CGameObject(x, y) {
 	coin = 0;
 }
 
-void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
+void CMario::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
-
+	if (x < MARIO_BIG_BBOX_WIDTH)
+	{
+		x = MARIO_BIG_BBOX_WIDTH;
+		vx = 0;
+	}
+	if (y < MARIO_SMALL_BBOX_HEIGHT) {
+		y = MARIO_SMALL_BBOX_HEIGHT;
+		vy = 0;
+	}
 	vy += ay * dt;
 	vx += ax * dt;
 	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	// reset untouchable timer if untouchable time has passed
-	if (GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME)
+	if ( GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME) 
 	{
 		untouchable_start = 0;
 		untouchable = 0;
@@ -75,7 +83,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			speed_stop = 0;
 
 		}
-
+		
 	}
 	if (isFlying) {
 		if (isOnPlatform) {
@@ -108,43 +116,43 @@ void CMario::OnNoCollision(DWORD dt)
 
 void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 {
-	if (e->ny != 0 && e->obj->IsBlocking())
-	{
-		vy = 0;
-		if (e->ny < 0) isOnPlatform = true;
-	}
-	else if ((e->nx != 0) && (e->obj->IsBlocking()))
-	{
-		vx = 0;
-	}
-	if (dynamic_cast<CGoomba*>(e->obj))
-		OnCollisionWithGoomba(e);
-	else if (dynamic_cast<CCoin*>(e->obj))
-		OnCollisionWithCoin(e);
-	else if (dynamic_cast<CPortal*>(e->obj))
-		OnCollisionWithPortal(e);
-	else if (dynamic_cast<CMushRoom*>(e->obj))
-		OnCollisionWithMushRoom(e);
-	else if (dynamic_cast<CLeaf*>(e->obj))
-		OnCollisionWithLeaf(e);
-	else if (dynamic_cast<CFlowerFire*>(e->obj))
-		OnCollisionWithFlowerFire(e);
-	else if (dynamic_cast<CBrickQuestion*>(e->obj))
-		OnCollisionWithBrickQuestion(e);
-	else if (dynamic_cast<CKoopa*>(e->obj))
-		OnCollisionWithKoopa(e);
-	else if (dynamic_cast<CPlatform*>(e->obj))
-		OnCollisionWithPlatForm(e);
-	else if (dynamic_cast<CPlantEnemy*>(e->obj))
-		OnCollisionWithPlantEnemy(e);
-	else if (dynamic_cast<CFireFromPlant*>(e->obj))
-		OnCollisionWithFireFromPlant(e);
+		if (e->ny != 0 && e->obj->IsBlocking())
+		{
+			vy = 0;
+			if (e->ny < 0) isOnPlatform = true;
+		}
+		else if ((e->nx != 0) && (e->obj->IsBlocking()))
+		{
+			vx = 0;
+		}
+		if (dynamic_cast<CGoomba*>(e->obj))
+			OnCollisionWithGoomba(e);
+		else if (dynamic_cast<CCoin*>(e->obj))
+			OnCollisionWithCoin(e);
+		else if (dynamic_cast<CPortal*>(e->obj))
+			OnCollisionWithPortal(e);
+		else if (dynamic_cast<CMushRoom*>(e->obj))
+			OnCollisionWithMushRoom(e);
+		else if (dynamic_cast<CLeaf*>(e->obj))
+			OnCollisionWithLeaf(e);
+		else if (dynamic_cast<CFlowerFire*>(e->obj))
+			OnCollisionWithFlowerFire(e);
+		else if (dynamic_cast<CBrickQuestion*>(e->obj))
+			OnCollisionWithBrickQuestion(e);
+		else if (dynamic_cast<CKoopa*>(e->obj))
+			OnCollisionWithKoopa(e);
+		else if (dynamic_cast<CPlatform*>(e->obj))
+			OnCollisionWithPlatForm(e);
+		else if (dynamic_cast<CPlantEnemy*>(e->obj))
+			OnCollisionWithPlantEnemy(e);
+		else if (dynamic_cast<CFireFromPlant*>(e->obj))
+			OnCollisionWithFireFromPlant(e);
 }
 
 
 void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
-	if (platform->IsBlocking()) {}
+	if (platform->IsBlocking()) { }
 	else {
 		if (e->ny < 0) {
 			BlockIfNoBlock(platform);
@@ -167,8 +175,8 @@ void CMario::OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e) {
 }
 
 void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
-	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
-	if (isTailAttack) {
+	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj); 
+	if(isTailAttack){
 		koopa->SetState(KOOPA_STATE_UPSIDE);
 	}
 	else {
@@ -201,7 +209,7 @@ void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
 
 			}
 		}
-		else if (e->nx != 0) {
+		else if(e->nx!=0) {
 			if (untouchable == 0)
 			{
 				if ((koopa->GetState() != KOOPA_STATE_JUMP) && (koopa->GetState() != KOOPA_STATE_ISDEAD) && (koopa->GetState() != KOOPA_STATE_WALKING) and (koopa->GetState() != KOOPA_STATE_IS_KICKED))
@@ -267,7 +275,7 @@ void CMario::OnCollisionWithLeaf(LPCOLLISIONEVENT e) {
 	e->obj->Delete();
 	SetLevel(MARIO_LEVEL_TAIL);
 }
-void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
+void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e) 
 {
 	e->obj->Delete();
 	if (GetLevel() == MARIO_LEVEL_SMALL)
@@ -283,8 +291,8 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 	BOOLEAN isUnbox, isEmpty;
 	isUnbox = questionBrick->GetIsUnbox();
 	isEmpty = questionBrick->GetIsEmpty();
-	if (e->ny < 0) BlockIfNoBlock(questionBrick);
-	else if (((e->ny > 0) || (isTailAttack && (e->nx != 0))) && !isUnbox && !isEmpty) {
+	if(e->ny < 0) BlockIfNoBlock(questionBrick);
+	else if (((e->ny > 0) || (isTailAttack && (e->nx!=0))) && !isUnbox && !isEmpty ) {
 		float x, y, minY;
 		x = questionBrick->GetX();
 		y = questionBrick->GetY();
@@ -503,8 +511,8 @@ int CMario::GetAniIdFire()
 				else aniId = ID_ANI_MARIO_FIRE_HOLD_RUNNING_LEFT;
 			}
 		}
-
-
+		
+		
 
 	if (aniId == -1) aniId = ID_ANI_MARIO_FIRE_IDLE_RIGHT;
 
@@ -599,7 +607,7 @@ int CMario::GetAniIdBig()
 			}
 		}
 		else {
-
+			
 		}
 	}
 	else
@@ -663,14 +671,14 @@ void CMario::Render()
 	animations->Get(aniId)->Render(x, y);
 
 	RenderBoundingBox();
-
+	
 	DebugOutTitle(L"Coins: %d", coin);
 }
 
 void CMario::SetState(int state)
 {
 	// DIE is the end state, cannot be changed! 
-	if (this->state == MARIO_STATE_DIE) return;
+	if (this->state == MARIO_STATE_DIE) return; 
 
 	switch (state)
 	{
@@ -756,12 +764,12 @@ void CMario::SetState(int state)
 		isTailAttack = true;
 		start_tail_attack = GetTickCount64();
 		break;
-	case MARIO_STATE_FLY:
+	case MARIO_STATE_FLY: 
 		isFlying = true;
 		isOnPlatform = false;
 		SetFly();
 		break;
-
+	
 	case MARIO_STATE_DIE:
 		vy = -MARIO_JUMP_DEFLECT_SPEED;
 		vx = 0;
@@ -771,7 +779,7 @@ void CMario::SetState(int state)
 	CGameObject::SetState(state);
 }
 
-void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom)
+void CMario::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
 
 	if (level != MARIO_LEVEL_SMALL)
@@ -787,9 +795,9 @@ void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom
 		else {
 			if (level == MARIO_LEVEL_TAIL && isTailAttack) {
 				{
-					left = x - MARIO_BIG_BBOX_WIDTH / 2 + 2;
+					left = x - MARIO_BIG_BBOX_WIDTH/2;
 					top = y - MARIO_BIG_BBOX_HEIGHT / 2;
-					right = left + MARIO_BIG_BBOX_WIDTH + 2;
+					right = left + MARIO_BIG_BBOX_WIDTH+8;
 					bottom = top + MARIO_BIG_BBOX_HEIGHT;
 				}
 			}
@@ -804,8 +812,8 @@ void CMario::GetBoundingBox(float& left, float& top, float& right, float& bottom
 	}
 	else
 	{
-		left = x - MARIO_SMALL_BBOX_WIDTH / 2;
-		top = y - MARIO_SMALL_BBOX_HEIGHT / 2;
+		left = x - MARIO_SMALL_BBOX_WIDTH/2;
+		top = y - MARIO_SMALL_BBOX_HEIGHT/2;
 		right = left + MARIO_SMALL_BBOX_WIDTH;
 		bottom = top + MARIO_SMALL_BBOX_HEIGHT;
 	}
@@ -819,6 +827,7 @@ void CMario::SetLevel(int l)
 		y -= (MARIO_BIG_BBOX_HEIGHT - MARIO_SMALL_BBOX_HEIGHT) / 2;
 	}
 	level = l;
+	SetModel(l);
 }
 
 void CMario::BlockIfNoBlock(LPGAMEOBJECT gameobject) {
@@ -854,7 +863,7 @@ void CMario::BlockIfNoBlock(LPGAMEOBJECT gameobject) {
 void CMario::SetLevelLower() {
 	if (level > MARIO_LEVEL_SMALL)
 	{
-		level = MARIO_LEVEL_SMALL;
+		SetLevel(MARIO_LEVEL_SMALL);
 		StartUntouchable();
 	}
 	else
@@ -865,7 +874,10 @@ void CMario::SetLevelLower() {
 }
 
 void CMario::SetFly() {
-	vy = -MARIO_FLYING;
+	if (isRunning) {
+		vy = -MARIO_FLYING;
+	}
+	else vy = -MARIO_FLY_FALL;
 	isFlying = true;
 }
 
