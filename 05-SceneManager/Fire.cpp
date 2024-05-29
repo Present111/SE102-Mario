@@ -56,9 +56,11 @@ void CFire::GetBoundingBox(float& l, float& t, float& r, float& b)
 
 void CFire::OnCollisionWith(LPCOLLISIONEVENT e) {
 	if (e->obj->IsItem()) return;
+	if (dynamic_cast<CFire*>(e->obj)) return;
 	if (e->obj->IsPlatform() || e->obj->IsBlocking() || !e->obj->IsEnemy()) {
 		if (e->nx != 0) {
 			isDeleted = true;
+			//vx = -vx;
 		}
 		else if (e->ny < 0) {
 			vy = -FIRE_JUMP;

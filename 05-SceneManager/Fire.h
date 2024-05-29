@@ -1,9 +1,9 @@
 #pragma once
 #include "GameObject.h"
-#define FIRE_BBOX_WIDTH	9
-#define FIRE_BBOX_HEIGHT	9
+#define FIRE_BBOX_WIDTH	8
+#define FIRE_BBOX_HEIGHT 8
 
-#define FIRE_SPEED_X	0.15f
+#define FIRE_SPEED_X	0.2f
 #define FIRE_SPEED_Y	0.05f
 
 #define FIRE_GRAVITY 0.0006f;
