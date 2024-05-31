@@ -5,7 +5,7 @@
 #include "Animations.h"
 #include "Tail.h"
 #include "debug.h"
-
+#include "InvisibleBlock.h"
 #define MARIO_WALKING_SPEED		0.1f
 #define MARIO_RUNNING_SPEED		0.2f
 
@@ -272,6 +272,7 @@ class CMario : public CGameObject
 	void OnCollisionWithPlatForm(LPCOLLISIONEVENT e);
 	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	void OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e);
+	void OnCollisionWithInvisibleBlock(LPCOLLISIONEVENT e);
 	void BlockIfNoBlock(LPGAMEOBJECT gameobject);
 	int GetAniIdBig();
 	int GetAniIdSmall();

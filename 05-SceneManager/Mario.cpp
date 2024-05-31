@@ -141,9 +141,18 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithPlantEnemy(e);
 	else if (dynamic_cast<CFireFromPlant*>(e->obj))
 		OnCollisionWithFireFromPlant(e);
+	else if (dynamic_cast<CInvisibleBlock*>(e->obj))
+		OnCollisionWithInvisibleBlock(e);
 }
 
-
+void CMario::OnCollisionWithInvisibleBlock(LPCOLLISIONEVENT e)
+{
+	CInvisibleBlock* block = dynamic_cast<CInvisibleBlock*>(e->obj);
+	if (e->nx != 0 || e->ny!=0)
+	{
+		
+	}
+}
 void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
 	if (platform->IsBlocking()) {}
@@ -331,8 +340,8 @@ void CMario::OnCollisionWithFlowerFire(LPCOLLISIONEVENT e) {
 }
 void CMario::OnCollisionWithPortal(LPCOLLISIONEVENT e)
 {
-	CPortal* p = (CPortal*)e->obj;
-	CGame::GetInstance()->InitiateSwitchScene(p->GetSceneId());
+	/*CPortal* p = (CPortal*)e->obj;
+	CGame::GetInstance()->InitiateSwitchScene(p->GetSceneId());*/
 }
 
 //

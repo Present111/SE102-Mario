@@ -2,6 +2,7 @@
 #include "Platform.h"
 #include "Mario.h"
 #include "PlayScene.h"
+#include "InvisibleBlock.h"
 CGoomba::CGoomba(float x, float y,int model):CGameObject(x, y)
 {
 	this->ax = 0;
@@ -65,6 +66,7 @@ void CGoomba::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithPlatForm(e);
 }
 
+
 void CGoomba::OnCollisionWithPlatForm(LPCOLLISIONEVENT e)
 {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
@@ -77,9 +79,13 @@ void CGoomba::OnCollisionWithPlatForm(LPCOLLISIONEVENT e)
 void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
 	if (!checkObjectInCamera(this)) return;
-
 	vy += ay * dt;
 	vx += ax * dt;
+	if (x > 1086)
+	{
+		ax=-ax;
+		return;
+	}
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 
 	if ( (isDead == true) && (GetTickCount64() - die_start > GOOMBA_DIE_TIMEOUT) )

@@ -20,6 +20,7 @@
 #include "SampleKeyEventHandler.h"
 #include "Game.h"
 #include "PlantEnemy.h"
+#include "InvisibleBlock.h"
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
@@ -172,7 +173,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_KOOPA_RED: obj = new CKoopa(x, y, KOOPA_RED); break;
 	case OBJECT_TYPE_PLANT_SHOOT: obj = new CPlantEnemy(x, y, PLANT_SHOOT); break;
 	case OBJECT_TYPE_PLANT_NOT_SHOOT: obj = new CPlantEnemy(x, y, PLANT_NOT_SHOOT); break;
-
+	case OBJECT_TYPE_INVISIBLE_BLOCK: obj = new CInvisibleBlock(x, y); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 
