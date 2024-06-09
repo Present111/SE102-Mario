@@ -251,6 +251,8 @@ class CMario : public CGameObject
 	int coin;
 
 
+
+	bool isChanging;
 	bool isRunning;
 	bool isHolding;
 	bool isFlying;
