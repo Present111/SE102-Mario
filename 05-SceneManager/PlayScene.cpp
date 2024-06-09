@@ -21,6 +21,7 @@
 #include "Game.h"
 #include "PlantEnemy.h"
 #include "InvisibleBlock.h"
+#include "HUD.h"
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :

@@ -388,5 +388,6 @@
     <Text Include="fire.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
+    <Text Include="hud.txt" />
   </ItemGroup>
 </Project>

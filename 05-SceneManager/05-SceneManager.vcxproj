@@ -230,6 +230,7 @@
     <Text Include="flowerfire.txt" />
     <Text Include="font.txt" />
     <Text Include="goomba.txt" />
+    <Text Include="hud.txt" />
     <Text Include="koopa.txt" />
     <Text Include="leaf.txt" />
     <Text Include="mario-sample.txt" />
