@@ -5,29 +5,40 @@
 #include "Platform.h"
 #include "PlayScene.h"
 #include "Mario.h"
+
 CMushRoom::CMushRoom(float x, float y) :CGameObject(x, y)
 {
 	this->ax = 0;
 	this->ay = MUSHROOM_GRAVITY;
 	vy = 0;
+	model = MUSHROOM_RED;
 	startY = y;
 	SetState(MUSHROOM_STATE_OUTSIDE);
 }
-void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects){
+CMushRoom::CMushRoom(float x, float y, int model) :CGameObject(x, y)
+{
+	this->ax = 0;
+	this->ay = MUSHROOM_GRAVITY;
+	vy = 0;
+	this->model = model;
+	startY = y;
+	SetState(MUSHROOM_STATE_OUTSIDE);
+}
+void CMushRoom::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 	if (mario->GetIsChanging()) return;
 	if (state == MUSHROOM_STATE_WALKING) {
 		vy += ay * dt;
 		vx += ax * dt;
 	}
-	else if(state == MUSHROOM_STATE_OUTSIDE) {
+	else if (state == MUSHROOM_STATE_OUTSIDE) {
 		if (startY - y < MUSHROOM_BBOX_HEIGHT - 1) {
 			vy = OUT_BRICK;
 			vx = 0;
 		}
 		else SetState(MUSHROOM_STATE_WALKING);
 	}
-		
+
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
@@ -38,7 +49,7 @@ void CMushRoom::OnNoCollision(DWORD dt)
 };
 
 void CMushRoom::OnCollisionWith(LPCOLLISIONEVENT e)
-{	
+{
 	if (!e->obj->IsBlocking() && !e->obj->IsPlatform()) return;
 	if (!e->obj->IsPlayer()) {
 		if (e->ny != 0)
@@ -67,9 +78,10 @@ void CMushRoom::OnCollisionWithPlatForm(LPCOLLISIONEVENT e)
 void CMushRoom::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
-	animations->Get(ID_ANI_MUSHROOM)->Render(x, y);
+	if (model == MUSHROOM_RED) animations->Get(ID_ANI_MUSHROOM_RED)->Render(x, y);
+	else animations->Get(ID_ANI_MUSHROOM_GREEN)->Render(x, y);
 
-	RenderBoundingBox();
+	//RenderBoundingBox();
 }
 
 void CMushRoom::GetBoundingBox(float& l, float& t, float& r, float& b)
@@ -84,7 +96,7 @@ void CMushRoom::SetState(int state)
 {
 	switch (state)
 	{
-		case MUSHROOM_STATE_WALKING:
+	case MUSHROOM_STATE_WALKING:
 		vx = -MUSHROOM_SPEED;
 		break;
 	}

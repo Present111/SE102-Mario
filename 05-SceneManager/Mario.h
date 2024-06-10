@@ -249,7 +249,8 @@
 #define MARIO_SMALL_BBOX_HEIGHT 12
 
 #define TIME_CHANGING 700
-#define MARIO_UNTOUCHABLE_TIME 3200
+#define MARIO_UNTOUCHABLE_TIME (TIME_CHANGING + 2500)
+#define TIME_ONE_SECOND 1000
 
 class CMario : public CGameObject
 {
@@ -259,7 +260,11 @@ class CMario : public CGameObject
 	float ay;				// acceleration on y 
 	int level;
 	int untouchable;
+	int clock;
 	int levelRun;
+	int Up;
+
+
 	ULONGLONG untouchable_start;
 	ULONGLONG start_limit_shoot;
 	ULONGLONG start_fly;
@@ -270,6 +275,7 @@ class CMario : public CGameObject
 	ULONGLONG speed_stop;
 	ULONGLONG start_tail_attack;
 	ULONGLONG start_changing;
+	ULONGLONG time_down_1_second;
 	BOOLEAN isOnPlatform;
 	int coin;
 
@@ -307,8 +313,10 @@ class CMario : public CGameObject
 	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	void OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e);
 
+	
 
 public:
+	void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 	CMario(float x, float y);
 	void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	void Render();
@@ -341,6 +349,5 @@ public:
 	void SetFly();
 	void SetMarioTailAttack();
 	void SetLevelLower();
-	void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 
 };

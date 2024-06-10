@@ -202,8 +202,9 @@ Resource\Tilemap\world1-1.txt
 40	0	416	16	16	1	2	2	2
 
 #MARIO
-0	18	368
-
+0	1440	100
+#BRICKGREEN
+37	1440	128
 
 
 

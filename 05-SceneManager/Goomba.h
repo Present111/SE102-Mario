@@ -46,6 +46,7 @@ protected:
 	float ax;
 	float ay;
 	float startX, startY;
+	int model;
 	ULONGLONG die_start;
 	ULONGLONG time_walking;
 	ULONGLONG time_jump_small;
@@ -65,6 +66,7 @@ protected:
 	virtual int IsCollidable() { return 1; };
 	virtual int IsBlocking() { return 0; }
 	virtual int IsEnemy() { return 1; }
+
 	virtual void OnNoCollision(DWORD dt);
 	virtual void OnCollisionWithPlatForm(LPCOLLISIONEVENT e);
 
@@ -73,8 +75,14 @@ protected:
 	int GetAniGoompaBase();
 	int GetAniGoompaWing();
 public:
-	bool GetIsDead() { return isDead; }
 	CGoomba(float x, float y, int model);
+
+	//get
+	bool GetIsDead() { return isDead; }
+
+	void SetModel(int model) { this->model = model; }
+	int GetModel() { return model; }
+	//set
 	void SetLevel(int l);
 	virtual void SetState(int state);
 };
