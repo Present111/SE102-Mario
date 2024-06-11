@@ -103,6 +103,9 @@
     <Filter Include="Header Files\Object\Block\Portal">
       <UniqueIdentifier>{a2ee8fa4-0071-4bdf-8be3-094c13551cc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\Brick\BoomBrick">
+      <UniqueIdentifier>{bbc715f3-d36a-4ec5-8e2a-be2bab004a3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -209,6 +212,9 @@
     </ClCompile>
     <ClCompile Include="InvisibleBlock.cpp">
       <Filter>Header Files\Object\Block\InvisibleBlock</Filter>
+    </ClCompile>
+    <ClCompile Include="BoomBrick.cpp">
+      <Filter>Header Files\Object\Brick\BoomBrick</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +331,9 @@
     </ClInclude>
     <ClInclude Include="InvisibleBlock.h">
       <Filter>Header Files\Object\Block\InvisibleBlock</Filter>
+    </ClInclude>
+    <ClInclude Include="BoomBrick.h">
+      <Filter>Header Files\Object\Brick\BoomBrick</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

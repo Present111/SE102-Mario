@@ -22,6 +22,7 @@
 #include "PlantEnemy.h"
 #include "InvisibleBlock.h"
 #include "HUD.h"
+#include "BoomBrick.h"
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
@@ -177,6 +178,8 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_INVISIBLE_BLOCK: obj = new CInvisibleBlock(x, y); break;
 	case OBJECT_TYPE_BRICKQUESTION_MUSHROOM_GREEN: obj = new CBrickQuestion(x, y, QUESTION_BRICK_MUSHROOM_GREEN); break;
 	case OBJECT_TYPE_MUSHROOM_GREEN: obj = new CMushRoom(x, y, MUSHROOM_GREEN); break;
+	case OBJECT_TYPE_BOOMBRICK_NOT_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_COIN); break;
+	case OBJECT_TYPE_BOOMBRICK_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_NOT_COIN); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 
