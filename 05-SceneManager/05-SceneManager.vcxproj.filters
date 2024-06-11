@@ -106,6 +106,9 @@
     <Filter Include="Header Files\Object\Brick\BoomBrick">
       <UniqueIdentifier>{bbc715f3-d36a-4ec5-8e2a-be2bab004a3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\Button">
+      <UniqueIdentifier>{68aaaf77-163c-47ff-b64b-1ccbc823e814}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -215,6 +218,9 @@
     </ClCompile>
     <ClCompile Include="BoomBrick.cpp">
       <Filter>Header Files\Object\Brick\BoomBrick</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Header Files\Object\Button</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -335,6 +341,9 @@
     <ClInclude Include="BoomBrick.h">
       <Filter>Header Files\Object\Brick\BoomBrick</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files\Object\Button</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="brick.txt">
@@ -397,6 +406,11 @@
     <Text Include="fire.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="hud.txt" />
+    <Text Include="hud.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
+    <Text Include="button.txt">
+      <Filter>Header Files\Object\Button</Filter>
+    </Text>
   </ItemGroup>
 </Project>
