@@ -182,6 +182,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_BOOMBRICK_NOT_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_COIN); break;
 	case OBJECT_TYPE_BOOMBRICK_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_NOT_COIN); break;
 	case OBJECT_TYPE_BUTTON: obj = new CButton(x, y); break;
+	case OBJECT_TYPE_QUESTION_BRICK_BUTTON: obj = new CBrickQuestion(x, y, QUESTION_BRICK_BUTTON); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 

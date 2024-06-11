@@ -61,8 +61,14 @@ void CBrickQuestion::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 void CBrickQuestion::Render()
 {
-	int aniId = ID_ANI_QUESTION_BRICK;
-
+	int aniId = ID_ANI_QUESTION_BRICK_BUTTON;
+	if (model != QUESTION_BRICK_BUTTON)
+	{
+		aniId = ID_ANI_QUESTION_BRICK;
+		if (isEmpty) {
+			aniId = ID_ANI_QUESTION_BRICK_EMPTY;
+		}
+	}
 	if (isEmpty) {
 		aniId = ID_ANI_QUESTION_BRICK_EMPTY;
 	}

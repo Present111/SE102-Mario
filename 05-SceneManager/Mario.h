@@ -312,6 +312,7 @@ class CMario : public CGameObject
 	void OnCollisionWithPlatForm(LPCOLLISIONEVENT e);
 	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	void OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e);
+	void OnCollisionWithBoomBrick(LPCOLLISIONEVENT e);
 
 	
 

@@ -17,6 +17,8 @@
 #include "Portal.h"
 #include "PlayScene.h"
 #include "Collision.h"
+#include "BoomBrick.h"
+#include "Button.h"
 
 CMario::CMario(float x, float y) : CGameObject(x, y) {
 	isShoot = false;
@@ -169,6 +171,18 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithPlantEnemy(e);
 	else if (dynamic_cast<CFireFromPlant*>(e->obj))
 		OnCollisionWithFireFromPlant(e);
+	else if (dynamic_cast<CBoomBrick*>(e->obj))
+		OnCollisionWithBoomBrick(e);
+}
+
+void CMario::OnCollisionWithBoomBrick(LPCOLLISIONEVENT e) {
+	CBoomBrick* boombrick = dynamic_cast<CBoomBrick*>(e->obj);
+	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+	float boomX, boomY;
+	boomX = boombrick->GetX();
+	boomY = boombrick->GetY();
+	CButton* button = new CButton(boomX, boomY);
+	
 }
 
 
@@ -354,6 +368,12 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 			CCoin* coin = new CCoin(x, y);
 			coin->SetState(COIN_SUMMON_STATE);
 			scene->AddObject(coin);
+			questionBrick->SetIsEmpty(true);
+		}
+		else if (questionBrick->GetModel() == QUESTION_BRICK_BUTTON)
+		{
+			CButton* button = new CButton(x, y);
+			scene->AddObject(button);
 			questionBrick->SetIsEmpty(true);
 		}
 		else {
