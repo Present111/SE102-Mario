@@ -22,7 +22,7 @@ protected:
 	// A play scene has to have player, right? 
 	LPGAMEOBJECT player;					
 	CMap* current_map = NULL;
-	CHUD* hud = new CHUD(0, 0);
+	CHUD* hud = NULL;
 	vector<LPGAMEOBJECT> objects;
 
 	void _ParseSection_SPRITES(string line);

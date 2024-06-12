@@ -82,9 +82,6 @@
     <Filter Include="Header Files\Object\Pipe">
       <UniqueIdentifier>{b5b66e90-24a9-4bde-86f5-e62c5e7e2f41}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\PlantEnemy">
-      <UniqueIdentifier>{fd6b4d9e-0c67-4349-8f24-65cf76b2d43c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\FireFromPlant">
       <UniqueIdentifier>{6f29e13a-6c37-4b7f-9ba9-1df3bac02bdb}</UniqueIdentifier>
     </Filter>
@@ -108,6 +105,9 @@
     </Filter>
     <Filter Include="Header Files\Object\Button">
       <UniqueIdentifier>{68aaaf77-163c-47ff-b64b-1ccbc823e814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Object\PlantEnemy">
+      <UniqueIdentifier>{fd6b4d9e-0c67-4349-8f24-65cf76b2d43c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -202,7 +202,7 @@
       <Filter>Header Files\FireFromPlant</Filter>
     </ClCompile>
     <ClCompile Include="PlantEnemy.cpp">
-      <Filter>Header Files\PlantEnemy</Filter>
+      <Filter>Header Files\Object\PlantEnemy</Filter>
     </ClCompile>
     <ClCompile Include="Tail.cpp">
       <Filter>Header Files\Action\Tail</Filter>
@@ -324,7 +324,7 @@
       <Filter>Header Files\Object\Pipe</Filter>
     </ClInclude>
     <ClInclude Include="PlantEnemy.h">
-      <Filter>Header Files\PlantEnemy</Filter>
+      <Filter>Header Files\Object\PlantEnemy</Filter>
     </ClInclude>
     <ClInclude Include="Tail.h">
       <Filter>Header Files\Action\Tail</Filter>
@@ -346,43 +346,13 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="brick.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="brickquestion.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="cloud.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="coin.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
     <Text Include="effect.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="flowerfire.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
     <Text Include="font.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="goomba.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="koopa.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="leaf.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="mario.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
     <Text Include="mario-sample.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="mushroom.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
     <Text Include="scene0005.txt">
@@ -397,20 +367,50 @@
     <Text Include="worldmap.txt.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
-    <Text Include="pipe.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="platform.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="fire.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="hud.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
     <Text Include="button.txt">
       <Filter>Header Files\Object\Button</Filter>
+    </Text>
+    <Text Include="hud.txt">
+      <Filter>Header Files\HUD\HUD</Filter>
+    </Text>
+    <Text Include="brick.txt">
+      <Filter>Header Files\Object\Brick\Brick</Filter>
+    </Text>
+    <Text Include="brickquestion.txt">
+      <Filter>Header Files\Object\Brick\BrickQuestion</Filter>
+    </Text>
+    <Text Include="cloud.txt">
+      <Filter>Header Files\Object\Brick\Platform</Filter>
+    </Text>
+    <Text Include="coin.txt">
+      <Filter>Header Files\Object\Items\Coin</Filter>
+    </Text>
+    <Text Include="flowerfire.txt">
+      <Filter>Header Files\Object\Items\FlowerFire</Filter>
+    </Text>
+    <Text Include="leaf.txt">
+      <Filter>Header Files\Object\Items\Leaf</Filter>
+    </Text>
+    <Text Include="pipe.txt">
+      <Filter>Header Files\Object\Pipe</Filter>
+    </Text>
+    <Text Include="mushroom.txt">
+      <Filter>Header Files\Object\Items\MushRoom</Filter>
+    </Text>
+    <Text Include="goomba.txt">
+      <Filter>Header Files\Object\Enemies\Goomba</Filter>
+    </Text>
+    <Text Include="koopa.txt">
+      <Filter>Header Files\Object\Enemies\Koopa</Filter>
+    </Text>
+    <Text Include="platform.txt">
+      <Filter>Header Files\Object\Brick\Platform</Filter>
+    </Text>
+    <Text Include="mario.txt">
+      <Filter>Header Files\Object\Mario</Filter>
+    </Text>
+    <Text Include="fire.txt">
+      <Filter>Header Files\Action\Fire</Filter>
     </Text>
   </ItemGroup>
 </Project>
