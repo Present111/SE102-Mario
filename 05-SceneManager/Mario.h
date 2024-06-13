@@ -30,7 +30,7 @@
 #define TIME_FLY 3000
 #define TIME_TAIL_ATTACK 300
 #define TIME_PREPARE_RUN 700
-#define TIME_SPEED 150
+#define TIME_SPEED 200
 #define TIME_KICK_ANIMATION 100
 #define TIME_SHOOT_ANI 100
 #define TIME_SHOOT_LIMIT 200
@@ -339,6 +339,8 @@ public:
 	bool IsBrace() { return (ax * vx < 0); }
 	bool GetIsChanging() { return isChanging; }
 	int GetLevelRun() { return levelRun; }
+	int GetUp() { return Up; }
+	int GetClock() { return clock; }
 	//set
 	void SetState(int state);
 	void SetIsHolding(bool b) { isHolding = b; }
