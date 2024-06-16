@@ -24,6 +24,7 @@
 #include "HUD.h"
 #include "BoomBrick.h"
 #include "Button.h"
+#include "Effect.h"
 using namespace std;
 
 CPlayScene::CPlayScene(int id, LPCWSTR filePath) :
@@ -106,7 +107,7 @@ void CPlayScene::_ParseSection_TILEMAP_DATA(string line)
 
 	current_map = new CMap(ID, rowMap, columnMap, rowTile, columnTile, totalTiles);
 	current_map->ExtractTileFromTileSet();
-	current_map->SetTileMapData(TileMapData);
+	current_map->SetTileMapData(TileMapData); 
 }
 
 
@@ -182,6 +183,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_BOOMBRICK_NOT_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_COIN); break;
 	case OBJECT_TYPE_BOOMBRICK_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_NOT_COIN); break;
 	case OBJECT_TYPE_BUTTON: obj = new CButton(x, y); break;
+	case OBJECT_TYPE_TEST: obj = new CEffect(x, y, EFFECT_ATTACK); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 

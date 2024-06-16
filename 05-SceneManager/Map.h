@@ -10,8 +10,8 @@ class CMap
 {
 	int TotalRowsOfMap, TotalColumnsOfMap;
 	int TotalRowsOfTileSet, TotalColumnsOfTileSet;
-	int TotalTiles;	//total tiles of tile set
-	LPTEXTURE TileSet; //sceneX_bank.png
+	int TotalTiles;	
+	LPTEXTURE TileSet; 
 	vector<LPSPRITE> Tiles;
 	int** TileMap;
 	float CamX, CamY;

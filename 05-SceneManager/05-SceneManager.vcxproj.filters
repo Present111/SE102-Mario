@@ -109,6 +109,9 @@
     <Filter Include="Header Files\Object\PlantEnemy">
       <UniqueIdentifier>{fd6b4d9e-0c67-4349-8f24-65cf76b2d43c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Effect">
+      <UniqueIdentifier>{0dd82833-210a-46ad-a8b6-c56eb313f3d9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -221,6 +224,9 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Header Files\Object\Button</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>Header Files\Effect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -344,11 +350,11 @@
     <ClInclude Include="Button.h">
       <Filter>Header Files\Object\Button</Filter>
     </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>Header Files\Effect</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="effect.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
     <Text Include="font.txt">
       <Filter>Header Files\txtFile</Filter>
     </Text>
@@ -411,6 +417,9 @@
     </Text>
     <Text Include="fire.txt">
       <Filter>Header Files\Action\Fire</Filter>
+    </Text>
+    <Text Include="effect.txt">
+      <Filter>Header Files\Effect</Filter>
     </Text>
   </ItemGroup>
 </Project>
