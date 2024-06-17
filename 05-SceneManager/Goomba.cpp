@@ -269,8 +269,8 @@ void CGoomba::SetState(int state)
 			};
 			break;
 		case GOOMBA_STATE_DIE_UPSIDE:
-			ay = GOOMBA_GRAVITY / 4;
-			vy = -GOOMBA_JUMP_DEFLECT_SPEED / 2;
+			ay = GOOMBA_GRAVITY;
+			vy = -GOOMBA_JUMP_DEFLECT_SPEED;
 			isUpside = true;
 			die_start = GetTickCount64();
 

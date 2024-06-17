@@ -210,20 +210,27 @@ void CKoopa::OnCollisionWith(LPCOLLISIONEVENT e) {
 
 
 void CKoopa::OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e) {
+	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+
 	CPlantEnemy* plant = dynamic_cast<CPlantEnemy*>(e->obj);
 	if (isKicked) {
+		mario->IncreaseScoreUpCollision(x, y);
 		plant->SetState(PLANT_STATE_DEATH);
 	}
 }
 
 
 void CKoopa::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
+	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
 	if (isKicked) {
 		SetState(KOOPA_STATE_DEAD_UPSIDE);
 		koopa->SetState(KOOPA_STATE_DEAD_UPSIDE);
 	}
 	else if (isKicked) {
+		mario->IncreaseScoreUpCollision(x, y);
+
 		koopa->SetState(KOOPA_STATE_DEAD_UPSIDE);
 	}
 }
@@ -263,11 +270,12 @@ void CKoopa::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 	}
 }
 void CKoopa::OnCollisionWithGoomba(LPCOLLISIONEVENT e) {
+	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
-	if (e->nx != 0) {
-		if (isKicked) {
-			goomba->SetState(GOOMBA_STATE_DIE_UPSIDE);
-		}
+	if (isKicked) {
+		mario->IncreaseScoreUpCollision(x, y);
+		goomba->SetState(GOOMBA_STATE_DIE_UPSIDE);
 	}
 }
 void CKoopa::OnCollisionWithPlatform(LPCOLLISIONEVENT e) {
