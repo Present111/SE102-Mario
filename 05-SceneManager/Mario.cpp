@@ -17,6 +17,7 @@
 #include "Portal.h"
 #include "PlayScene.h"
 #include "Collision.h"
+#include "Effect.h"
 
 CMario::CMario(float x, float y) : CGameObject(x, y) {
 	isShoot = false;
@@ -305,6 +306,7 @@ void CMario::OnCollisionWithCoin(LPCOLLISIONEVENT e)
 void CMario::OnCollisionWithLeaf(LPCOLLISIONEVENT e) {
 	e->obj->Delete();
 	if (level != MARIO_LEVEL_SMALL) {
+		AddChangeAnimation();
 		SetLevel(MARIO_LEVEL_TAIL);
 	}
 	else SetLevel(MARIO_LEVEL_BIG);
@@ -377,6 +379,7 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 void CMario::OnCollisionWithFlowerFire(LPCOLLISIONEVENT e) {
 	e->obj->Delete();
 	if (level != MARIO_LEVEL_SMALL) {
+		AddChangeAnimation();
 		SetLevel(MARIO_LEVEL_FIRE);
 	}
 	else SetLevel(MARIO_LEVEL_BIG);
@@ -816,7 +819,8 @@ void CMario::Render()
 		if (!isChanging) animations->Get(aniId)->Render(x, y);
 	}
 	else {
-		if ((level == MARIO_LEVEL_BIG) && (isLower)) {}
+		if ((level == MARIO_LEVEL_BIG) && (isLower)) {
+		}
 		else {
 			if (!untouchable)
 			{
@@ -1035,6 +1039,7 @@ void CMario::SetLevelLower() {
 
 	if (level > MARIO_LEVEL_SMALL)
 	{
+		AddChangeAnimation();
 		StartUntouchable();
 		if (level == MARIO_LEVEL_BIG) {
 			SetLevel(MARIO_LEVEL_SMALL);
@@ -1062,4 +1067,10 @@ void CMario::SetMarioTailAttack() {
 	if (level == MARIO_LEVEL_TAIL) {
 		isTailAttack = true;
 	}
+}
+
+void CMario::AddChangeAnimation() {
+	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+	CEffect* effect = new CEffect(x, y, EFFECT_CHANGE);
+	scene->AddObject(effect);
 }
