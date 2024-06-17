@@ -1,4 +1,5 @@
 #pragma once
+#include "HUD.h"
 #include "GameObject.h"
 #include "Sprite.h"
 #include "Mario.h"
@@ -22,8 +23,12 @@
 #define ID_ANI_9	30019
 
 
+
+
+
 #define ADJUST_HUD_X_POSITION 128
 #define ADJUST_HUD_Y_POSITION 196
+
 #define ADJUST_X_POWER_POSITION 60
 #define ADJUST_X_POWER_POSITION_MAX 8
 
@@ -34,13 +39,18 @@
 #define POSITION_WORLD_X -76
 #define POSITION_COIN_X 20
 #define POSITION_CLOCK_X 12
+#define POSITION_SCORE_X -60
 #define POSITION_M_SYMBOL_X -104
 #define POSITION_UP_X -84
 #define DISTANCE_NUMBER 8
+
+
 class CHUD
 {
-protected:
+private:
 	float x, y;
+
+
 public:
 	CHUD(float x, float y);
 	void DrawNumber(int n, float xTemp, float yTemp);

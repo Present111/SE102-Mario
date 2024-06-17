@@ -265,6 +265,7 @@ class CMario : public CGameObject
 	int untouchable;
 	int clock;
 	int levelRun;
+	int score;
 	int Up;
 
 
@@ -327,6 +328,7 @@ public:
 
 
 	//get
+	int GetScore() { return score; }
 	int GetLevel() { return level; }
 	int GetCoin() { return this->coin; }
 	bool GetIsTailAttack() { return isTailAttack; }
@@ -342,6 +344,7 @@ public:
 	int GetUp() { return Up; }
 	int GetClock() { return clock; }
 	//set
+	void SetScore(int l) { score = l; }
 	void SetState(int state);
 	void SetIsHolding(bool b) { isHolding = b; }
 	void SetIsKicking(bool b) { isKicking = b; }
@@ -356,5 +359,7 @@ public:
 	void SetMarioTailAttack();
 	void SetLevelLower();
 	void AddChangeAnimation();
+	void AddEffectAttack(float xTemp, float yTemp);
+	void AddScore(float xTemp, float yTemp, int scoreAdd);
 
 };
