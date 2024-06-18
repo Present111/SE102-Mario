@@ -46,6 +46,7 @@ void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 	vy += ay * dt;
 	vx += ax * dt;
 
+
 	if (mario->GetIsHolding() && isHeld) {
 		this->x = mario->GetX() + mario->GetNx() * (MARIO_BIG_BBOX_WIDTH - 3);
 		this->y = mario->GetY();
@@ -224,7 +225,7 @@ void CKoopa::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
-	if (isKicked) {
+	if (isHeld) {
 		SetState(KOOPA_STATE_DEAD_UPSIDE);
 		koopa->SetState(KOOPA_STATE_DEAD_UPSIDE);
 	}
@@ -248,13 +249,9 @@ void CKoopa::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 						CMushRoom* mushroom = new CMushRoom(questionBrick->GetX(), questionBrick->GetY());
 						scene->AddObject(mushroom);
 					}
-					else if (mario->GetLevel() == MARIO_LEVEL_BIG) {
+					else if (mario->GetLevel() >= MARIO_LEVEL_BIG) {
 						CLeaf* leaf = new CLeaf(questionBrick->GetX(), questionBrick->GetY());
 						scene->AddObject(leaf);
-					}
-					else if (mario->GetLevel() == MARIO_LEVEL_TAIL || mario->GetLevel() == MARIO_LEVEL_FIRE) {
-						CFlowerFire* flower = new CFlowerFire(questionBrick->GetX(), questionBrick->GetY());
-						scene->AddObject(flower);
 					}
 				}
 				else {
@@ -270,13 +267,15 @@ void CKoopa::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 	}
 }
 void CKoopa::OnCollisionWithGoomba(LPCOLLISIONEVENT e) {
-	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
+
 	if (isKicked) {
+		CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 		mario->IncreaseScoreUpCollision(x, y);
 		goomba->SetState(GOOMBA_STATE_DIE_UPSIDE);
 	}
+
 }
 void CKoopa::OnCollisionWithPlatform(LPCOLLISIONEVENT e) {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
@@ -336,7 +335,7 @@ void CKoopa::SetState(int state) {
 		isComeback = false;
 		if (isWing) {
 			isWing = false;
-			ay = -KOOPA_GRAVITY;
+			ay = KOOPA_GRAVITY;
 		}
 		isKicked = false;
 		vy = -KOOPA_JUMP_IS_ATTACKED;

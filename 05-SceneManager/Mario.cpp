@@ -2,6 +2,7 @@
 #include "debug.h"
 
 #include "Leaf.h"
+#include "Effect.h"
 #include "Mario.h"
 #include "Fire.h"
 #include "PlantEnemy.h"
@@ -17,7 +18,6 @@
 #include "Portal.h"
 #include "PlayScene.h"
 #include "Collision.h"
-#include "Effect.h"
 
 CMario::CMario(float x, float y) : CGameObject(x, y) {
 	isShoot = false;
@@ -68,7 +68,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
-	
+
 
 
 	if (GetTickCount64() - start_score_up > TIME_SCORE_UP_MAX) {
@@ -204,7 +204,10 @@ void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 }
 void CMario::OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e) {
 	if (untouchable) return;
+
 	CPlantEnemy* plant = dynamic_cast<CPlantEnemy*>(e->obj);
+	AddScore(plant->GetX(), plant->GetY(), 100);
+	score += 100;
 	if (isTailAttack) { plant->SetIsDeleted(true); }
 	else SetLevelLower();
 }
@@ -220,6 +223,8 @@ void CMario::OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e) {
 void CMario::OnCollisionWithKoopa(LPCOLLISIONEVENT e) {
 	CKoopa* koopa = dynamic_cast<CKoopa*>(e->obj);
 	if (isTailAttack) {
+		AddScore(koopa->GetX(), koopa->GetY(), 100);
+		score += 100;
 		koopa->SetState(KOOPA_STATE_UPSIDE);
 	}
 	else {
@@ -286,6 +291,8 @@ void CMario::OnCollisionWithGoomba(LPCOLLISIONEVENT e)
 	CGoomba* goomba = dynamic_cast<CGoomba*>(e->obj);
 
 	if (isTailAttack) {
+		AddScore(goomba->GetX(), goomba->GetY(), 100);
+		score += 100;
 		goomba->SetState(GOOMBA_STATE_DIE_UPSIDE);
 	}
 	else {
@@ -351,6 +358,7 @@ void CMario::OnCollisionWithMushRoom(LPCOLLISIONEVENT e)
 		if (!mushroom->IsDeleted()) AddScore(x, y - MARIO_BIG_BBOX_HEIGHT, 0);
 	}
 	mushroom->Delete();
+
 }
 
 void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
@@ -373,13 +381,9 @@ void CMario::OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e) {
 				CMushRoom* mushroom = new CMushRoom(x, y);
 				scene->AddObject(mushroom);
 			}
-			else if (GetLevel() == MARIO_LEVEL_BIG) {
+			else if (GetLevel() >= MARIO_LEVEL_BIG) {
 				CLeaf* leaf = new CLeaf(x, y);
 				scene->AddObject(leaf);
-			}
-			else if (GetLevel() == MARIO_LEVEL_TAIL || GetLevel() == MARIO_LEVEL_FIRE) {
-				CFlowerFire* flower = new CFlowerFire(x, y);
-				scene->AddObject(flower);
 			}
 			questionBrick->SetIsEmpty(true);
 		}
@@ -408,7 +412,6 @@ void CMario::OnCollisionWithFlowerFire(LPCOLLISIONEVENT e) {
 		AddScore(x, y, 1000);
 	}
 	e->obj->Delete();
-
 	if (level == MARIO_LEVEL_FIRE) {}
 	else if (level != MARIO_LEVEL_SMALL) {
 		AddChangeAnimation();
@@ -836,6 +839,7 @@ int CMario::GetAniIdBig()
 void CMario::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();
+
 	int aniId = -1;
 	if (state == MARIO_STATE_DIE)
 		aniId = ID_ANI_MARIO_DIE;
@@ -1071,7 +1075,6 @@ void CMario::SetLevelLower() {
 
 	if (level > MARIO_LEVEL_SMALL)
 	{
-		AddChangeAnimation();
 		StartUntouchable();
 		if (level == MARIO_LEVEL_BIG) {
 
@@ -1156,103 +1159,51 @@ void CMario::AddScore(float xTemp, float yTemp, int scoreAdd) {
 }
 
 
-
-
-
-
 void CMario::IncreaseScoreUpCollision(float xTemp, float yTemp) {
-
 	start_score_up = GetTickCount64();
-
 	if (scoreUpCollision == 1) {
-
 		score += 100;
-
 		AddScore(xTemp, yTemp, 100);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 2) {
-
 		score += 200;
-
 		AddScore(xTemp, yTemp, 200);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 3) {
-
 		score += 400;
-
 		AddScore(xTemp, yTemp, 400);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 4) {
-
 		score += 800;
-
 		AddScore(xTemp, yTemp, 800);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 5) {
-
 		score += 1000;
-
 		AddScore(xTemp, yTemp, 1000);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 6) {
-
 		score += 2000;
-
 		AddScore(xTemp, yTemp, 2000);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 7) {
-
 		score += 4000;
-
 		AddScore(xTemp, yTemp, 4000);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision == 8) {
-
 		score += 8000;
-
 		AddScore(xTemp, yTemp, 8000);
-
 		scoreUpCollision++;
-
 	}
-
 	else if (scoreUpCollision > 8) {
-
-		scoreUpCollision = 8;
-
+		scoreUpCollision = 9;
 		AddScore(xTemp, yTemp, 0);
-
 	}
-
-
-
 
 }
