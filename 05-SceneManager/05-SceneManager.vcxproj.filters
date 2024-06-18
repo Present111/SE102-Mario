@@ -421,5 +421,8 @@
     <Text Include="effect.txt">
       <Filter>Header Files\Effect</Filter>
     </Text>
+    <Text Include="world1-1-1.txt">
+      <Filter>Header Files\txtFile</Filter>
+    </Text>
   </ItemGroup>
 </Project>
