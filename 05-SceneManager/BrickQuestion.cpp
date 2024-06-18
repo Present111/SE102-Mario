@@ -5,7 +5,7 @@
 #include "PlayScene.h"
 #include "FlowerFire.h"
 #include "Coin.h"
-
+#include"BoomBrick.h"
 CBrickQuestion::CBrickQuestion(float x, float y, int model) :CGameObject(x, y)
 {
 	this->model = model;
@@ -66,7 +66,11 @@ void CBrickQuestion::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 
 void CBrickQuestion::Render()
 {
-	int aniId = ID_ANI_QUESTION_BRICK;
+	int aniId;
+	if (model == QUESTION_BRICK_MUSHROOM_GREEN) {
+		aniId = ID_ANI_BOOMBRICK;
+	}
+	else aniId = ID_ANI_QUESTION_BRICK;
 
 	if (isEmpty) {
 		aniId = ID_ANI_QUESTION_BRICK_EMPTY;

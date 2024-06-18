@@ -31,7 +31,7 @@ void CPlantEnemy::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
-	if (mario->GetIsChanging()) return;
+	if (mario->GetIsChanging() || mario->GetState() == MARIO_STATE_DIE) return;
 	if (IsMarioOnPipe()) {
 		// Không cho cây ăn thịt trồi lên nếu Mario đứng trên ống
 		if (isUpping) {

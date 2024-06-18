@@ -231,7 +231,7 @@ Resource\Tilemap\world1-1.txt
 
 
 #MARIO
-0	17	368
+0	16	400
 #EFFECT
 600	17	368
 
