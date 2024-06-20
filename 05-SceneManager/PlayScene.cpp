@@ -359,7 +359,7 @@ void CPlayScene::Update(DWORD dt)
 
 	if (cx < 0) cx = 0;
 	if (cx < HIDDEN_POSITION_X) {
-		//if (cx > FULL_WEIGHT_1_1 - ADJUST_CAMERA_X) cx = FULL_WEIGHT_1_1 - ADJUST_CAMERA_X;
+		if (cx > FULL_WEIGHT_1_1 - ADJUST_CAMERA_X) cx = FULL_WEIGHT_1_1 - ADJUST_CAMERA_X;
 	
 
 		if (cy > ADJUST_CAM_MAX_Y) cy = ADJUST_CAM_MAX_Y;
@@ -369,8 +369,7 @@ void CPlayScene::Update(DWORD dt)
 		if (cy < 0) cy = 0;
 	}
 	else {
-		cx = HIDDEN_POSITION_X;
-		cy = 0;
+		cy = ADJUST_CAM_HIDDEN_MAP;
 	}
 	CGame::GetInstance()->SetCamPos(cx, cy);
 
