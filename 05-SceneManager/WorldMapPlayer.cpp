@@ -1,4 +1,5 @@
 #include "WorldMapPlayer.h"
+#include "GameObject.h"
 void CWorldMapPlayer::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 
 }
@@ -10,9 +11,9 @@ void CWorldMapPlayer::Render() {
 }
 
 void CWorldMapPlayer::GetBoundingBox(float& left, float& top, float& right, float& bottom) {
-	left = x - MARIO_WORLD_MAP_BBOX_WIDTH / 2;
-	top = y - MARIO_WORLD_MAP_BBOX_WIDTH / 2;
-	right = left + MARIO_WORLD_MAP_BBOX_HEIGHT;
+	left = x - MARIO_WORLD_MAP_BBOX_WIDTH / 2; 
+	top = y - MARIO_WORLD_MAP_BBOX_WIDTH / 2; 
+	right = left + MARIO_WORLD_MAP_BBOX_HEIGHT; 
 	bottom = top + MARIO_WORLD_MAP_BBOX_HEIGHT;
 
 }
@@ -25,7 +26,7 @@ void CWorldMapPlayer::OnCollisionWith(LPCOLLISIONEVENT e) {
 
 }
 
-void SetState(int state) {
+void CWorldMapPlayer::SetState(int state) {
 
-CGameObject:SetState(state);
+	CGameObject:SetState(state);
 }

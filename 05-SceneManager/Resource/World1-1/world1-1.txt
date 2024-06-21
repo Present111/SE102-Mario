@@ -1,6 +1,5 @@
 # list of object assets to load in this scene
 [ASSETS]
-
 Resource\World1-1\mario.txt
 Resource\World1-1\brick.txt
 Resource\World1-1\coin.txt
@@ -13,17 +12,14 @@ Resource\World1-1\brickquestion.txt
 Resource\World1-1\platform.txt
 Resource\World1-1\pipe.txt
 Resource\World1-1\koopa.txt
-Resource\World1-1\fire.txt
+Resource\World1-1\bulletplant.txt
 Resource\World1-1\hud.txt
 Resource\World1-1\effect.txt
-effect.txt
 [TILEMAP]
 Resource\Tilemap\world1-1.txt
 [HIDDENMAP]
 Resource\Tilemap\world1-1-1.txt
 [OBJECTS]
-# type	x	y	extra_settings per object type
-# type: 0 = Mario , 1 = Brick, 2 = Goomba, 4 = Koopas
 #define OBJECT_TYPE_MARIO	0
 #define OBJECT_TYPE_BRICK	1
 #define OBJECT_TYPE_GOOMBA	2
@@ -35,17 +31,26 @@ Resource\Tilemap\world1-1-1.txt
 #define OBJECT_TYPE_MUSHROOM 31
 #define OBJECT_TYPE_LEAF 32
 #define OBJECT_TYPE_FLOWERFIRE 33
+#define OBJECT_TYPE_MUSHROOM_GREEN 36
 #define OBJECT_TYPE_BRICKQUESTION_COIN 34
 #define OBJECT_TYPE_BRICKQUESTION_ITEM 35
+#define OBJECT_TYPE_BRICKQUESTION_MUSHROOM_GREEN 37
+#define OBJECT_TYPE_BRICK_COLOR_IS_COIN 38
+#define OBJECT_TYPE_BRICK_COLOR_IS_NOT_COIN 39
 #define OBJECT_TYPE_PIPE_SHORT 60
 #define OBJECT_TYPE_PIPE_LONG 70	
+#define OBJECT_TYPE_PIPE_LONG_GREEN 75
 #define OBJECT_TYPE_PLANT_SHOOT 80
 #define OBJECT_TYPE_PLANT_NOT_SHOOT 90
 #define OBJECT_TYPE_BLOCK 500
+#define OBJECT_TYPE_TEST	600
 
 #define OBJECT_TYPE_PLATFORM 40
 
-#define OBJECT_TYPE_PORTAL 50
+#define OBJECT_TYPE_PORTAL	50
+# type	x	y	extra_settings per object type
+
+
 
 
 
@@ -279,4 +284,12 @@ Resource\Tilemap\world1-1-1.txt
 
 40	3552	0	16	15.9	2	100090	2	100091
 40	3552	16	16	15.9	2	100080	2	100081
+
+
+
+
+
+
+
+
 

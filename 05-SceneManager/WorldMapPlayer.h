@@ -1,4 +1,4 @@
-#pragma once
+
 #include "GameObject.h"
 #define MARIO_WORLD_MAP_BBOX_WIDTH 8
 #define MARIO_WORLD_MAP_BBOX_HEIGHT 8
