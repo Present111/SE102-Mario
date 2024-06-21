@@ -115,6 +115,18 @@
     <Filter Include="Header Files\txtFile\World1-1">
       <UniqueIdentifier>{87312d75-d670-4515-bd98-903e3ba89666}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\WorldMap">
+      <UniqueIdentifier>{41b67e61-57ec-4461-9977-364b18229590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldMap\KeyEvent">
+      <UniqueIdentifier>{ea66cfec-416a-4288-9eea-00314a9de480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldMap\Player">
+      <UniqueIdentifier>{b5c2c8b4-b901-43b6-98fc-78dfa9ba9c9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldMap\Scene">
+      <UniqueIdentifier>{2b540b63-8f95-4a5b-9403-a56741427b3f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -230,6 +242,15 @@
     </ClCompile>
     <ClCompile Include="Effect.cpp">
       <Filter>Header Files\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldMapKeyEvent.cpp">
+      <Filter>Header Files\WorldMap\KeyEvent</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldMapScene.cpp">
+      <Filter>Header Files\WorldMap\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldMapPlayer.cpp">
+      <Filter>Header Files\WorldMap\Player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -355,6 +376,15 @@
     </ClInclude>
     <ClInclude Include="Effect.h">
       <Filter>Header Files\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldMapKeyEvent.h">
+      <Filter>Header Files\WorldMap\KeyEvent</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldMapScene.h">
+      <Filter>Header Files\WorldMap\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldMapPlayer.h">
+      <Filter>Header Files\WorldMap\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

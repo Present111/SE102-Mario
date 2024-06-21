@@ -37,6 +37,7 @@ void CBrickQuestion::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 	if (!isEmpty) {
 		if (y != startY) y = startY;
+		if (x != startX) x = startX;
 	}
 	if (isUnbox) {
 		vy = 0;
