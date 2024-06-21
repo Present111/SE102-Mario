@@ -112,6 +112,9 @@
     <Filter Include="Header Files\Effect">
       <UniqueIdentifier>{0dd82833-210a-46ad-a8b6-c56eb313f3d9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\txtFile\World1-1">
+      <UniqueIdentifier>{87312d75-d670-4515-bd98-903e3ba89666}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -355,26 +358,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="font.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
     <Text Include="mario-sample.txt">
       <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="scene0005.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="world1-1.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="worldmap.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="worldmap.txt.txt">
-      <Filter>Header Files\txtFile</Filter>
-    </Text>
-    <Text Include="button.txt">
-      <Filter>Header Files\Object\Button</Filter>
     </Text>
     <Text Include="hud.txt">
       <Filter>Header Files\HUD\HUD</Filter>
@@ -388,32 +373,11 @@
     <Text Include="cloud.txt">
       <Filter>Header Files\Object\Brick\Platform</Filter>
     </Text>
-    <Text Include="coin.txt">
-      <Filter>Header Files\Object\Items\Coin</Filter>
-    </Text>
-    <Text Include="flowerfire.txt">
-      <Filter>Header Files\Object\Items\FlowerFire</Filter>
-    </Text>
-    <Text Include="leaf.txt">
-      <Filter>Header Files\Object\Items\Leaf</Filter>
-    </Text>
-    <Text Include="pipe.txt">
-      <Filter>Header Files\Object\Pipe</Filter>
-    </Text>
-    <Text Include="mushroom.txt">
-      <Filter>Header Files\Object\Items\MushRoom</Filter>
-    </Text>
-    <Text Include="goomba.txt">
-      <Filter>Header Files\Object\Enemies\Goomba</Filter>
-    </Text>
     <Text Include="koopa.txt">
       <Filter>Header Files\Object\Enemies\Koopa</Filter>
     </Text>
     <Text Include="platform.txt">
       <Filter>Header Files\Object\Brick\Platform</Filter>
-    </Text>
-    <Text Include="mario.txt">
-      <Filter>Header Files\Object\Mario</Filter>
     </Text>
     <Text Include="fire.txt">
       <Filter>Header Files\Action\Fire</Filter>
@@ -421,8 +385,70 @@
     <Text Include="effect.txt">
       <Filter>Header Files\Effect</Filter>
     </Text>
-    <Text Include="world1-1-1.txt">
-      <Filter>Header Files\txtFile</Filter>
+    <Text Include="Resource\Tilemap\world1-1-1.txt" />
+    <Text Include="Resource\Tilemap\world1-1.txt" />
+    <Text Include="Resource\Tilemap\world1-4-1.txt" />
+    <Text Include="Resource\Tilemap\world1-4.txt" />
+    <Text Include="Resource\Tilemap\world1.txt" />
+    <Text Include="Resource\World1-1\brick.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\brickquestion.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\button.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\cloud.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\coin.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\effect.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\fire.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\flowerfire.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\font.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\goomba.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\hud.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\koopa.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\leaf.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\mario.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\mushroom.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\pipe.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\platform.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\world1-1.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\world1-1-1.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\worldmap.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
     </Text>
   </ItemGroup>
 </Project>
