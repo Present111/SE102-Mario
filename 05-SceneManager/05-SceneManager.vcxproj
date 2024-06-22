@@ -166,6 +166,7 @@
     <ClCompile Include="Grass.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
+    <ClCompile Include="ObjectInWorldmap.cpp" />
     <ClCompile Include="WorldMapKeyEvent.cpp" />
     <ClCompile Include="Koopa.cpp" />
     <ClCompile Include="Leaf.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="Grass.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="InvisibleBlock.h" />
+    <ClInclude Include="ObjectInWorldMap.h" />
     <ClInclude Include="WorldMapKeyEvent.h" />
     <ClInclude Include="KeyEventHandler.h" />
     <ClInclude Include="Koopa.h" />

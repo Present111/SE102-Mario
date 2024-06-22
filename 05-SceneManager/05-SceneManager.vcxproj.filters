@@ -139,6 +139,9 @@
     <Filter Include="Header Files\txtFile\WorldMap">
       <UniqueIdentifier>{57ebdb1d-96a7-40da-8f96-d8dacfe5cf5c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\WorldMap\ObjectInWorldMap">
+      <UniqueIdentifier>{654c2c4c-bdd4-4ee7-b535-604dc129d1fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -269,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="Grass.cpp">
       <Filter>Header Files\WorldMap\Grass</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectInWorldmap.cpp">
+      <Filter>Header Files\WorldMap\ObjectInWorldMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -409,6 +415,9 @@
     </ClInclude>
     <ClInclude Include="Grass.h">
       <Filter>Header Files\WorldMap\Grass</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectInWorldMap.h">
+      <Filter>Header Files\WorldMap\ObjectInWorldMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
