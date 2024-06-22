@@ -39,6 +39,7 @@ public:
 	}
 	void Render();
 	void Update(DWORD dt) {}
+	int GetIdScene() { return idScene; }
 	virtual int IsBlocking() { return 0; }
 	void GetBoundingBox(float& l, float& t, float& r, float& b);
 };
