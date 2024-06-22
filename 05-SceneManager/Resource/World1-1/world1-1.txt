@@ -12,7 +12,7 @@ Resource\World1-1\brickquestion.txt
 Resource\World1-1\platform.txt
 Resource\World1-1\pipe.txt
 Resource\World1-1\koopa.txt
-Resource\World1-1\bulletplant.txt
+Resource\World1-1\fire.txt
 Resource\World1-1\hud.txt
 Resource\World1-1\effect.txt
 [TILEMAP]
