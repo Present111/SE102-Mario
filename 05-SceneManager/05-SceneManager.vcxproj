@@ -154,6 +154,7 @@
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="debug.cpp" />
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Fire.cpp" />
     <ClCompile Include="FireFromPlant.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goomba.cpp" />
+    <ClCompile Include="Grass.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
     <ClCompile Include="WorldMapKeyEvent.cpp" />
@@ -198,6 +200,7 @@
     <ClInclude Include="Coin.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="debug.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Fire.h" />
     <ClInclude Include="FireFromPlant.h" />
@@ -206,6 +209,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goomba.h" />
+    <ClInclude Include="Grass.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="InvisibleBlock.h" />
     <ClInclude Include="WorldMapKeyEvent.h" />
@@ -267,6 +271,9 @@
     <Text Include="Resource\World1-1\world1-1-1.txt" />
     <Text Include="Resource\World1-1\world1-1.txt" />
     <Text Include="Resource\World1-1\worldmap.txt" />
+    <Text Include="Resource\WorldMap\door.txt" />
+    <Text Include="Resource\WorldMap\grass.txt" />
+    <Text Include="Resource\WorldMap\worldmap.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

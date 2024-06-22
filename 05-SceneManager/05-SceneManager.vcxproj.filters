@@ -127,6 +127,18 @@
     <Filter Include="Header Files\WorldMap\Scene">
       <UniqueIdentifier>{2b540b63-8f95-4a5b-9403-a56741427b3f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\WorldMap\Door">
+      <UniqueIdentifier>{7749249b-e324-4158-b15a-44cd205d809d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldMap\Grass">
+      <UniqueIdentifier>{9013179e-a36a-4daf-be01-69b6fcc6de93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\txtFile\Tilemap">
+      <UniqueIdentifier>{f1f62f82-fb9f-4934-ba9b-28933c5358f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\txtFile\WorldMap">
+      <UniqueIdentifier>{57ebdb1d-96a7-40da-8f96-d8dacfe5cf5c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -251,6 +263,12 @@
     </ClCompile>
     <ClCompile Include="WorldMapPlayer.cpp">
       <Filter>Header Files\WorldMap\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Header Files\WorldMap\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="Grass.cpp">
+      <Filter>Header Files\WorldMap\Grass</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -386,6 +404,12 @@
     <ClInclude Include="WorldMapPlayer.h">
       <Filter>Header Files\WorldMap\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Header Files\WorldMap\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="Grass.h">
+      <Filter>Header Files\WorldMap\Grass</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -415,11 +439,6 @@
     <Text Include="effect.txt">
       <Filter>Header Files\Effect</Filter>
     </Text>
-    <Text Include="Resource\Tilemap\world1-1-1.txt" />
-    <Text Include="Resource\Tilemap\world1-1.txt" />
-    <Text Include="Resource\Tilemap\world1-4-1.txt" />
-    <Text Include="Resource\Tilemap\world1-4.txt" />
-    <Text Include="Resource\Tilemap\world1.txt" />
     <Text Include="Resource\World1-1\brick.txt">
       <Filter>Header Files\txtFile\World1-1</Filter>
     </Text>
@@ -479,6 +498,30 @@
     </Text>
     <Text Include="Resource\World1-1\worldmap.txt">
       <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\Tilemap\world1.txt">
+      <Filter>Header Files\txtFile\Tilemap</Filter>
+    </Text>
+    <Text Include="Resource\Tilemap\world1-1.txt">
+      <Filter>Header Files\txtFile\Tilemap</Filter>
+    </Text>
+    <Text Include="Resource\Tilemap\world1-1-1.txt">
+      <Filter>Header Files\txtFile\Tilemap</Filter>
+    </Text>
+    <Text Include="Resource\Tilemap\world1-4.txt">
+      <Filter>Header Files\txtFile\Tilemap</Filter>
+    </Text>
+    <Text Include="Resource\Tilemap\world1-4-1.txt">
+      <Filter>Header Files\txtFile\Tilemap</Filter>
+    </Text>
+    <Text Include="Resource\WorldMap\worldmap.txt">
+      <Filter>Header Files\txtFile\WorldMap</Filter>
+    </Text>
+    <Text Include="Resource\WorldMap\door.txt">
+      <Filter>Header Files\txtFile\WorldMap</Filter>
+    </Text>
+    <Text Include="Resource\WorldMap\grass.txt">
+      <Filter>Header Files\txtFile\WorldMap</Filter>
     </Text>
   </ItemGroup>
 </Project>
