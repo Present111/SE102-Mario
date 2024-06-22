@@ -22,8 +22,8 @@ void CWorldMapKeyEvent::OnKeyDown(int KeyCode)
 		player->SetState(MARIO_STATE_GO_UNDER);
 		break;
 	case DIK_S:
-
+	
 		break;
-
+	
 	}
 }

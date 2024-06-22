@@ -3,6 +3,7 @@ Resource\World1-1\mario.txt
 Resource\World1-1\platform.txt
 Resource\WorldMap\grass.txt
 Resource\WorldMap\door.txt
+Resource\World1-1\platform.txt
 [TILEMAP]
 Resource\Tilemap\world1.txt
 [OBJECTS]

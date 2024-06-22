@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <d3d10.h>
+#include <string>
 #include <d3dx10.h>
 #include <unordered_map>
 
@@ -12,7 +13,7 @@ using namespace std;
 #include "Texture.h"
 #include "KeyEventHandler.h"
 #include "Scene.h"
-#include <string>
+
 
 #define SCREEN_WIDTH 272
 #define SCREEN_HEIGHT 256
@@ -121,6 +122,7 @@ public:
 
 	void SetCamPos(float x, float y) { cam_x = x; cam_y = y; }
 	void GetCamPos(float& x, float& y) { x = cam_x; y = cam_y; }
+
 
 	LPSCENE GetCurrentScene() { return scenes[current_scene]; }
 	void Load(LPCWSTR gameFile);

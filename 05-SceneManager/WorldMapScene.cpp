@@ -255,8 +255,8 @@ void CWorldMapScene::Update(DWORD dt) {
 	// skip the rest if scene was already unloaded (Mario::Update might trigger PlayScene::Unload)
 	if (player == NULL) return;
 
-
-	CGame::GetInstance()->SetCamPos(-TILE_WIDTH / 2, -TILE_HEIGHT / 2);
+	
+	CGame::GetInstance()->SetCamPos(-TILE_WIDTH/2,-TILE_HEIGHT/2);
 
 
 	PurgeDeletedObjects();

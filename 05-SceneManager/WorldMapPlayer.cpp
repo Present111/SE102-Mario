@@ -28,7 +28,6 @@ void CWorldMapPlayer::OnCollisionWith(LPCOLLISIONEVENT e) {
 }
 
 void CWorldMapPlayer::SetState(int state) {
-
 	switch (state) {
 	case MARIO_STATE_GO_LEFT:
 		vy = 0.0f;

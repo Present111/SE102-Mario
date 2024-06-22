@@ -1,4 +1,4 @@
-#pragma once 
+
 #include "GameObject.h"
 #define SPEED_MARIO 0.1f
 
