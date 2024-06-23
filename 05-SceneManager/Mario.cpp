@@ -42,6 +42,9 @@ CMario::CMario(float x, float y) : CGameObject(x, y) {
 	isChanging = false;
 	isLower = false;
 	isUsePipe = false;
+	isPrepareEndScene = false;
+	isEndScene = false;
+	isClockVeryFast = false;
 	coin = 0;
 	score = 0;
 	scoreUpCollision = 1;
@@ -84,8 +87,29 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 
+	if (GetTickCount64() - start_change_scene > TIME_CHANGE_SCENE) {
+		if (state == MARIO_STATE_DIE) {
+			Up--;
+			CGame::GetInstance()->InitiateSwitchScene(MARIO_WORLD_MAP_SCENE);
+		}
+		else if (clock == 0) {
+			CGame::GetInstance()->InitiateSwitchScene(MARIO_WORLD_MAP_SCENE);
+		}
+		start_change_scene = 0;
+
+	}
+
+	
+	if (isPrepareEndScene && x > POSITION_MAX_END_SCENE) {
+		SetState(MARIO_STATE_IDLE);
+		isEndScene = true;
+	}
 
 
+	if (isEndScene) {
+		//chen effect vao
+		isClockVeryFast = true;
+	}
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 
 	if (isHolding) {
@@ -100,17 +124,34 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 		start_score_up = 0;
 	}
 
-
-	if (clock > 0) {
-		if (GetTickCount64() - time_down_1_second > TIME_ONE_SECOND) {
-			clock--;
-			time_down_1_second = GetTickCount64();
+	if ((!isClockVeryFast && (state != MARIO_STATE_DIE)) || !isChanging) {
+		if (clock > 0) {
+			if (GetTickCount64() - time_down_1_second > TIME_ONE_SECOND) {
+				clock--;
+				time_down_1_second = GetTickCount64();
+			}
+		}
+		else {
+			clock = 0;
+			SetState(MARIO_STATE_DIE);
 		}
 	}
-	else {
-		clock = 0;
-		SetState(MARIO_STATE_DIE);
+
+	if (isClockVeryFast) {
+		if (clock > 0) {
+			if (GetTickCount64() - time_down_1_second > TIME_CLOCK_VERY_FAST) {
+				clock--;
+				score += 50;
+				time_down_1_second = GetTickCount64();
+			}
+		}
+		else {
+			clock = 0;
+			start_change_scene = GetTickCount64();
+		}
 	}
+
+
 	if (GetTickCount64() - untouchable_start > MARIO_UNTOUCHABLE_TIME)
 	{
 		untouchable_start = 0;
@@ -261,13 +302,24 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 }
 void CMario::OnCollisionWithCard(LPCOLLISIONEVENT e) {
 	CCard* card = dynamic_cast<CCard*>(e->obj);
-	card->Delete();
-	if (card1 == 0) { card1 = card->GetCard(); }
-	else {
-		if (card2 == 0) { card2 = card->GetCard(); }
-		else {
-			card3 = card->GetCard();
+	if (!card->GetCollected()) {
+		card->SetState(CARD_STATE_COLLECTED);
+		if (card1 == 0) {
+			card1 = card->GetCard();
+			card->SetCard(card1);
 		}
+		else {
+			if (card2 == 0) {
+				card2 = card->GetCard();
+				card->SetCard(card2);
+			}
+			else {
+				card3 = card->GetCard();
+				card->SetCard(card3);
+			}
+		}
+		SetState(MARIO_STATE_END_SCENE);
+
 	}
 }
 
@@ -1136,9 +1188,17 @@ void CMario::SetState(int state)
 	case MARIO_STATE_DIE:
 		vy = -MARIO_JUMP_DEFLECT_SPEED_DIE;
 		ay = MARIO_GRAVITY / 3;
+		start_change_scene = GetTickCount64();
 		untouchable = false;
 		vx = 0;
 		ax = 0;
+		break;
+	case MARIO_STATE_END_SCENE:
+		isPrepareEndScene = true;
+		maxVx = MARIO_WALKING_SPEED;
+		ax = MARIO_ACCEL_WALK_X;
+		isRunning = false;
+		nx = 1;
 		break;
 	}
 	CGameObject::SetState(state);
