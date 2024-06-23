@@ -142,6 +142,9 @@
     <Filter Include="Header Files\WorldMap\ObjectInWorldMap">
       <UniqueIdentifier>{654c2c4c-bdd4-4ee7-b535-604dc129d1fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\Card">
+      <UniqueIdentifier>{444e27bc-c655-4f30-ba99-bf1d0bd13f2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -275,6 +278,9 @@
     </ClCompile>
     <ClCompile Include="ObjectInWorldmap.cpp">
       <Filter>Header Files\WorldMap\ObjectInWorldMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Card.cpp">
+      <Filter>Header Files\Object\Card</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -419,6 +425,9 @@
     <ClInclude Include="ObjectInWorldMap.h">
       <Filter>Header Files\WorldMap\ObjectInWorldMap</Filter>
     </ClInclude>
+    <ClInclude Include="Card.h">
+      <Filter>Header Files\Object\Card</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -534,6 +543,9 @@
     </Text>
     <Text Include="objectinworldmap.txt">
       <Filter>Header Files\WorldMap\ObjectInWorldMap</Filter>
+    </Text>
+    <Text Include="Resource\World1-1\card.txt">
+      <Filter>Header Files\txtFile\World1-1</Filter>
     </Text>
   </ItemGroup>
 </Project>

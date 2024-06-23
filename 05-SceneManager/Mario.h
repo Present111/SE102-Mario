@@ -1,6 +1,5 @@
 #pragma once
 #include "GameObject.h"
-
 #include "Animation.h"
 #include "Animations.h"
 #include "debug.h"
@@ -14,19 +13,19 @@
 #define MARIO_ACCEL_WALK_X	0.00014f
 #define MARIO_ACCEL_RUN_X	0.0002f
 
-#define MARIO_JUMP_SPEED_Y		0.28f
-#define MARIO_JUMP_RUN_SPEED_Y	0.28f
+#define MARIO_JUMP_SPEED_Y		0.2f
+#define MARIO_JUMP_RUN_SPEED_Y	0.2f
 
 #define SPEED_LEVEL_RUN 0.015f
 
 
-#define MARIO_GRAVITY 0.00055f
+#define MARIO_GRAVITY 0.0003f
 
-#define MARIO_JUMP_DEFLECT_SPEED  0.2f
-#define MARIO_JUMP_DEFLECT_SPEED_DIE  0.25f
+#define MARIO_JUMP_DEFLECT_SPEED  0.1f
+#define MARIO_JUMP_DEFLECT_SPEED_DIE  0.2f
 
-#define MARIO_FLY_FALL 0.015f
-#define MARIO_FLYING 0.3f
+#define MARIO_FLY_FALL 0.0f
+#define MARIO_FLYING 0.2f
 
 
 #define LEVEL_RUN_MAX 7
@@ -268,6 +267,7 @@
 #define MARIO_UNTOUCHABLE_TIME (TIME_CHANGING + 2500)
 #define TIME_ONE_SECOND 1000
 #define TIME_SCORE_UP_MAX 1000
+#define TIME_MAX_HOLDING 6000
 
 class CMario : public CGameObject
 {
@@ -302,6 +302,7 @@ class CMario : public CGameObject
 	ULONGLONG start_tail_attack;
 	ULONGLONG start_changing;
 	ULONGLONG time_down_1_second;
+	ULONGLONG start_holding;
 	BOOLEAN isOnPlatform;
 	int coin;
 
@@ -315,6 +316,9 @@ class CMario : public CGameObject
 	bool isLower;
 	bool isUsePipe;
 	bool isPrepareUp = false;
+	int card1;
+	int card2;
+	int card3;
 
 	void BlockIfNoBlock(LPGAMEOBJECT gameobject);
 	int GetAniIdBig();
@@ -340,6 +344,8 @@ class CMario : public CGameObject
 	void OnCollisionWithPlatForm(LPCOLLISIONEVENT e);
 	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	void OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e);
+	void OnCollisionWithCard(LPCOLLISIONEVENT e);
+
 
 
 public:
@@ -359,6 +365,9 @@ public:
 
 	int GetClock() { return clock; }
 	int GetLevelRun() { return levelRun; }
+	int GetCard1() { return card1; }
+	int GetCard2() { return card2; }
+	int GetCard3() { return card3; }
 
 	bool GetIsPrepareUp() { return isPrepareUp; }
 	bool GetIsTailAttack() { return isTailAttack; }
