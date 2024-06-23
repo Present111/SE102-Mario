@@ -532,5 +532,8 @@
     <Text Include="Resource\WorldMap\grass.txt">
       <Filter>Header Files\txtFile\WorldMap</Filter>
     </Text>
+    <Text Include="objectinworldmap.txt">
+      <Filter>Header Files\WorldMap\ObjectInWorldMap</Filter>
+    </Text>
   </ItemGroup>
 </Project>
