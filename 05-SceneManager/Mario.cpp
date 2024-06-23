@@ -27,7 +27,7 @@ CMario::CMario(float x, float y) : CGameObject(x, y) {
 	maxVx = 0.0f;
 	Up = 4;
 	ax = 0.0f;
-	clock = 200;
+	clock = 300;
 	ay = MARIO_GRAVITY;
 
 	level = MARIO_LEVEL_SMALL;
@@ -93,7 +93,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	}
 	CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 	//Khi ngoi, toc do se giam dan
-	/*if (isSitting) {
+	if (isSitting) {
 		if (nx>0) {
 			if (vx > 0) {
 				ax = -MARIO_ACCEL_WALK_X/2;
@@ -106,7 +106,7 @@ void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 			}
 			else vx = 0;
 		}
-	}*/
+	}
 	if (abs(vx) > abs(maxVx)) vx = maxVx;
 	//Khi die, doi 1 thoi gian => chuyen canh world map
 	if (GetTickCount64() - start_change_scene_die > TIME_CHANGE_SCENE) {
@@ -367,16 +367,18 @@ void CMario::OnCollisionWithCard(LPCOLLISIONEVENT e) {
 	}
 }
 
-
 void CMario::OnCollisionWithPlatForm(LPCOLLISIONEVENT e) {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
-	if (platform->IsBlocking()) {}
+	if (platform->IsBlocking()) {
+		isUsePipe = false;
+	}
 	else {
 		if (e->ny < 0) {
 			if ((platform->IsCanDown() && isSitting) || isUsePipe) {
 				SetState(MARIO_STATE_DOWNING_PIPE);
 			}
 			else {
+				isUsePipe = false;
 				isOnPlatform = true;
 				BlockIfNoBlock(platform);
 			}
@@ -1181,6 +1183,7 @@ void CMario::SetState(int state)
 		{
 			isSitting = true;
 			isRunning = false;
+			vy = 0;
 			y += MARIO_SIT_HEIGHT_ADJUST - 4;
 		}
 		break;
@@ -1190,7 +1193,6 @@ void CMario::SetState(int state)
 		if (isSitting)
 		{
 			isSitting = false;
-			state = MARIO_STATE_IDLE;
 			y -= MARIO_SIT_HEIGHT_ADJUST;
 		}
 		break;
@@ -1198,7 +1200,9 @@ void CMario::SetState(int state)
 	case MARIO_STATE_IDLE:
 		ax = 0.0f;
 		vx = 0.0f;
-		isSitting = false;
+		if (isSitting) {
+			state = MARIO_STATE_SIT_RELEASE;
+		}
 		//vy = 0.0f;
 		break;
 	case MARIO_STATE_TAIL_ATTACK:
