@@ -1,5 +1,4 @@
-﻿#pragma once
-#include "GameObject.h"
+﻿#include"GameObject.h"
 
 #define KOOPA_GRAVITY 0.001f
 #define KOOPA_WALKING_SPEED 0.04f
@@ -70,7 +69,7 @@ protected:
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
 
-	virtual int IsCollidable() { return isDead; };
+	virtual int IsCollidable() { return !isDead; };
 	int PositionWithMario();
 	virtual int IsBlocking() { return 0; }
 	virtual int IsEnemy() { return 1; }
