@@ -148,6 +148,9 @@
     <Filter Include="Header Files\Data">
       <UniqueIdentifier>{ace049ac-707d-4db3-9601-694cf692c908}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\HUD\HUDWorldMap">
+      <UniqueIdentifier>{4c9da07a-624e-4f12-af01-125510f04566}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -287,6 +290,9 @@
     </ClCompile>
     <ClCompile Include="Data.cpp">
       <Filter>Header Files\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="HUDWorldMap.cpp">
+      <Filter>Header Files\HUD\HUDWorldMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -436,6 +442,9 @@
     </ClInclude>
     <ClInclude Include="Data.h">
       <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="HUDWorldMap.h">
+      <Filter>Header Files\HUD\HUDWorldMap</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

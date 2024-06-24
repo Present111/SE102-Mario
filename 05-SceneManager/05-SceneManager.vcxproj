@@ -167,6 +167,7 @@
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Grass.cpp" />
     <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="HUDWorldMap.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
     <ClCompile Include="ObjectInWorldmap.cpp" />
     <ClCompile Include="WorldMapKeyEvent.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Grass.h" />
     <ClInclude Include="HUD.h" />
+    <ClInclude Include="HUDWorldMap.h" />
     <ClInclude Include="InvisibleBlock.h" />
     <ClInclude Include="ObjectInWorldMap.h" />
     <ClInclude Include="WorldMapKeyEvent.h" />
