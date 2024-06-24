@@ -154,6 +154,9 @@
     <Filter Include="Header Files\Object\Brick\BreakBrick">
       <UniqueIdentifier>{3ea0c992-3f5f-4d44-b608-fda84def03e0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\WorldMap\Hammer">
+      <UniqueIdentifier>{ddf538e9-9c1d-419b-b0d4-d3cd85d268d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -299,6 +302,9 @@
     </ClCompile>
     <ClCompile Include="BreakBrick.cpp">
       <Filter>Header Files\Object\Brick\BreakBrick</Filter>
+    </ClCompile>
+    <ClCompile Include="Hammer.cpp">
+      <Filter>Header Files\WorldMap\Hammer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -455,6 +461,9 @@
     <ClInclude Include="BreakBrick.h">
       <Filter>Header Files\Object\Brick\BreakBrick</Filter>
     </ClInclude>
+    <ClInclude Include="Hammer.h">
+      <Filter>Header Files\WorldMap\Hammer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -570,6 +579,12 @@
     </Text>
     <Text Include="Resource\World1-1\card.txt">
       <Filter>Header Files\txtFile\World1-1</Filter>
+    </Text>
+    <Text Include="Resource\WorldMap\hammer.txt">
+      <Filter>Header Files\txtFile\WorldMap</Filter>
+    </Text>
+    <Text Include="Resource\WorldMap\objectinworldmap.txt">
+      <Filter>Header Files\txtFile\WorldMap</Filter>
     </Text>
   </ItemGroup>
 </Project>

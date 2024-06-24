@@ -167,6 +167,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goomba.cpp" />
     <ClCompile Include="Grass.cpp" />
+    <ClCompile Include="Hammer.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDWorldMap.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
@@ -218,6 +219,7 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goomba.h" />
     <ClInclude Include="Grass.h" />
+    <ClInclude Include="Hammer.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDWorldMap.h" />
     <ClInclude Include="InvisibleBlock.h" />
@@ -284,6 +286,8 @@
     <Text Include="Resource\World1-1\worldmap.txt" />
     <Text Include="Resource\WorldMap\door.txt" />
     <Text Include="Resource\WorldMap\grass.txt" />
+    <Text Include="Resource\WorldMap\hammer.txt" />
+    <Text Include="Resource\WorldMap\objectinworldmap.txt" />
     <Text Include="Resource\WorldMap\worldmap.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

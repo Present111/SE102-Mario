@@ -293,7 +293,7 @@ void CMario::OnCollisionWithButton(LPCOLLISIONEVENT e) {
 }
 void CMario::OnCollisionWithBoomBrick(LPCOLLISIONEVENT e) {
 	CBoomBrick* brick = dynamic_cast<CBoomBrick*>(e->obj);
-	DebugOutTitle(L" brick mario %f %f", brick->GetY(), y);
+	//DebugOutTitle(L" brick mario %f %f", brick->GetY(), y);
 	if (e->nx != 0 && (abs(brick->GetY() - GetY()) < MARIO_SMALL_BBOX_HEIGHT / 2)) {
 
 		if (isTailAttack) brick->SetState(BRICK_STATE_DELETE);
