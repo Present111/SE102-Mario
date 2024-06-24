@@ -145,6 +145,9 @@
     <Filter Include="Header Files\Object\Card">
       <UniqueIdentifier>{444e27bc-c655-4f30-ba99-bf1d0bd13f2e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{ace049ac-707d-4db3-9601-694cf692c908}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -281,6 +284,9 @@
     </ClCompile>
     <ClCompile Include="Card.cpp">
       <Filter>Header Files\Object\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.cpp">
+      <Filter>Header Files\Data</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -427,6 +433,9 @@
     </ClInclude>
     <ClInclude Include="Card.h">
       <Filter>Header Files\Object\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Header Files\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
