@@ -17,9 +17,9 @@ void CBoomBrick::Render()
 void CBoomBrick::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
 	l = x - BOOMBRICK_BBOX_WIDTH / 2;
-	t = y - BOOMBRICK_BBOX_HEIGHT / 2;
+	t = y - BOOMBRICK_BBOX_HEIGHT / 2 + 2;
 	r = l + BOOMBRICK_BBOX_WIDTH;
-	b = t + BOOMBRICK_BBOX_HEIGHT;
+	b = t + BOOMBRICK_BBOX_HEIGHT + 2;
 }
 void CBoomBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 	if (!checkObjectInCamera(this)) return;
@@ -72,8 +72,10 @@ void CBoomBrick::SetState(int state) {
 	switch (state) {
 	case BRICK_STATE_DELETE:
 		isBreak = true;
+		platform->Delete();
 		break;
 	case BRICK_STATE_GOLD:
+		platform->Delete();
 		isGold = true;
 		break;
 	}

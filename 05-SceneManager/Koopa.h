@@ -78,6 +78,7 @@ protected:
 
 	int GetAniGreen();
 	int GetAniRed();
+	void OnCollisionWithBoomBrick(LPCOLLISIONEVENT e);
 	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	void OnCollisionWithPlatform(LPCOLLISIONEVENT e);
 	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);

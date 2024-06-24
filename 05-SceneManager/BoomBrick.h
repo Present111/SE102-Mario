@@ -2,6 +2,9 @@
 #include "GameObject.h"
 #include "Animations.h"
 #include "Animation.h"
+#include "Platform.h"
+#include"Game.h"
+#include"PlayScene.h"
 
 #define BOOMBRICK_BBOX_WIDTH 16
 #define BOOMBRICK_BBOX_HEIGHT 16
@@ -14,6 +17,7 @@
 
 class CBoomBrick : public CGameObject
 {
+	CPlatform* platform;
 	bool isBreak = false;
 	bool isGold = false;
 	bool isUseButton = false;
@@ -22,6 +26,9 @@ protected:
 	int model;
 public:
 	CBoomBrick(float x, float y, int model) : CGameObject(x, y) {
+		CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+		platform = new CPlatform(x, y, BRICK_BBOX_WIDTH - 1, BRICK_BBOX_HEIGHT - 1, 1);
+		scene->AddObject(platform);
 		this->model = model;
 	}
 	void Render();
