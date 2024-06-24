@@ -170,8 +170,14 @@
     <ClCompile Include="Hammer.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDWorldMap.cpp" />
+    <ClCompile Include="IntroArrow.cpp" />
+    <ClCompile Include="IntroKey.cpp" />
+    <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
+    <ClCompile Include="MarioGreenIntro.cpp" />
+    <ClCompile Include="MarioRedIntro.cpp" />
     <ClCompile Include="ObjectInWorldmap.cpp" />
+    <ClCompile Include="PlatformIntro.cpp" />
     <ClCompile Include="WorldMapKeyEvent.cpp" />
     <ClCompile Include="Koopa.cpp" />
     <ClCompile Include="Leaf.cpp" />
@@ -222,8 +228,14 @@
     <ClInclude Include="Hammer.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDWorldMap.h" />
+    <ClInclude Include="IntroArrow.h" />
+    <ClInclude Include="IntroKey.h" />
+    <ClInclude Include="IntroScene.h" />
     <ClInclude Include="InvisibleBlock.h" />
+    <ClInclude Include="MarioGreenIntro.h" />
+    <ClInclude Include="MarioRed.h" />
     <ClInclude Include="ObjectInWorldMap.h" />
+    <ClInclude Include="PlatformIntro.h" />
     <ClInclude Include="WorldMapKeyEvent.h" />
     <ClInclude Include="KeyEventHandler.h" />
     <ClInclude Include="Koopa.h" />
@@ -258,6 +270,7 @@
     <Text Include="mario-sample.txt" />
     <Text Include="objectinworldmap.txt" />
     <Text Include="platform.txt" />
+    <Text Include="Resource\Intro\intro.txt" />
     <Text Include="Resource\Tilemap\world1-1-1.txt" />
     <Text Include="Resource\Tilemap\world1-1.txt" />
     <Text Include="Resource\Tilemap\world1-4-1.txt" />

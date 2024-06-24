@@ -12,16 +12,16 @@ void CBoomBrick::Render()
 
 	CAnimations* animations = CAnimations::GetInstance();
 	animations->Get(ID_ANI_BOOMBRICK)->Render(x, y);
-	//RenderBoundingBox();
+	RenderBoundingBox();
 }
 
 
 void CBoomBrick::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
 	l = x - BOOMBRICK_BBOX_WIDTH / 2;
-	t = y - BOOMBRICK_BBOX_HEIGHT / 2 + 2;
+	t = y - BOOMBRICK_BBOX_HEIGHT / 2;
 	r = l + BOOMBRICK_BBOX_WIDTH;
-	b = t + BOOMBRICK_BBOX_HEIGHT + 2;
+	b = t + float(BRICK_BBOX_HEIGHT / 1.5);
 }
 void CBoomBrick::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 	if (!checkObjectInCamera(this)) return;

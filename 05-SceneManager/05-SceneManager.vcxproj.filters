@@ -157,6 +157,30 @@
     <Filter Include="Header Files\WorldMap\Hammer">
       <UniqueIdentifier>{ddf538e9-9c1d-419b-b0d4-d3cd85d268d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IntroGame">
+      <UniqueIdentifier>{01ad198b-9c05-46a3-af9f-eb3b5d50793e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\IntroArrow">
+      <UniqueIdentifier>{ea6640c9-0f1e-4d7b-8671-e1ade5949d86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\IntroKey">
+      <UniqueIdentifier>{23057a59-9e07-4bc4-9a0c-4e4254292133}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\IntroScene">
+      <UniqueIdentifier>{b03af245-9bcc-4e0d-88fe-c0b7ad7263e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\MarioGreenIntro">
+      <UniqueIdentifier>{58a1187b-556e-4c24-ab96-240096df10c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\MarioRedIntro">
+      <UniqueIdentifier>{44b2b7a9-0777-4da6-8b1d-4418f3917d2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\PlatformIntro">
+      <UniqueIdentifier>{2a77befe-2d8c-49e6-9a14-88f620ff91c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\txtFile\Intro">
+      <UniqueIdentifier>{f4eb43cf-37be-4352-bfa8-37eaa5bf12b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -305,6 +329,24 @@
     </ClCompile>
     <ClCompile Include="Hammer.cpp">
       <Filter>Header Files\WorldMap\Hammer</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroArrow.cpp">
+      <Filter>Header Files\IntroGame\IntroArrow</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroKey.cpp">
+      <Filter>Header Files\IntroGame\IntroKey</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroScene.cpp">
+      <Filter>Header Files\IntroGame\IntroScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MarioGreenIntro.cpp">
+      <Filter>Header Files\IntroGame\MarioGreenIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="MarioRedIntro.cpp">
+      <Filter>Header Files\IntroGame\MarioRedIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="PlatformIntro.cpp">
+      <Filter>Header Files\IntroGame\PlatformIntro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -464,6 +506,24 @@
     <ClInclude Include="Hammer.h">
       <Filter>Header Files\WorldMap\Hammer</Filter>
     </ClInclude>
+    <ClInclude Include="IntroArrow.h">
+      <Filter>Header Files\IntroGame\IntroArrow</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroKey.h">
+      <Filter>Header Files\IntroGame\IntroKey</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroScene.h">
+      <Filter>Header Files\IntroGame\IntroScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MarioGreenIntro.h">
+      <Filter>Header Files\IntroGame\MarioGreenIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="MarioRed.h">
+      <Filter>Header Files\IntroGame\MarioRedIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="PlatformIntro.h">
+      <Filter>Header Files\IntroGame\PlatformIntro</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -585,6 +645,9 @@
     </Text>
     <Text Include="Resource\WorldMap\objectinworldmap.txt">
       <Filter>Header Files\txtFile\WorldMap</Filter>
+    </Text>
+    <Text Include="Resource\Intro\intro.txt">
+      <Filter>Header Files\txtFile\Intro</Filter>
     </Text>
   </ItemGroup>
 </Project>
