@@ -8,6 +8,8 @@
 
 void CBoomBrick::Render()
 {
+	if (!checkObjectInCamera(this)) return;
+
 	CAnimations* animations = CAnimations::GetInstance();
 	animations->Get(ID_ANI_BOOMBRICK)->Render(x, y);
 	//RenderBoundingBox();
