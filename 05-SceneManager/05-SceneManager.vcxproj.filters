@@ -151,6 +151,9 @@
     <Filter Include="Header Files\HUD\HUDWorldMap">
       <UniqueIdentifier>{4c9da07a-624e-4f12-af01-125510f04566}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Object\Brick\BreakBrick">
+      <UniqueIdentifier>{3ea0c992-3f5f-4d44-b608-fda84def03e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -293,6 +296,9 @@
     </ClCompile>
     <ClCompile Include="HUDWorldMap.cpp">
       <Filter>Header Files\HUD\HUDWorldMap</Filter>
+    </ClCompile>
+    <ClCompile Include="BreakBrick.cpp">
+      <Filter>Header Files\Object\Brick\BreakBrick</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -446,6 +452,9 @@
     <ClInclude Include="HUDWorldMap.h">
       <Filter>Header Files\HUD\HUDWorldMap</Filter>
     </ClInclude>
+    <ClInclude Include="BreakBrick.h">
+      <Filter>Header Files\Object\Brick\BreakBrick</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -471,9 +480,6 @@
     </Text>
     <Text Include="fire.txt">
       <Filter>Header Files\Action\Fire</Filter>
-    </Text>
-    <Text Include="effect.txt">
-      <Filter>Header Files\Effect</Filter>
     </Text>
     <Text Include="Resource\World1-1\brick.txt">
       <Filter>Header Files\txtFile\World1-1</Filter>

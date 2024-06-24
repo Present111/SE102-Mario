@@ -148,6 +148,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Animations.cpp" />
     <ClCompile Include="BoomBrick.cpp" />
+    <ClCompile Include="BreakBrick.cpp" />
     <ClCompile Include="Brick.cpp" />
     <ClCompile Include="BrickQuestion.cpp" />
     <ClCompile Include="Button.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="Animations.h" />
     <ClInclude Include="AssetIDs.h" />
     <ClInclude Include="BoomBrick.h" />
+    <ClInclude Include="BreakBrick.h" />
     <ClInclude Include="Brick.h" />
     <ClInclude Include="BrickQuestion.h" />
     <ClInclude Include="Button.h" />
@@ -248,7 +250,6 @@
     <Text Include="brick.txt" />
     <Text Include="brickquestion.txt" />
     <Text Include="cloud.txt" />
-    <Text Include="effect.txt" />
     <Text Include="fire.txt" />
     <Text Include="hud.txt" />
     <Text Include="koopa.txt" />

@@ -7,6 +7,7 @@
 void CWorldMapPlayer::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 	if (!CanActive()) isCanGoWorld = false;
 	if (sceneChange && isCanGoWorld) {
+		SaveData();
 		CGame::GetInstance()->InitiateSwitchScene(sceneChange);
 	}
 	if (isGoingNodeX == true) {
@@ -52,7 +53,13 @@ void CWorldMapPlayer::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
 }
 
 void CWorldMapPlayer::Render() {
-	int aniId = ID_ANI_MARIO_WORLD_MAP;
+	CData* data = CGame::GetInstance()->GetDataGame();
+
+	int aniId = -1;
+	if (data->GetLevel() == MARIO_LEVEL_SMALL) aniId = ID_ANI_MARIO_WORLD_MAP;
+	else if (data->GetLevel() == MARIO_LEVEL_BIG) aniId = ID_ANI_MARIO_BIG_WORLD_MAP;
+	else if (data->GetLevel() == MARIO_LEVEL_TAIL) aniId = ID_ANI_MARIO_TAIL_WORLD_MAP;
+	else if (data->GetLevel() == MARIO_LEVEL_FIRE) aniId = ID_ANI_MARIO_FIRE_WORLD_MAP;
 	CAnimations* animations = CAnimations::GetInstance();
 	animations->Get(aniId)->Render(x, y);
 }
@@ -143,4 +150,9 @@ void CWorldMapPlayer::Go1NodeX(LPGAMEOBJECT gameobject) {
 void CWorldMapPlayer::Go1NodeY(LPGAMEOBJECT gameobject) {
 	startY = gameobject->GetY();
 	isGoingNodeY = true;
+}
+void CWorldMapPlayer::SaveData() {
+	CData* data = CGame::GetInstance()->GetDataGame();
+	data->SavePositionXWorldMap(x);
+	data->SavePositionYWorldMap(y);
 }

@@ -211,7 +211,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_BRICKQUESTION_MUSHROOM_GREEN: obj = new CBrickQuestion(x, y, QUESTION_BRICK_MUSHROOM_GREEN); break;
 	case OBJECT_TYPE_MUSHROOM_GREEN: obj = new CMushRoom(x, y, MUSHROOM_GREEN); break;
 	case OBJECT_TYPE_BOOMBRICK_NOT_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_COIN); break;
-	case OBJECT_TYPE_BOOMBRICK_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_NOT_COIN); break;
+	case OBJECT_TYPE_QUESTION_BRICK_BUTTON: obj = new CBrickQuestion(x, y, QUESTION_BRICK_BUTTON); break;
 	case OBJECT_TYPE_BUTTON: obj = new CButton(x, y); break;
 	case OBJECT_TYPE_TEST: obj = new CEffect(x, y, EFFECT_CHANGE); break;
 	case OBJECT_TYPE_PLATFORM:
