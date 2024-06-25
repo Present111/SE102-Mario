@@ -433,6 +433,7 @@ public:
 	}
 	void SaveDataGame();
 	bool MarioInDeadZone();
+	bool MarioInPositionEndScene() { return x > POSITION_MAX_END_SCENE; }
 	void AdjustLogicSitting();
 	void ChangeWorldMapWhenDie();
 	void ChangeWorldMapWhenNotDie();
