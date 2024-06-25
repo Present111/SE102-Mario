@@ -8,6 +8,7 @@ void CWorldMapKeyEvent::OnKeyDown(int KeyCode)
 {
 	CWorldMapPlayer* player = (CWorldMapPlayer*)((LPWORLDSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 	CData* data = CGame::GetInstance()->GetDataGame();
+	if (data->GetIsDisplayHUD()) return;
 	switch (KeyCode)
 	{
 	case DIK_RIGHT:
@@ -29,6 +30,5 @@ void CWorldMapKeyEvent::OnKeyDown(int KeyCode)
 		else if (data->GetIsPrepareContinue()) data->SettingCountinue();
 		else if (data->GetIsPrepareEnd()) data->SettingEnd();
 		break;
-	
 	}
 }
