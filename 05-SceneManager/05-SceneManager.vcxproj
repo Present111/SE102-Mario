@@ -171,6 +171,7 @@
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDWorldMap.cpp" />
     <ClCompile Include="IntroArrow.cpp" />
+    <ClCompile Include="IntroBackGround.cpp" />
     <ClCompile Include="IntroKey.cpp" />
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
@@ -229,11 +230,12 @@
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDWorldMap.h" />
     <ClInclude Include="IntroArrow.h" />
+    <ClInclude Include="IntroBackGround.h" />
     <ClInclude Include="IntroKey.h" />
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="InvisibleBlock.h" />
     <ClInclude Include="MarioGreenIntro.h" />
-    <ClInclude Include="MarioRed.h" />
+    <ClInclude Include="MarioRedIntro.h" />
     <ClInclude Include="ObjectInWorldMap.h" />
     <ClInclude Include="PlatformIntro.h" />
     <ClInclude Include="WorldMapKeyEvent.h" />
@@ -270,6 +272,7 @@
     <Text Include="mario-sample.txt" />
     <Text Include="objectinworldmap.txt" />
     <Text Include="platform.txt" />
+    <Text Include="Resource\Intro\background.txt" />
     <Text Include="Resource\Intro\intro.txt" />
     <Text Include="Resource\Intro\platform.txt" />
     <Text Include="Resource\Tilemap\world1-1-1.txt" />

@@ -41,5 +41,5 @@ public:
 	int GetUp() { return Up; }
 	int GetCoin() { return coin; }
 
-
+	void ResetFullData();
 };
