@@ -35,3 +35,4 @@ start	1
 210	Resource\Tilemap\world1-1-1_bank.png
 300	textures\marioWorldMap.png
 
+310	textures\title.png

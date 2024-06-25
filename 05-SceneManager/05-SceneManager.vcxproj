@@ -271,6 +271,7 @@
     <Text Include="objectinworldmap.txt" />
     <Text Include="platform.txt" />
     <Text Include="Resource\Intro\intro.txt" />
+    <Text Include="Resource\Intro\platform.txt" />
     <Text Include="Resource\Tilemap\world1-1-1.txt" />
     <Text Include="Resource\Tilemap\world1-1.txt" />
     <Text Include="Resource\Tilemap\world1-4-1.txt" />
