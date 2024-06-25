@@ -1,6 +1,7 @@
 #include "HUDWorldMap.h"
 #include"HUD.h"
 #include "Game.h"
+#include"debug.h"
 #include"Animations.h"
 CHUDWorldMap::CHUDWorldMap(float x, float y) {
 	this->x = x;
@@ -40,7 +41,7 @@ void CHUDWorldMap::Render() {
 	if (card2) DrawCard(card2, x + X_CARD_POSITION + CARD_WIDTH, y + Y_CARD_POSITION);
 	if (card3) DrawCard(card3, x + X_CARD_POSITION + CARD_WIDTH * 2, y + Y_CARD_POSITION);
 
-	//DebugOutTitle(L"[CARD 1 2 3 ] %d %d %d \n", card1, card2, card3);
+	//DebugOutTitle(L"[CARD 1 2 3 hjhj] %d %d %d \n", card1, card2, card3);
 
 
 
@@ -60,7 +61,12 @@ void CHUDWorldMap::Render() {
 	DrawNumber(0, x + POSITION_CLOCK_X, y - ADJUST_Y_POWER_POSITION_UNDER);
 	DrawNumber(0, x + POSITION_CLOCK_X + DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION_UNDER);
 	DrawNumber(0, x + POSITION_CLOCK_X + DISTANCE_NUMBER * 2, y - ADJUST_Y_POWER_POSITION_UNDER);
+
+	if (data->GetIsOver()) DrawGameOver();
+	DebugOutTitle(L"%d %d %d %d %d", data->GetIsOver(), data->GetIsPrepareContinue(), data->GetIsPrepareEnd(), data->GetIsContinue(), data->GetIsEnd());
 }
+
+
 void CHUDWorldMap::DrawNumber(int n, float xTemp, float yTemp) {
 	if (n == 0) CAnimations::GetInstance()->Get(ID_ANI_0)->Render(xTemp, yTemp);
 	else if (n == 1) CAnimations::GetInstance()->Get(ID_ANI_1)->Render(xTemp, yTemp);
@@ -80,4 +86,14 @@ void CHUDWorldMap::DrawCard(int n, float xTemp, float yTemp) {
 	else if (n == HUD_CARD_FLOWER) CAnimations::GetInstance()->Get(ID_ANI_HUD_CARD_FLOWER)->Render(xTemp, yTemp);
 	else if (n == HUD_CARD_STAR) CAnimations::GetInstance()->Get(ID_ANI_HUD_CARD_STAR)->Render(xTemp, yTemp);
 	//else CAnimations::GetInstance()->Get(ID_ANI_HUD_CARD_MUSHROOM)->Render(xTemp, yTemp);
+}
+
+void CHUDWorldMap::DrawGameOver() {
+	CData* data = CGame::GetInstance()->GetDataGame();
+	CAnimations::GetInstance()->Get(ID_ANI_HUD_GAME_OVER)->Render(POSITION_X_HUD_GAME_OVER, POSITION_Y_HUD_GAME_OVER);
+	if (data->GetIsPrepareEnd()) {
+		CAnimations::GetInstance()->Get(ID_ANI_NULL)->Render(POSITION_X_HUD_GAME_OVER + ADJUST_X_POSITION_ARROW, POSITION_Y_HUD_GAME_OVER + ADJUST_Y_POSITION_ARROW);
+		CAnimations::GetInstance()->Get(ID_ANI_ARROW)->Render(POSITION_X_HUD_GAME_OVER + ADJUST_X_POSITION_ARROW, POSITION_Y_HUD_GAME_OVER + ADJUST_Y_POSITION_ARROW + DISTANCE_2_ARROW);
+	}
+
 }
