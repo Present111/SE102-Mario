@@ -181,6 +181,9 @@
     <Filter Include="Header Files\txtFile\Intro">
       <UniqueIdentifier>{f4eb43cf-37be-4352-bfa8-37eaa5bf12b0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IntroGame\IntroBackGround">
+      <UniqueIdentifier>{28efbc92-fb5f-485a-8865-763176cc758b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -347,6 +350,9 @@
     </ClCompile>
     <ClCompile Include="PlatformIntro.cpp">
       <Filter>Header Files\IntroGame\PlatformIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="IntroBackGround.cpp">
+      <Filter>Header Files\IntroGame\IntroBackGround</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -518,11 +524,14 @@
     <ClInclude Include="MarioGreenIntro.h">
       <Filter>Header Files\IntroGame\MarioGreenIntro</Filter>
     </ClInclude>
-    <ClInclude Include="MarioRed.h">
-      <Filter>Header Files\IntroGame\MarioRedIntro</Filter>
-    </ClInclude>
     <ClInclude Include="PlatformIntro.h">
       <Filter>Header Files\IntroGame\PlatformIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="MarioRedIntro.h">
+      <Filter>Header Files\IntroGame\MarioRedIntro</Filter>
+    </ClInclude>
+    <ClInclude Include="IntroBackGround.h">
+      <Filter>Header Files\IntroGame\IntroBackGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -647,6 +656,12 @@
       <Filter>Header Files\txtFile\WorldMap</Filter>
     </Text>
     <Text Include="Resource\Intro\intro.txt">
+      <Filter>Header Files\txtFile\Intro</Filter>
+    </Text>
+    <Text Include="Resource\Intro\background.txt">
+      <Filter>Header Files\txtFile\Intro</Filter>
+    </Text>
+    <Text Include="Resource\Intro\platform.txt">
       <Filter>Header Files\txtFile\Intro</Filter>
     </Text>
   </ItemGroup>

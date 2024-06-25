@@ -1462,6 +1462,8 @@ void CMario::ChangeWorldMapWhenDie() {
 
 void CMario::ChangeWorldMapWhenNotDie() {
 	if (GetTickCount64() - start_change_scene_clock > TIME_CHANGE_SCENE) {
+		CData* data = CGame::GetInstance()->GetDataGame();
+		data->SavePassDoorEasier(data->GetDoorProcess());
 		SaveDataGame();
 		CGame::GetInstance()->InitiateSwitchScene(ID_SCENE_WORLD_MAP);
 	}
