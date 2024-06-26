@@ -1,5 +1,5 @@
 [SETTINGS]
-start	1
+start	2
 #width	320
 #height	240
 
@@ -35,7 +35,7 @@ start	1
 160	textures\card.png
 170	textures\reward_x3.png
 180	textures\gameover.png
-190 textures\dialogs.png
+190	textures\dialogs.png
 
 200	Resource\Tilemap\world1-1_bank.png
 205	Resource\Tilemap\world1_bank.png
@@ -43,3 +43,4 @@ start	1
 300	textures\marioWorldMap.png
 
 310	textures\title.png
+
