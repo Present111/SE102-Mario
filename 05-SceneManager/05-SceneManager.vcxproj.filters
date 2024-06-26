@@ -184,6 +184,9 @@
     <Filter Include="Header Files\IntroGame\IntroBackGround">
       <UniqueIdentifier>{28efbc92-fb5f-485a-8865-763176cc758b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IntroGame\FontIntro">
+      <UniqueIdentifier>{28b83e29-2659-4108-a10d-c7034677ada9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -353,6 +356,9 @@
     </ClCompile>
     <ClCompile Include="IntroBackGround.cpp">
       <Filter>Header Files\IntroGame\IntroBackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="FontIntro.cpp">
+      <Filter>Header Files\IntroGame\FontIntro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -533,6 +539,9 @@
     <ClInclude Include="IntroBackGround.h">
       <Filter>Header Files\IntroGame\IntroBackGround</Filter>
     </ClInclude>
+    <ClInclude Include="FontIntro.h">
+      <Filter>Header Files\IntroGame\FontIntro</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -662,6 +671,9 @@
       <Filter>Header Files\txtFile\Intro</Filter>
     </Text>
     <Text Include="Resource\Intro\platform.txt">
+      <Filter>Header Files\txtFile\Intro</Filter>
+    </Text>
+    <Text Include="Resource\Intro\font.txt">
       <Filter>Header Files\txtFile\Intro</Filter>
     </Text>
   </ItemGroup>

@@ -1,4 +1,5 @@
 [ASSETS]
+Resource\Intro\font.txt
 Resource\Intro\platform.txt
 Resource\Intro\background.txt
 Resource\World1-1\card.txt
@@ -28,3 +29,7 @@ Resource\World1-1\button.txt
 #BACKGROUND
 
 1021	120	86
+
+
+#font
+1012	112	0

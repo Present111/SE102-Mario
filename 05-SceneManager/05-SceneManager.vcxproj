@@ -163,6 +163,7 @@
     <ClCompile Include="FireFromPlant.cpp" />
     <ClCompile Include="FlowerFire.cpp" />
     <ClCompile Include="Font.cpp" />
+    <ClCompile Include="FontIntro.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Goomba.cpp" />
@@ -222,6 +223,7 @@
     <ClInclude Include="FireFromPlant.h" />
     <ClInclude Include="FlowerFire.h" />
     <ClInclude Include="Font.h" />
+    <ClInclude Include="FontIntro.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Goomba.h" />
@@ -273,6 +275,7 @@
     <Text Include="objectinworldmap.txt" />
     <Text Include="platform.txt" />
     <Text Include="Resource\Intro\background.txt" />
+    <Text Include="Resource\Intro\font.txt" />
     <Text Include="Resource\Intro\intro.txt" />
     <Text Include="Resource\Intro\platform.txt" />
     <Text Include="Resource\Tilemap\world1-1-1.txt" />
