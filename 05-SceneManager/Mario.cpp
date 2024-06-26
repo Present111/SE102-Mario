@@ -628,7 +628,7 @@ int CMario::GetAniIdTail()
 					if (!isOnPlatform)
 					{
 
-						if (abs(ax) == MARIO_ACCEL_RUN_X) {
+						if (levelRun == LEVEL_RUN_MAX) {
 							if (nx > 0)
 								aniId = ID_ANI_MARIO_TAIL_JUMP_RUN_RIGHT;
 							else
@@ -758,7 +758,7 @@ int CMario::GetAniIdFire()
 		if (!isOnPlatform)
 		{
 			if (!isHolding) {
-				if (abs(ax) == MARIO_ACCEL_RUN_X)
+				if (levelRun == LEVEL_RUN_MAX)
 				{
 					if (nx >= 0)
 						aniId = ID_ANI_MARIO_FIRE_JUMP_RUN_RIGHT;
@@ -852,7 +852,7 @@ int CMario::GetAniIdSmall()
 		if (!isOnPlatform)
 		{
 			if (!isHolding) {
-				if (abs(ax) == MARIO_ACCEL_RUN_X)
+				if (levelRun == LEVEL_RUN_MAX)
 				{
 					if (nx >= 0)
 						aniId = ID_ANI_MARIO_SMALL_JUMP_RUN_RIGHT;
@@ -946,7 +946,7 @@ int CMario::GetAniIdBig()
 		if (!isOnPlatform)
 		{
 			if (!isHolding) {
-				if (abs(ax) == MARIO_ACCEL_RUN_X)
+				if (levelRun == LEVEL_RUN_MAX)
 				{
 					if (nx >= 0)
 						aniId = ID_ANI_MARIO_BIG_JUMP_RUN_RIGHT;
