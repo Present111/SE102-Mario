@@ -30,6 +30,7 @@
 #define ID_ANI_ARROW 30027
 #define ID_ANI_HUD_SUB 30028
 
+
 #define ID_ANI_HUD_CARD_MUSHROOM_END_SCENE 30031
 #define ID_ANI_HUD_CARD_FLOWER_END_SCENE 30032
 #define ID_ANI_HUD_CARD_STAR_END_SCENE 30033
@@ -61,7 +62,7 @@
 #define X_CARD_POSITION 56
 #define Y_CARD_POSITION 0
 #define CARD_WIDTH 24
-class CHUD
+class CHUD 
 {
 private:
 	float x, y;
@@ -69,8 +70,8 @@ private:
 
 public:
 	CHUD(float x, float y);
-	void DrawNumber(int n, float xTemp, float yTemp);
+	void DrawNumber(int n,float xTemp,float yTemp);
 	void DrawCard(int n, float xTemp, float yTemp);
 	virtual void Render();
-	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom) {}
+	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom){}
 };

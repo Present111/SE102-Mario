@@ -20,15 +20,15 @@ void CHUD::Render() {
 	// WRITE WORLD
 	DrawNumber(1, x + POSITION_WORLD_X, y - ADJUST_Y_POWER_POSITION);
 	//WRITE M SYMBOL
-	CAnimations::GetInstance()->Get(ID_ANI_M_SYMBOL)->Render(x + POSITION_M_SYMBOL_X, y - ADJUST_Y_POWER_POSITION_UNDER - 1);
+	CAnimations::GetInstance()->Get(ID_ANI_M_SYMBOL)->Render(x + POSITION_M_SYMBOL_X, y - ADJUST_Y_POWER_POSITION_UNDER-1);
 
-	if (!mario) {}
+	if(!mario){ }
 	else {
-		//RENDER ON HUD
-			//Write POWER UP
+	//RENDER ON HUD
+		//Write POWER UP
 		if (mario->GetLevelRun() > 1)
 		{
-			CAnimations::GetInstance()->Get(ID_ANI_POWER_HUD)->Render(x - ADJUST_X_POWER_POSITION, y - ADJUST_Y_POWER_POSITION);
+			CAnimations::GetInstance()->Get(ID_ANI_POWER_HUD)->Render(x - ADJUST_X_POWER_POSITION, y-ADJUST_Y_POWER_POSITION);
 		}
 		if (mario->GetLevelRun() > 2) {
 			CAnimations::GetInstance()->Get(ID_ANI_POWER_HUD)->Render(x - ADJUST_X_POWER_POSITION + DISTANCE_EVERY_LEVEL_RUN, y - ADJUST_Y_POWER_POSITION);
@@ -51,12 +51,12 @@ void CHUD::Render() {
 		//WRITE SCORE
 		int score = mario->GetScore();
 		DrawNumber(score / 1000000, x + POSITION_SCORE_X, y - ADJUST_Y_POWER_POSITION_UNDER);
-		DrawNumber((score / 100000) % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION_UNDER);
+		DrawNumber((score / 100000)%10, x + POSITION_SCORE_X + DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION_UNDER);
 		DrawNumber((score / 10000) % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER * 2, y - ADJUST_Y_POWER_POSITION_UNDER);
 		DrawNumber((score / 1000) % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER * 3, y - ADJUST_Y_POWER_POSITION_UNDER);
 		DrawNumber((score / 100) % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER * 4, y - ADJUST_Y_POWER_POSITION_UNDER);
 		DrawNumber((score / 10) % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER * 5, y - ADJUST_Y_POWER_POSITION_UNDER);
-		DrawNumber(score % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER * 6, y - ADJUST_Y_POWER_POSITION_UNDER);
+		DrawNumber(score  % 10, x + POSITION_SCORE_X + DISTANCE_NUMBER * 6, y - ADJUST_Y_POWER_POSITION_UNDER);
 
 
 
@@ -65,9 +65,9 @@ void CHUD::Render() {
 		int card1 = mario->GetCard1();
 		int card2 = mario->GetCard2();
 		int card3 = mario->GetCard3();
-		if (card1) DrawCard(card1, x + X_CARD_POSITION, y + Y_CARD_POSITION);
-		if (card2) DrawCard(card2, x + X_CARD_POSITION + CARD_WIDTH, y + Y_CARD_POSITION);
-		if (card3) DrawCard(card3, x + X_CARD_POSITION + CARD_WIDTH * 2, y + Y_CARD_POSITION);
+		if(card1) DrawCard(card1, x + X_CARD_POSITION, y + Y_CARD_POSITION);
+		if(card2) DrawCard(card2, x+ X_CARD_POSITION + CARD_WIDTH, y + Y_CARD_POSITION);
+		if(card3) DrawCard(card3, x+ X_CARD_POSITION + CARD_WIDTH*2, y + Y_CARD_POSITION);
 		//DebugOutTitle(L"[CARD 1 2 3 hjhj] %d %d %d \n", card1, card2, card3);
 		// WRITE UP
 		int up = mario->GetUp();
@@ -80,12 +80,12 @@ void CHUD::Render() {
 		if (coin / 10 > 0) {
 			DrawNumber(coin / 10, x + POSITION_COIN_X, y - ADJUST_Y_POWER_POSITION);
 		}
-		DrawNumber(coin % 10, x + POSITION_COIN_X + DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION);
+		DrawNumber(coin%10, x+POSITION_COIN_X+ DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION);
 		//WRITE CLOCK
 		int clock = mario->GetClock();
 		DrawNumber(clock / 100, x + POSITION_CLOCK_X, y - ADJUST_Y_POWER_POSITION_UNDER);
-		DrawNumber((clock / 10) % 10, x + POSITION_CLOCK_X + DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION_UNDER);
-		DrawNumber(clock % 10, x + POSITION_CLOCK_X + DISTANCE_NUMBER * 2, y - ADJUST_Y_POWER_POSITION_UNDER);
+		DrawNumber((clock / 10)%10, x + POSITION_CLOCK_X + DISTANCE_NUMBER, y - ADJUST_Y_POWER_POSITION_UNDER);
+		DrawNumber(clock %10  , x + POSITION_CLOCK_X + DISTANCE_NUMBER * 2, y - ADJUST_Y_POWER_POSITION_UNDER);
 
 
 
@@ -94,7 +94,7 @@ void CHUD::Render() {
 }
 void CHUD::DrawNumber(int n, float xTemp, float yTemp) {
 	if (n == 0) CAnimations::GetInstance()->Get(ID_ANI_0)->Render(xTemp, yTemp);
-	else if (n == 1) CAnimations::GetInstance()->Get(ID_ANI_1)->Render(xTemp, yTemp);
+	else if(n==1) CAnimations::GetInstance()->Get(ID_ANI_1)->Render(xTemp, yTemp);
 	else if (n == 2) CAnimations::GetInstance()->Get(ID_ANI_2)->Render(xTemp, yTemp);
 	else if (n == 3) CAnimations::GetInstance()->Get(ID_ANI_3)->Render(xTemp, yTemp);
 	else if (n == 4) CAnimations::GetInstance()->Get(ID_ANI_4)->Render(xTemp, yTemp);
