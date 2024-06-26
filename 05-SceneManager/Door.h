@@ -42,14 +42,15 @@ public:
 	CDoor(float x, float y, int model, bool allowLeft, bool allowTop, bool allowRight, bool allowBottom);
 	void Render();
 	void Update(DWORD dt) {}
-	int GetIdScene() { return idScene; }
+	virtual int IsBlocking() { return 0; }
 	bool GetAllowLeft() { return allowLeft; }
 	bool GetAllowTop() { return allowTop; }
 	bool GetAllowRight() { return allowRight; }
 	bool GetAllowBottom() { return allowBottom; }
-	virtual int IsBlocking() { return 0; }
+	int GetIdScene() { return idScene; }
 	int GetModel() { return model; }
 	void GetBoundingBox(float& l, float& t, float& r, float& b);
 };
+
 
 

@@ -2,7 +2,6 @@
 #include "Platform.h"
 #include "Mario.h"
 #include "PlayScene.h"
-#include "InvisibleBlock.h"
 CGoomba::CGoomba(float x, float y,int model):CGameObject(x, y)
 {
 	this->ax = 0;
@@ -24,7 +23,7 @@ CGoomba::CGoomba(float x, float y,int model):CGameObject(x, y)
 
 void CGoomba::GetBoundingBox(float &left, float &top, float &right, float &bottom)
 {
-	if (isUpside == true) { return; }
+	if (isUpside) return;
 	if (isDead)
 	{
 		left = x - GOOMBA_BBOX_WIDTH/2;
@@ -66,7 +65,6 @@ void CGoomba::OnCollisionWith(LPCOLLISIONEVENT e)
 		OnCollisionWithPlatForm(e);
 }
 
-
 void CGoomba::OnCollisionWithPlatForm(LPCOLLISIONEVENT e)
 {
 	CPlatform* platform = dynamic_cast<CPlatform*>(e->obj);
@@ -80,7 +78,7 @@ void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 {
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 	if (!checkObjectInCamera(this)) return;
-	if (mario->GetIsChanging() || mario->GetState() == MARIO_STATE_DIE) return;
+	if (mario->GetIsChanging() || mario->GetState()==MARIO_STATE_DIE) return;
 	vy += ay * dt;
 	vx += ax * dt;
 
@@ -97,18 +95,18 @@ void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	if (vy < 0) {
 		isOnPlatForm = false;
 	}
-	if (!isUpside) {// kiem tra goomba chua chet
-		if ((model == GOOMBA_WING) && (!isAttack)) {// kiem qua goomba fly
-			if ((GetTickCount64() - time_walking > TIME_WALKING - 500) && !isJump) { // ham goomba nhay 2 lan
-				if (isOnPlatForm && (num_jump_small < 3)) {
-					vy = -GOOMBA_JUMP_DEFLECT_SPEED / 2;
-					num_jump_small += 1;
+	if (!isUpside) {
+		if ((model == GOOMBA_WING) && (!isAttack)) {
+			if ((GetTickCount64() - time_walking > TIME_WALKING-TIME_JUMP_SMALL)&& !isJump) {
+				if (isOnPlatForm && (num_jump_small <3)) {
+					vy = -GOOMBA_JUMP_DEFLECT_SPEED / 2; 
+					num_jump_small +=1;
 				}
 			}
-			if (GetTickCount64() - time_walking > TIME_WALKING && !isJump) {// goomba bay len 
+			if (GetTickCount64() - time_walking > TIME_WALKING && !isJump) {
 				SetState(GOOMBA_STATE_FLY);
 
-				if ((vx >= 0) && (mario->GetX() < GetX()))// goomba fly huong ve mario
+				if ((vx >= 0) && (mario->GetX() < GetX()))
 				{
 					vx = -GOOMBA_WALKING_SPEED;
 				}
@@ -120,12 +118,12 @@ void CGoomba::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 				num_jump_small = 0;
 				//time_jump_small = GetTickCount64();
 			}
-			else
+			else 
 			{
 				if (isJump) {
-					SetState(GOOMBA_STATE_WALKING);// thiet lap lai trang thai goomba fly luc di bo
+					SetState(GOOMBA_STATE_WALKING);
 				}
-
+				
 			}
 		}
 	}
@@ -195,7 +193,7 @@ void CGoomba::Render()
 	}
 	CAnimations::GetInstance()->Get(aniId)->Render(x,y);
 	//RenderBoundingBox();
-	DebugOutTitle(L"IsPlatform: %d", isOnPlatForm);
+	//DebugOutTitle(L"IsPlatform: %d", isOnPlatForm);
 
 }
 
@@ -274,7 +272,6 @@ void CGoomba::SetState(int state)
 			vy = -GOOMBA_JUMP_DEFLECT_SPEED;
 			isUpside = true;
 			die_start = GetTickCount64();
-
 			break;
 	}
 	CGameObject::SetState(state);

@@ -5,10 +5,10 @@
 #include"Game.h"
 void CFontIntro::Render() {
 	CIntroBackGround* player = (CIntroBackGround*)((LPINTROSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
-	if (player->GetState() == BACKGROUND_STATE_MOVE)CAnimations::GetInstance()->Get(ID_ANI_FONT)->Render(x, y);
+	if(player->GetState() == BACKGROUND_STATE_MOVE)CAnimations::GetInstance()->Get(ID_ANI_FONT)->Render(x, y);
 }
 void CFontIntro::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
-	DebugOutTitle(L"y vy %f %f", y, vy);
+	//DebugOutTitle(L"y vy %f %f", y, vy);
 	CIntroBackGround* player = (CIntroBackGround*)((LPINTROSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 	if (player->GetState() != BACKGROUND_STATE_MOVE) return;
 	if (y > blockY) {
