@@ -11,12 +11,11 @@
 #include "FontIntro.h"
 #include "Platform.h"
 #include"IntroBackGround.h"
-
 #include "Game.h"
 #include "Goomba.h"
 #include "Scene.h"
 #include "debug.h"
-
+#include "KoopaGreenIntro.h"
 #define SCENE_SECTION_UNKNOWN -1
 #define SCENE_SECTION_ASSETS	1
 #define SCENE_SECTION_OBJECTS	2
@@ -116,6 +115,7 @@ void CIntroScene::_ParseSection_OBJECTS(string line) {
 	case OBJECT_TYPE_GOOMBA: obj = new CGoomba(x, y, GOOMBA_BASE); break;
 	case OBJECT_TYPE_FONT_INTRO: obj = new CFontIntro(); break;
 	case OBJECT_TYPE_BACK: obj = new CBack(x, y); break;
+	case OBJECT_TYPE_KOOPA_GREEN_INTRO: obj = new CKoopaGreenIntro(x,y); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 

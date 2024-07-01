@@ -177,8 +177,8 @@
     <ClCompile Include="IntroKey.cpp" />
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="InvisibleBlock.cpp" />
+    <ClCompile Include="KoopaGreenIntro.cpp" />
     <ClCompile Include="MarioGreenIntro.cpp" />
-    <ClCompile Include="MarioRedIntro.cpp" />
     <ClCompile Include="ObjectInWorldmap.cpp" />
     <ClCompile Include="PlatformIntro.cpp" />
     <ClCompile Include="WorldMapKeyEvent.cpp" />
@@ -238,8 +238,8 @@
     <ClInclude Include="IntroKey.h" />
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="InvisibleBlock.h" />
+    <ClInclude Include="KoopaGreenIntro.h" />
     <ClInclude Include="MarioGreenIntro.h" />
-    <ClInclude Include="MarioRedIntro.h" />
     <ClInclude Include="ObjectInWorldMap.h" />
     <ClInclude Include="PlatformIntro.h" />
     <ClInclude Include="WorldMapKeyEvent.h" />
@@ -280,6 +280,7 @@
     <Text Include="Resource\Intro\background.txt" />
     <Text Include="Resource\Intro\font.txt" />
     <Text Include="Resource\Intro\intro.txt" />
+    <Text Include="Resource\Intro\koopagreenintro.txt" />
     <Text Include="Resource\Intro\platform.txt" />
     <Text Include="Resource\Tilemap\world1-1-1.txt" />
     <Text Include="Resource\Tilemap\world1-1.txt" />

@@ -172,9 +172,6 @@
     <Filter Include="Header Files\IntroGame\MarioGreenIntro">
       <UniqueIdentifier>{58a1187b-556e-4c24-ab96-240096df10c5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\IntroGame\MarioRedIntro">
-      <UniqueIdentifier>{44b2b7a9-0777-4da6-8b1d-4418f3917d2a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\IntroGame\PlatformIntro">
       <UniqueIdentifier>{2a77befe-2d8c-49e6-9a14-88f620ff91c3}</UniqueIdentifier>
     </Filter>
@@ -189,6 +186,9 @@
     </Filter>
     <Filter Include="Header Files\IntroGame\Back">
       <UniqueIdentifier>{21aec5c8-41c5-40bd-8767-e80929c04ace}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IntroGame\KoopaGreenIntro">
+      <UniqueIdentifier>{9bbe7b65-0216-4500-8f9e-de8cceac8f16}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -351,9 +351,6 @@
     <ClCompile Include="MarioGreenIntro.cpp">
       <Filter>Header Files\IntroGame\MarioGreenIntro</Filter>
     </ClCompile>
-    <ClCompile Include="MarioRedIntro.cpp">
-      <Filter>Header Files\IntroGame\MarioRedIntro</Filter>
-    </ClCompile>
     <ClCompile Include="PlatformIntro.cpp">
       <Filter>Header Files\IntroGame\PlatformIntro</Filter>
     </ClCompile>
@@ -365,6 +362,9 @@
     </ClCompile>
     <ClCompile Include="Back.cpp">
       <Filter>Header Files\IntroGame\Back</Filter>
+    </ClCompile>
+    <ClCompile Include="KoopaGreenIntro.cpp">
+      <Filter>Header Files\IntroGame\KoopaGreenIntro</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -539,9 +539,6 @@
     <ClInclude Include="PlatformIntro.h">
       <Filter>Header Files\IntroGame\PlatformIntro</Filter>
     </ClInclude>
-    <ClInclude Include="MarioRedIntro.h">
-      <Filter>Header Files\IntroGame\MarioRedIntro</Filter>
-    </ClInclude>
     <ClInclude Include="IntroBackGround.h">
       <Filter>Header Files\IntroGame\IntroBackGround</Filter>
     </ClInclude>
@@ -550,6 +547,9 @@
     </ClInclude>
     <ClInclude Include="Back.h">
       <Filter>Header Files\IntroGame\Back</Filter>
+    </ClInclude>
+    <ClInclude Include="KoopaGreenIntro.h">
+      <Filter>Header Files\IntroGame\KoopaGreenIntro</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -687,6 +687,9 @@
     </Text>
     <Text Include="Resource\Intro\back.txt">
       <Filter>Header Files\IntroGame\Back</Filter>
+    </Text>
+    <Text Include="Resource\Intro\koopagreenintro.txt">
+      <Filter>Header Files\txtFile\Intro</Filter>
     </Text>
   </ItemGroup>
 </Project>

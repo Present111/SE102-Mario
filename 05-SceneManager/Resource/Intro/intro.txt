@@ -36,3 +36,7 @@ Resource\World1-1\button.txt
 
 #BACK
 1022	120.5	85
+#MARIO RED
+#0	0	177
+
+1023	0	177

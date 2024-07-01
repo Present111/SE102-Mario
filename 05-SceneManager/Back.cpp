@@ -2,7 +2,8 @@
 #include "FontIntro.h"
 #include "debug.h"
 #include "IntroScene.h"
-
+#include "Mario.h"
+#include "Koopa.h"
 void CBack::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();

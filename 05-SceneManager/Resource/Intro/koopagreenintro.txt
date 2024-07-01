@@ -1,0 +1,22 @@
+# id	left	top	right	bottom	texture_id
+[SPRITES]
+########################################## GREEN #############################
+# GREEN WALK RIGHT
+
+41001	214	98	231	125	40
+41002	254	98	271	125	40
+
+# GREEN WALK LEFT
+
+41003	164	98	181	125	40
+41004	124	98	141	125	40
+# ani_id	sprite1_id	time1	sprite2_id	time2	...
+[ANIMATIONS]
+########################KOOPAS GREEN###################
+#GREEN WALK RIGHT 
+
+6001	41001	100	41002	100
+
+#GREEN WALK LEFT
+
+6002	41003	100	41004	100
