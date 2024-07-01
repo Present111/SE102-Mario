@@ -2,6 +2,7 @@
 Resource\Intro\font.txt
 Resource\Intro\platform.txt
 Resource\Intro\background.txt
+Resource\Intro\back.txt
 Resource\World1-1\card.txt
 Resource\World1-1\mario.txt
 Resource\World1-1\brick.txt
@@ -33,3 +34,5 @@ Resource\World1-1\button.txt
 #font
 1012	112	0
 
+#BACK
+1022	120.5	85

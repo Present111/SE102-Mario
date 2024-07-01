@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include "AssetIDs.h"
-
+#include "Back.h"
 #include "IntroKey.h"
 #include "PlayScene.h"
 #include "Platform.h"
@@ -112,6 +112,7 @@ void CIntroScene::_ParseSection_OBJECTS(string line) {
 	case OBJECT_TYPE_MARIO: obj = new CMario(x, y); break;
 	case OBJECT_TYPE_GOOMBA: obj = new CGoomba(x, y, GOOMBA_BASE); break;
 	case OBJECT_TYPE_FONT_INTRO: obj = new CFontIntro(x, y); break;
+	case OBJECT_TYPE_BACK: obj = new CBack(x, y); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 
