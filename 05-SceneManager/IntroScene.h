@@ -23,7 +23,7 @@ class CIntroScene : public CScene
 	void LoadAssets(LPCWSTR assetFile);
 
 public:
-
+	void AddObject(LPGAMEOBJECT object);
 	CIntroScene(int id, LPCWSTR filePath);
 	LPGAMEOBJECT GetPlayer() { return player; }
 	virtual void Load();

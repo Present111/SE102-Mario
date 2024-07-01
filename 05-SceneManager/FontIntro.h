@@ -7,7 +7,9 @@ class CFontIntro :public CGameObject
 {
 	float blockY;
 public:
-	CFontIntro(float x, float y) {
+	CFontIntro() {
+		x = 112;
+		y = 0;
 		vy = SPEED_FONT;
 		blockY = y + BLOCK_FONT;
 	}

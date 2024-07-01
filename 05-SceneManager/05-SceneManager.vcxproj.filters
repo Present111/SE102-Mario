@@ -187,6 +187,9 @@
     <Filter Include="Header Files\IntroGame\FontIntro">
       <UniqueIdentifier>{28b83e29-2659-4108-a10d-c7034677ada9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IntroGame\Back">
+      <UniqueIdentifier>{21aec5c8-41c5-40bd-8767-e80929c04ace}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -359,6 +362,9 @@
     </ClCompile>
     <ClCompile Include="FontIntro.cpp">
       <Filter>Header Files\IntroGame\FontIntro</Filter>
+    </ClCompile>
+    <ClCompile Include="Back.cpp">
+      <Filter>Header Files\IntroGame\Back</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -542,6 +548,9 @@
     <ClInclude Include="FontIntro.h">
       <Filter>Header Files\IntroGame\FontIntro</Filter>
     </ClInclude>
+    <ClInclude Include="Back.h">
+      <Filter>Header Files\IntroGame\Back</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="mario-sample.txt">
@@ -675,6 +684,9 @@
     </Text>
     <Text Include="Resource\Intro\font.txt">
       <Filter>Header Files\txtFile\Intro</Filter>
+    </Text>
+    <Text Include="Resource\Intro\back.txt">
+      <Filter>Header Files\IntroGame\Back</Filter>
     </Text>
   </ItemGroup>
 </Project>

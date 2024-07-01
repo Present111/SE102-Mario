@@ -27,7 +27,10 @@
 
 #define MAX_SCENE_LINE 1024
 using namespace std;
-
+void CIntroScene::AddObject(LPGAMEOBJECT object)
+{
+	objects.insert(objects.begin() + 1, object);
+}
 CIntroScene::CIntroScene(int id, LPCWSTR filePath) :CScene(id, filePath)
 {
 	key_handler = new CIntroKey(this);
@@ -111,7 +114,7 @@ void CIntroScene::_ParseSection_OBJECTS(string line) {
 	case OBJECT_TYPE_PLATFORM_INTRO: obj = new CPlatformIntro(x, y); break;
 	case OBJECT_TYPE_MARIO: obj = new CMario(x, y); break;
 	case OBJECT_TYPE_GOOMBA: obj = new CGoomba(x, y, GOOMBA_BASE); break;
-	case OBJECT_TYPE_FONT_INTRO: obj = new CFontIntro(x, y); break;
+	case OBJECT_TYPE_FONT_INTRO: obj = new CFontIntro(); break;
 	case OBJECT_TYPE_BACK: obj = new CBack(x, y); break;
 	case OBJECT_TYPE_PLATFORM:
 	{

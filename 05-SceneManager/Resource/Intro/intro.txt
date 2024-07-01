@@ -32,7 +32,7 @@ Resource\World1-1\button.txt
 1021	120	86
 
 #font
-1012	112	0
+#1012	112	0
 
 #BACK
 1022	120.5	85
