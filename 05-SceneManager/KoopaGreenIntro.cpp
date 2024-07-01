@@ -1,5 +1,11 @@
 #include "KoopaGreenIntro.h"
 #include "Koopa.h"
+#include "IntroBackGround.h"
+#include "Scene.h"
+#include "FontIntro.h"
+#include"IntroScene.h"
+#include "debug.h"
+#include"Game.h"
 void CKoopaGreenIntro::Render()
 {
 	int aniId = -1;
@@ -9,6 +15,14 @@ void CKoopaGreenIntro::Render()
 }
 void CKoopaGreenIntro::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
+	CIntroBackGround* player = (CIntroBackGround*)((LPINTROSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
+	if (player->GetState() != BACKGROUND_STATE_MOVE)
+	{
+		if (this->typespeed == 0)
+			vx = 0.05;
+		else
+			vx = 0.1;
+	}
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }

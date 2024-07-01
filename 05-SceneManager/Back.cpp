@@ -4,6 +4,7 @@
 #include "IntroScene.h"
 #include "Mario.h"
 #include "Koopa.h"
+#include "KoopaGreenIntro.h"
 void CBack::Render()
 {
 	CAnimations* animations = CAnimations::GetInstance();

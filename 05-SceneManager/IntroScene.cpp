@@ -115,7 +115,8 @@ void CIntroScene::_ParseSection_OBJECTS(string line) {
 	case OBJECT_TYPE_GOOMBA: obj = new CGoomba(x, y, GOOMBA_BASE); break;
 	case OBJECT_TYPE_FONT_INTRO: obj = new CFontIntro(); break;
 	case OBJECT_TYPE_BACK: obj = new CBack(x, y); break;
-	case OBJECT_TYPE_KOOPA_GREEN_INTRO: obj = new CKoopaGreenIntro(x,y); break;
+	case OBJECT_TYPE_KOOPA_GREEN_INTRO_LOW: obj = new CKoopaGreenIntro(x, y, 0); break;
+	case OBJECT_TYPE_KOOPA_GREEN_INTRO_FAST: obj = new CKoopaGreenIntro(x, y, 1); break;
 	case OBJECT_TYPE_PLATFORM:
 	{
 
