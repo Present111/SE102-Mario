@@ -1,5 +1,5 @@
 ﻿#include"GameObject.h"
-
+#include "InvisibleBlock.h"
 #define KOOPA_GRAVITY 0.001f
 #define KOOPA_WALKING_SPEED 0.04f
 #define KOOPA_IS_KICKED_SPEED 0.18f
@@ -58,60 +58,65 @@
 class CKoopa : public CGameObject
 {
 protected:
-	float ax;
-	float ay;
-	int model;
-	ULONGLONG defend_start;
-	ULONGLONG die_start;
-	ULONGLONG comeback_start;
+    CInvisibleBlock* block = NULL;
+    float ax;
+    float ay;
+    int model;
+    ULONGLONG defend_start;
+    ULONGLONG die_start;
+    ULONGLONG comeback_start;
+    float startY; 
 
-	virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
-	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
-	virtual void Render();
+    virtual void GetBoundingBox(float& left, float& top, float& right, float& bottom);
+    virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
+    virtual void Render();
 
-	virtual int IsCollidable() { return !isDead; };
-	int PositionWithMario();
-	virtual int IsBlocking() { return 0; }
-	virtual int IsEnemy() { return 1; }
-	virtual void OnNoCollision(DWORD dt);
+    virtual int IsCollidable() { return !isDead; };
+    int PositionWithMario();
+    virtual int IsBlocking() { return 0; }
+    virtual int IsEnemy() { return 1; }
+    virtual void OnNoCollision(DWORD dt);
 
+    int GetAniGreen();
+    int GetAniRed();
+    void OnCollisionWithBoomBrick(LPCOLLISIONEVENT e);
+    void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
+    void OnCollisionWithPlatform(LPCOLLISIONEVENT e);
+    void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
+    void OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e);
+    void OnCollisionWithKoopa(LPCOLLISIONEVENT e);
+    virtual void OnCollisionWith(LPCOLLISIONEVENT e);
 
-	int GetAniGreen();
-	int GetAniRed();
-	void OnCollisionWithBoomBrick(LPCOLLISIONEVENT e);
-	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
-	void OnCollisionWithPlatform(LPCOLLISIONEVENT e);
-	void OnCollisionWithGoomba(LPCOLLISIONEVENT e);
-	void OnCollisionWithBrickQuestion(LPCOLLISIONEVENT e);
-	void OnCollisionWithKoopa(LPCOLLISIONEVENT e);
-	virtual void OnCollisionWith(LPCOLLISIONEVENT e);
-
-	bool isUpside;
-	bool isDefend;
-	bool isHeld;
-	bool isKicked;
-	bool isWing;
-	bool isOnPlatform;
-	bool isComeback;
-	bool isDead;
+    bool isUpside;
+    bool isDefend;
+    bool isHeld;
+    bool isKicked;
+    bool isWing;
+    bool isOnPlatform;
+    bool isComeback;
+    bool isDead;
 public:
-	CKoopa(float x, float y, int model);
+    CKoopa(float x, float y, int model);
 
+    //get
+    bool GetIsUpside() { return isUpside; }
+    bool GetIsDefend() { return isDefend; }
+    bool GetIsHeld() { return isHeld; }
+    bool GetIsKicked() { return isKicked; }
+    bool GetIsWing() { return isWing; }
+    bool GetIsComeBack() { return isComeback; }
 
-	//get
-	bool GetIsUpside() { return isUpside; }
-	bool GetIsDefend() { return isDefend; }
-	bool GetIsHeld() { return isHeld; }
-	bool GetIsKicked() { return isKicked; }
-	bool GetIsWing() { return isWing; }
-	bool GetIsComeBack() { return isComeback; }
-
-
-	//set
-	virtual void SetState(int state);
-	void SetIsHeld(bool b) { isHeld = b; }
-	void SetModel(int model) { this->model = model; }
-	int GetModel() { return model; }
-
-
+    //set
+    virtual void SetState(int state);
+    void SetIsHeld(bool b) { isHeld = b; }
+    void SetModel(int model) { this->model = model; }
+    int GetModel() { return model; }
+    float GetVx()
+    {
+        return this->vx;
+    }
+    float GetVy()
+    {
+        return vy;
+    }
 };

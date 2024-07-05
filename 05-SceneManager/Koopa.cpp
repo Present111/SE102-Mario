@@ -1,4 +1,4 @@
-#include "Koopa.h"
+﻿#include "Koopa.h"
 #include "Goomba.h"
 #include "Mario.h"
 #include "Platform.h"
@@ -15,7 +15,7 @@
 #include "FlowerFire.h"
 #include "PlayScene.h"
 #include "BoomBrick.h"
-
+#include "InvisibleBlock.h"
 CKoopa::CKoopa(float x, float y, int model) :CGameObject(x, y)
 {
 	this->ax = 0;
@@ -39,15 +39,39 @@ CKoopa::CKoopa(float x, float y, int model) :CGameObject(x, y)
 	isHeld = false;
 	isUpside = false;
 	isDead = false;
+	startY = 0;
+	if (this->GetModel() == KOOPA_RED)
+	{
+		CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
+		block = new CInvisibleBlock(x, y);
+		scene->AddObject(block);
+	}
 }
 
 void CKoopa::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects) {
+	if (block != NULL)
+	{
+		if (vx < 0)
+			block->SetX(x - 25);
+		if (vx >= 0)
+			block->SetX(x + 25);
+		if (block->GetReBack() == 1)
+		{
+			vx = -vx;
+			block->ReSetReBack();
+			block->SetY(y);
+			if (vx < 0)
+				block->SetX(x - 25);
+			if (vx >= 0)
+				block->SetX(x + 25);
+		}
+	}
+
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 	if (!checkObjectInCamera(this)) return;
 	if (mario->GetIsChanging() || mario->GetState() == MARIO_STATE_DIE) return;
 	vy += ay * dt;
 	vx += ax * dt;
-
 	if (mario->GetIsHolding() && isHeld) {
 		this->x = mario->GetX() + mario->GetNx() * (MARIO_BIG_BBOX_WIDTH - 3);
 		this->y = mario->GetY() - 3;

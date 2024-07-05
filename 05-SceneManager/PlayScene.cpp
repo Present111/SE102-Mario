@@ -192,6 +192,7 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 		break;
 	case OBJECT_TYPE_GOOMBA: obj = new CGoomba(x, y, GOOMBA_BASE); break;
 	case OBJECT_TYPE_BRICK: obj = new CBrick(x, y); break;
+	case OBJECT_TYPE_INVISIBLE_BLOCK: obj = new CInvisibleBlock(x, y); break;
 	case OBJECT_TYPE_COIN: obj = new CCoin(x, y); break;
 	case OBJECT_TYPE_GOOMBA_FLY: obj = new CGoomba(x, y, GOOMBA_WING); break;
 	case OBJECT_TYPE_MUSHROOM: obj = new CMushRoom(x, y); break;
@@ -207,7 +208,6 @@ void CPlayScene::_ParseSection_OBJECTS(string line)
 	case OBJECT_TYPE_KOOPA_GREEN_FLY: obj = new CKoopa(x, y, KOOPA_GREEN_WING); break;
 	case OBJECT_TYPE_KOOPA_RED: obj = new CKoopa(x, y, KOOPA_RED); break;
 	case OBJECT_TYPE_PLANT_NOT_SHOOT: obj = new CPlantEnemy(x, y, PLANT_NOT_SHOOT); break;
-	case OBJECT_TYPE_INVISIBLE_BLOCK: obj = new CInvisibleBlock(x, y); break;
 	case OBJECT_TYPE_BRICKQUESTION_MUSHROOM_GREEN: obj = new CBrickQuestion(x, y, QUESTION_BRICK_MUSHROOM_GREEN); break;
 	case OBJECT_TYPE_MUSHROOM_GREEN: obj = new CMushRoom(x, y, MUSHROOM_GREEN); break;
 	case OBJECT_TYPE_BOOMBRICK_NOT_COIN: obj = new CBoomBrick(x, y, BOOMBRICK_COIN); break;
