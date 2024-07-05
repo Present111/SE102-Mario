@@ -19,8 +19,8 @@ void CBrickQuestion::GetBoundingBox(float& left, float& top, float& right, float
 {
 	left = x - QUESTION_BRICK_BBOX_WIDTH / 2 ;
 	top = y - QUESTION_BRICK_BBOX_HEIGHT / 2 ;
-	right = left + QUESTION_BRICK_BBOX_WIDTH - 1;
-	bottom = top + QUESTION_BRICK_BBOX_HEIGHT - 1;
+	right = left + QUESTION_BRICK_BBOX_WIDTH;
+	bottom = top + QUESTION_BRICK_BBOX_HEIGHT;
 }
 
 void CBrickQuestion::OnNoCollision(DWORD dt)
@@ -35,7 +35,7 @@ void CBrickQuestion::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if (x != startX) {
 		x = startX;
 	}
-	if (!isEmpty) {
+	if (!isEmpty ) {
 		if (y != startY) y = startY;
 		if (x != startX) x = startX;
 	}
@@ -70,7 +70,7 @@ void CBrickQuestion::Render()
 	if (!checkObjectInCamera(this)) return;
 
 	int aniId;
-	if (model == QUESTION_BRICK_MUSHROOM_GREEN) {
+	if (model == QUESTION_BRICK_MUSHROOM_GREEN || model == QUESTION_BRICK_BUTTON) {
 		aniId = ID_ANI_BOOMBRICK;
 	}
 	else aniId = ID_ANI_QUESTION_BRICK;

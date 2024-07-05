@@ -36,7 +36,7 @@ protected:
 	virtual void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	virtual void Render();
 
-	virtual int IsCollidable() { return 0; }//!isUnbox || !isEmpty; }
+	virtual int IsCollidable() { return 1; }//!isUnbox || !isEmpty; }
 	virtual int IsBlocking() { return 1; }
 	virtual void OnNoCollision(DWORD dt);
 
@@ -51,6 +51,7 @@ public:
 	void SetIsEmpty(BOOLEAN b) { isEmpty = b; }
 	void SetModel(int model) { this->model = model; }
 	int GetModel() { return model; }
-
+	
 	CGameObject* item = NULL;
 };
+

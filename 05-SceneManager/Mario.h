@@ -290,8 +290,8 @@ class CMario : public CGameObject
 	float maxVx;
 	float ax;				// acceleration on x 
 	float ay;				// acceleration on y 
-	int level;
-	int untouchable;
+	int level; 
+	int untouchable; 
 	int clock;
 	int levelRun;
 	int score;
@@ -320,7 +320,7 @@ class CMario : public CGameObject
 	ULONGLONG start_change_scene_die;
 	ULONGLONG start_change_scene_clock;
 	BOOLEAN isOnPlatform;
-	int coin;
+	int coin; 
 
 	bool isChanging;
 	bool isRunning;
@@ -335,7 +335,7 @@ class CMario : public CGameObject
 	bool isNotMove = false;
 	bool isEndScene = false;
 	bool isWillAddEffect = false;
-	bool isClockVeryFast;
+	bool isClockVeryFast ;
 	bool isWillDieInClock0 = true;
 	int card1;
 	int card2;
@@ -349,7 +349,7 @@ class CMario : public CGameObject
 	int GetAniIdTail();
 
 	virtual int IsPlayer() { return 1; }
-	int IsCollidable() { return (state != MARIO_STATE_DIE); }
+	int IsCollidable(){ return (state != MARIO_STATE_DIE); }
 	int IsBlocking() { return (state != MARIO_STATE_DIE && untouchable == 0); }
 
 	void OnNoCollision(DWORD dt);
@@ -376,9 +376,9 @@ public:
 	CMario(float x, float y);
 	void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);
 	void Render();
+
+
 	void GetBoundingBox(float& left, float& top, float& right, float& bottom);
-
-
 	//get
 	int GetScoreCollision() { return scoreUpCollision; }
 	int GetScore() { return score; }
@@ -423,17 +423,17 @@ public:
 	void SetMarioTailAttack();
 	void SetLevelLower();
 	void AddChangeAnimation();
-	void AddEffectAttack(float xTemp, float yTemp);
+	void AddEffectAttack(float xTemp,float yTemp);
 	void AddScore(float xTemp, float yTemp, int scoreAdd);
-	void IncreaseScoreUpCollision(float xTemp, float yTemp);
+	void IncreaseScoreUpCollision(float xTemp,float yTemp);
 	void TeleportToHiddenMap() {
-		SetPosition(POSITION_X_HIDDEN_MAP, POSITION_Y_HIDDEN_MAP);
+		SetPosition(POSITION_X_HIDDEN_MAP,POSITION_Y_HIDDEN_MAP);
 	}
 	void ReturnWorldFromHiddenMap() {
-		SetPosition(POSITION_X_OUT_HIDDEN_MAP, POSITION_Y_OUT_HIDDEN_MAP);
+		SetPosition(POSITION_X_OUT_HIDDEN_MAP,POSITION_Y_OUT_HIDDEN_MAP);
 	}
 	void SaveDataGame();
-	bool MarioInDeadZone();
+	bool MarioInDeadZone(); 
 	bool MarioInPositionEndScene() { return x > POSITION_MAX_END_SCENE; }
 	void AdjustLogicSitting();
 	void ChangeWorldMapWhenDie();
