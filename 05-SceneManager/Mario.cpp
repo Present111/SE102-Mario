@@ -18,25 +18,25 @@
 #include "FlowerFire.h"
 #include "Button.h"
 #include "FireFromPlant.h"
+#include "Button.h"
 #include "BrickQuestion.h"
 #include "Portal.h"
 #include "PlayScene.h"
-#include "Collision.h"
 #include "BoomBrick.h"
-
+#include "Collision.h"
 
 CMario::CMario(float x, float y) : CGameObject(x, y) {
-	CData* data = CGame::GetInstance()->GetDataGame();
+	CData* dataGame = CGame::GetInstance()->GetDataGame();
 	isShoot = false;
 	isHolding = false;
 	isSitting = false;
 	maxVx = 0.0f;
-	Up = data->GetUp();
+	Up = dataGame->GetUp();
 	ax = 0.0f;
 	clock = 300;
 	ay = MARIO_GRAVITY;
 
-	level = data->GetLevel();
+	level = dataGame->GetLevel();
 	levelRun = 0;
 	isFlying = false;
 	isRunning = false;
@@ -51,20 +51,20 @@ CMario::CMario(float x, float y) : CGameObject(x, y) {
 	isPrepareEndScene = false;
 	isNotMove = false;
 	isClockVeryFast = false;
-	coin = data->GetCoin();
-	score = data->GetScore();
+	coin = dataGame->GetCoin();
+	score = dataGame->GetScore();
 	scoreUpCollision = 1;
 	startUsePiPeY = 0;
-	card1 = data->GetCard1();
-	card2 = data->GetCard2();
-	card3 = data->GetCard3();
+	card1 = dataGame->GetCard1();
+	card2 = dataGame->GetCard2();
+	card3 = dataGame->GetCard3();
 	cardCollected = 0;
 }
 
 void CMario::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
 	//DebugOutTitle(L"Up %d", Up);
-	// DebugOutTitle(L"score %d", score);
+	DebugOutTitle(L"score %d", score);
 	//DebugOutTitle(L"State %d", state);
 	//DebugOutTitle(L"TIME %d", clock);
 	//DebugOutTitle(L"POWERUP %d", levelRun);
@@ -288,7 +288,7 @@ void CMario::OnCollisionWith(LPCOLLISIONEVENT e)
 	else if (dynamic_cast<CCard*>(e->obj))
 		OnCollisionWithCard(e);
 	else if (dynamic_cast<CBoomBrick*>(e->obj))
-		OnCollisionWithBoomBrick(e);
+		OnCollisionWithGoldBrick(e);
 	else if (dynamic_cast<CButton*>(e->obj))
 		OnCollisionWithButton(e);
 }
@@ -296,7 +296,7 @@ void CMario::OnCollisionWithButton(LPCOLLISIONEVENT e) {
 	CButton* button = dynamic_cast<CButton*>(e->obj);
 	button->SetIsCollected(true);
 }
-void CMario::OnCollisionWithBoomBrick(LPCOLLISIONEVENT e) {
+void CMario::OnCollisionWithGoldBrick(LPCOLLISIONEVENT e) {
 	CBoomBrick* brick = dynamic_cast<CBoomBrick*>(e->obj);
 	//DebugOutTitle(L" brick mario %f %f", brick->GetY(), y);
 	if (e->nx != 0 && (abs(brick->GetY() - GetY()) < MARIO_SMALL_BBOX_HEIGHT / 2)) {

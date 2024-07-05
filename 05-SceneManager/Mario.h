@@ -5,7 +5,7 @@
 #include "debug.h"
 
 
-#define MARIO_WALKING_SPEED		0.08f
+#define MARIO_WALKING_SPEED	 0.1f
 #define MARIO_RUNNING_SPEED		0.1f
 #define MARIO_SIT_VY_ADJUST 0.2f
 
@@ -366,10 +366,11 @@ class CMario : public CGameObject
 	void OnCollisionWithPlantEnemy(LPCOLLISIONEVENT e);
 	void OnCollisionWithFireFromPlant(LPCOLLISIONEVENT e);
 	void OnCollisionWithCard(LPCOLLISIONEVENT e);
-	void OnCollisionWithBoomBrick(LPCOLLISIONEVENT e);
+	void OnCollisionWithGoldBrick(LPCOLLISIONEVENT e);
 	void OnCollisionWithButton(LPCOLLISIONEVENT e);
 
-	
+
+	//void GetBoundingBox(float& left, float& top, float& right, float& bottom);
 
 public:
 	CMario(float x, float y);

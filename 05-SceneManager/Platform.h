@@ -10,7 +10,7 @@
 // 
 class CPlatform : public CGameObject
 {
-protected: 
+protected:
 	int length;				// Unit: cell 
 	float cellWidth;
 	float cellHeight;
@@ -18,7 +18,7 @@ protected:
 
 	virtual bool IsPlatform() { return 1; }
 
-public: 
+public:
 	CPlatform(float x, float y,
 		float cell_width, float cell_height, int length,
 		int sprite_id_begin, int sprite_id_middle, int sprite_id_end) :CGameObject(x, y)
@@ -49,7 +49,7 @@ public:
 	virtual int IsCollidable() { return 0; }
 	bool isCanNotBlockKoopa() { return (cellHeight == HEIGHT_CAN_DOWN_BLOCK); }
 	bool IsCanDown() { return (cellHeight == HEIGHT_CAN_DOWN); }
-	virtual int IsBlocking() { return (cellHeight==16); }//(cellHeight==16); }
+	virtual int IsBlocking() { return (cellHeight == 16); }//(cellHeight==16); }
 };
 
 typedef CPlatform* LPPLATFORM;
