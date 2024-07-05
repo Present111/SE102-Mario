@@ -13,8 +13,8 @@ class CHammer : public CGameObject
 	float xBlock1, xBlock2;
 public:
 	CHammer(float x, float y) : CGameObject(x, y) {
-		xBlock1 = x - HAMMER_BBOX_WIDTH / 2 + 2;
-		xBlock2 = x + HAMMER_BBOX_WIDTH / 2 + 2;
+		xBlock1 = x - HAMMER_BBOX_WIDTH/2+2;
+		xBlock2 = x + HAMMER_BBOX_WIDTH/2+2;
 		vx = SPEED_HAMMER;
 	}
 	void Render();
@@ -25,3 +25,4 @@ public:
 	}
 	void GetBoundingBox(float& l, float& t, float& r, float& b) {};
 };
+
