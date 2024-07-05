@@ -40,7 +40,7 @@ CKoopa::CKoopa(float x, float y, int model) :CGameObject(x, y)
 	isUpside = false;
 	isDead = false;
 	startY = 0;
-	if (this->GetModel() == KOOPA_RED)
+	if (this->GetModel() == KOOPA_RED_IS_NOT_ON_PLATFORM)
 	{
 		CPlayScene* scene = (CPlayScene*)CGame::GetInstance()->GetCurrentScene();
 		block = new CInvisibleBlock(x, y);
@@ -189,7 +189,7 @@ int CKoopa::GetAniRed() {
 void CKoopa::Render() {
 	if (!checkObjectInCamera(this)) return;
 	int aniId;
-	if (model == KOOPA_RED) {
+	if (model == KOOPA_RED_IS_ON_PLATFORM || model == KOOPA_RED_IS_NOT_ON_PLATFORM) {
 		aniId = GetAniRed();
 	}
 	else aniId = GetAniGreen();
@@ -334,7 +334,7 @@ void CKoopa::OnCollisionWithPlatform(LPCOLLISIONEVENT e) {
 			}
 		}
 	}
-	if ((model == KOOPA_RED) && (state == KOOPA_STATE_WALKING))
+	if ((model == KOOPA_RED_IS_ON_PLATFORM || model == KOOPA_RED_IS_NOT_ON_PLATFORM) && (state == KOOPA_STATE_WALKING))
 	{
 		if (platform->GetX() - KOOPA_BBOX_WIDTH / 2 > GetX()) {
 			SetX(platform->GetX() - KOOPA_BBOX_WIDTH / 2);
