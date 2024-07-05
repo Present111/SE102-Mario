@@ -9,9 +9,9 @@ class CKoopaGreenIntro :public CGameObject
 {
 	int typespeed;//0 la cham 1 la nhanh
 public:
-	CKoopaGreenIntro(float x, float y,float typespeed) : CGameObject(x, y)
+	CKoopaGreenIntro(float x, float y,int typespeed) : CGameObject(x, y)
 	{
-		this->typespeed = typespeed;
+		this->typespeed = (int)typespeed;
 		vx = 0;
 	}
 	void Render();

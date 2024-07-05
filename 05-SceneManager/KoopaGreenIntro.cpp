@@ -19,9 +19,9 @@ void CKoopaGreenIntro::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 	if (player->GetState() != BACKGROUND_STATE_MOVE)
 	{
 		if (this->typespeed == 0)
-			vx = 0.05;
+			vx = (float)0.05;
 		else
-			vx = 0.1;
+			vx = (float)0.1;
 	}
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);

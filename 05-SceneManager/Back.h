@@ -11,7 +11,7 @@ class CBack : public CGameObject
 public:
 	CBack(float x, float y) :CGameObject(x, y)
 	{
-		vy = -0.06;
+		vy = -(float)0.06;
 	}
 	void Render();
 	void Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects);

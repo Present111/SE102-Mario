@@ -12,7 +12,7 @@ class CInvisibleBlock :public CGameObject
 public:
 	CInvisibleBlock(float x, float y) : CGameObject(x, y)
 	{
-		vy = 0.7/2;
+		vy = (float)0.7/2;
 		ax = 0;
 		ay = 0;
 		ReBack = 0;
