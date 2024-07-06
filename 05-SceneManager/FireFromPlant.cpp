@@ -3,60 +3,53 @@
 #include "PlayScene.h"
 #include "Animation.h"
 #include "PlantEnemy.h"
-#include "Pipe.h"
 #include "Map.h"
-CFireFromPlant::CFireFromPlant(float bx, float by, bool Up, bool Right)
+#include "Pipe.h"
+CFireFromPlant::CFireFromPlant(float bx, float by, bool up, bool right)
 {
 	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
 
-	if (Up)
+	if (up)
 	{
-		y = by - PLANT_BBOX_HEIGHT/2;
-		vy = -BULLET_SPEED_Y_PLANT;
+		y = by - PLANT_BBOX_HEIGHT / 2;
+		vy = -abs((mario->GetY() - GetY())) / ADJUST_VECTOR_Y * FIRE_SPEED_Y;
 	}
 	else
 	{
-		y = by + PLANT_BBOX_HEIGHT/2;
-		vy = BULLET_SPEED_Y_PLANT;
+		y = by + FIRE_BBOX_HEIGHT - PLANT_BBOX_HEIGHT / 2;
+		vy = abs((mario->GetY() - GetY()) - CHANGE_DIRECTION) / ADJUST_VECTOR_Y * FIRE_SPEED_Y;
 	}
 
 
-	if (Right)
+	if (right)
 	{
 		x = bx + PLANT_BBOX_WIDTH;
-		vx = BULLET_SPEED_X_PLANT;
+		vx = FIRE_SPEED_X;
 	}
 	else
 	{
-		x = bx - PLANT_BBOX_WIDTH;
-		vx = -BULLET_SPEED_X_PLANT;
+		x = bx - FIRE_BBOX_WIDTH;
+		vx = -FIRE_SPEED_X;
 	}
 	start_deleted = GetTickCount64();
 }
 void CFireFromPlant::Update(DWORD dt, vector<LPGAMEOBJECT>* coObjects)
 {
-	if (!checkObjectInCamera(this)) return;
-
-	CMario* mario = (CMario*)((LPPLAYSCENE)CGame::GetInstance()->GetCurrentScene())->GetPlayer();
-	if (mario->GetIsChanging() || mario->GetState() == MARIO_STATE_DIE) return;
-	if (GetTickCount64() - start_deleted > TIME_BULLET_DELETE) {
+	if (GetTickCount64() - start_deleted > TIME_FIRE_DELETE) {
 		isDeleted = true;
 	}
-
 	CGameObject::Update(dt, coObjects);
 	CCollision::GetInstance()->Process(this, dt, coObjects);
 }
 void CFireFromPlant::Render()
 {
-	if (!checkObjectInCamera(this)) return;
-
 	CAnimations* animations = CAnimations::GetInstance();
 
 	int aniId = 0;
 	if (vx > 0)
-		aniId = ID_ANI_BULLET_RIGHT;
+		aniId = ID_ANI_FIRE_RIGHT;
 	else
-		aniId = ID_ANI_BULLET_LEFT;
+		aniId = ID_ANI_FIRE_LEFT;
 	animations->Get(aniId)->Render(x, y);
 	//RenderBoundingBox();
 }
@@ -64,12 +57,12 @@ void CFireFromPlant::GetBoundingBox(float& l, float& t, float& r, float& b)
 {
 	l = x;
 	t = y;
-	r = x + BULLET_BBOX_WIDTH_PLANT;
-	b = y + BULLET_BBOX_HEIGHT_PLANT;
+	r = x + FIRE_BBOX_WIDTH;
+	b = y + FIRE_BBOX_HEIGHT;
 }
-
 void CFireFromPlant::OnCollisionWith(LPCOLLISIONEVENT e) {
 	if (dynamic_cast<CPipe*>(e->obj)) return;
-	if (e->obj->IsPlatform() && e->obj->IsBlocking()) isDeleted = true;
-
+	if (e->obj->IsBlocking() && !e->obj->IsPlayer()) {
+		isDeleted = true;
+	}
 }
